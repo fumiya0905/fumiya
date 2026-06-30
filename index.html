@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SNS採用ブランディング | Instagramで環境が忙しくても成果を出す</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { jp: ['Noto Sans JP', 'sans-serif'] },
+          colors: {
+            primary:  '#1a2744',
+            accent:   '#e8a020',
+            accent2:  '#f0c060',
+            warn:     '#e85020',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Noto Sans JP', sans-serif; }
+    .hero-bg {
+      background: linear-gradient(160deg, #1a2744 0%, #22336a 60%, #1a2744 100%);
+    }
+    .gradient-accent {
+      background: linear-gradient(135deg, #e8a020 0%, #f0c060 100%);
+    }
+    .gradient-featured {
+      background: linear-gradient(160deg, #1a2744 0%, #22336a 100%);
+    }
+    .insta-card {
+      background: linear-gradient(145deg, #ffecd2 0%, #fcb69f 100%);
+    }
+    .section-dot::before {
+      content: '';
+      display: inline-block;
+      width: 8px; height: 8px;
+      background: #e8a020;
+      border-radius: 50%;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    .step-line {
+      position: relative;
+    }
+    .step-line::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -32px;
+      width: 24px;
+      height: 2px;
+      background: #e8a020;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp .6s ease forwards; }
+  </style>
+</head>
+<body class="text-gray-800 bg-white">
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur shadow-sm">
+  <div class="max-w-5xl mx-auto px-4 flex items-center justify-between h-14">
+    <span class="font-black text-primary text-lg tracking-tight">SNS<span class="text-accent">採用</span>ラボ</span>
+    <div class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600">
+      <a href="#problem" class="hover:text-primary transition">課題</a>
+      <a href="#solution" class="hover:text-primary transition">解決策</a>
+      <a href="#process" class="hover:text-primary transition">プロセス</a>
+      <a href="#pricing" class="hover:text-primary transition">料金</a>
+    </div>
+    <a href="#cta" class="gradient-accent text-white text-xs font-bold px-4 py-2 rounded-full shadow hover:opacity-90 transition">
+      無料相談する
+    </a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero-bg pt-28 pb-20 px-4">
+  <div class="max-w-4xl mx-auto text-center">
+    <p class="inline-block text-accent text-xs font-bold tracking-widest bg-accent/10 border border-accent/30 rounded-full px-4 py-1 mb-6">
+      Instagram × スマート型ブランディング
+    </p>
+    <h1 class="text-white text-3xl md:text-5xl font-black leading-tight mb-4">
+      SNSの重要性は分かっている。<br />
+      <span class="text-accent2">でも、環境が忙しくて</span><br />
+      詳しくなれない——
+    </h1>
+    <p class="text-gray-300 text-sm md:text-base leading-relaxed mb-10 max-w-2xl mx-auto">
+      Instagramを活用した「スマート・型ブランディング」で、<br class="hidden md:block" />
+      現場に負担をかけずに採用力を圧倒的に高める仕組みをご提供します。
+    </p>
+    <a href="#cta"
+       class="gradient-accent inline-block text-white font-bold text-base px-10 py-4 rounded-full shadow-lg hover:scale-105 transition-transform">
+      公式LINEから無料相談し申し込む
+    </a>
+    <p class="text-gray-400 text-xs mt-3">※ サービスの詳細を見る</p>
+
+    <!-- Stats bar -->
+    <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="bg-white/10 border border-white/20 rounded-2xl p-5 text-center">
+        <p class="text-accent2 text-3xl font-black">3.5万</p>
+        <p class="text-gray-300 text-xs mt-1">Instagram<br />フォロワー数</p>
+      </div>
+      <div class="bg-white/10 border border-white/20 rounded-2xl p-5 text-center">
+        <p class="text-accent2 text-3xl font-black">5名</p>
+        <p class="text-gray-300 text-xs mt-1">採用成功<br />実績</p>
+      </div>
+      <div class="bg-white/10 border border-white/20 rounded-2xl p-5 text-center">
+        <p class="text-accent2 text-3xl font-black">0名</p>
+        <p class="text-gray-300 text-xs mt-1">採用<br />ミスマッチ</p>
+      </div>
+      <div class="bg-white/10 border border-white/20 rounded-2xl p-5 text-center">
+        <p class="text-accent2 text-3xl font-black">2年</p>
+        <p class="text-gray-300 text-xs mt-1">運用<br />継続実績</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PAIN POINTS ===== -->
+<section id="problem" class="bg-gray-50 py-20 px-4">
+  <div class="max-w-3xl mx-auto">
+    <p class="text-xs font-bold text-gray-400 tracking-widest text-center mb-2">Pain Points</p>
+    <h2 class="text-2xl md:text-3xl font-black text-center text-primary mb-3">
+      このジレンマに直面していませんか？
+    </h2>
+    <p class="text-center text-gray-500 text-sm mb-12">
+      「やるべきだと分かっているのに、手が回らない」——そんな声が後を絶ちません。
+    </p>
+
+    <div class="grid gap-5">
+      <!-- Pain 1 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border-l-4 border-warn flex gap-4 items-start">
+        <div class="shrink-0 w-10 h-10 rounded-full bg-warn/10 flex items-center justify-center">
+          <svg class="w-5 h-5 text-warn" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+          </svg>
+        </div>
+        <div>
+          <h3 class="font-bold text-warn mb-1">リソースがない</h3>
+          <p class="text-sm text-gray-600">
+            「SNS対策に集中したいのに時間がない」——関連人材・専門スタッフも不在。
+            現場が忙しいなかで誰が担当するのかも決まっていない状態。
+          </p>
+        </div>
+      </div>
+
+      <!-- Pain 2 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border-l-4 border-yellow-400 flex gap-4 items-start">
+        <div class="shrink-0 w-10 h-10 rounded-full bg-yellow-50 flex items-center justify-center">
+          <svg class="w-5 h-5 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+          </svg>
+        </div>
+        <div>
+          <h3 class="font-bold text-yellow-600 mb-1">フロウがない</h3>
+          <p class="text-sm text-gray-600">
+            取り組み方がわからない。担当スタッフがいても、固定的なフローワークが揃えられておらず、
+            毎回ゼロから考えるため続かない。
+          </p>
+        </div>
+      </div>
+
+      <!-- Pain 3 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border-l-4 border-orange-400 flex gap-4 items-start">
+        <div class="shrink-0 w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center">
+          <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+          </svg>
+        </div>
+        <div>
+          <h3 class="font-bold text-orange-600 mb-1">取り組む姿勢がわからない</h3>
+          <p class="text-sm text-gray-600">
+            どこに向けて、何を発信すれば採用に繋がるのか。
+            投稿しても反応が薄く、何が正解か判断できず途中で止まってしまう。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10 bg-primary rounded-2xl p-6 text-center">
+      <p class="text-white text-sm leading-relaxed">
+        「やるべきだと分かっているのに、どこから手をつければいいか分からない——」<br />
+        <strong class="text-accent2">そのジレンマを、まるごと解決する仕組みがあります。</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOLUTION ===== -->
+<section id="solution" class="py-20 px-4 bg-white">
+  <div class="max-w-4xl mx-auto">
+    <p class="text-xs font-bold text-gray-400 tracking-widest text-center mb-2">Solution</p>
+    <h2 class="text-2xl md:text-3xl font-black text-center text-primary mb-3">
+      『客室のリアル』が、<br class="md:hidden" />最強の採用ツールになる
+    </h2>
+    <p class="text-center text-gray-500 text-sm mb-12 max-w-xl mx-auto">
+      SNS運用は「毎日投稿しなければ」という思い込みは捨てていい。
+      週2〜3投稿の「型」と「ストーリー設計」で、採用力は劇的に変わります。
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-8 items-center">
+      <!-- Instagram mockup -->
+      <div class="bg-gray-50 rounded-3xl p-6 border border-gray-100 shadow-inner">
+        <div class="bg-white rounded-2xl shadow-md overflow-hidden">
+          <div class="flex items-center gap-2 px-4 py-3 border-b border-gray-100">
+            <div class="w-8 h-8 rounded-full gradient-accent"></div>
+            <div>
+              <p class="text-xs font-bold">@fumiya_kalpa_gsa</p>
+              <p class="text-[10px] text-gray-400">hotel_sns_example</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-3 gap-0.5">
+            <div class="aspect-square bg-amber-100"></div>
+            <div class="aspect-square bg-amber-200"></div>
+            <div class="aspect-square bg-stone-200"></div>
+            <div class="aspect-square bg-stone-100"></div>
+            <div class="aspect-square bg-amber-50"></div>
+            <div class="aspect-square bg-amber-100"></div>
+            <div class="aspect-square bg-orange-50"></div>
+            <div class="aspect-square bg-amber-200"></div>
+            <div class="aspect-square bg-stone-200"></div>
+          </div>
+          <div class="px-4 py-3">
+            <div class="flex gap-1 mb-2">
+              <div class="h-1 w-6 rounded-full bg-gray-300"></div>
+              <div class="h-1 w-12 rounded-full bg-gray-200"></div>
+              <div class="h-1 w-8 rounded-full bg-gray-100"></div>
+            </div>
+            <div class="flex gap-1">
+              <div class="h-1 w-10 rounded-full bg-gray-300"></div>
+              <div class="h-1 w-16 rounded-full bg-gray-200"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature list -->
+      <div>
+        <ul class="space-y-4">
+          <li class="flex gap-3 items-start">
+            <div class="shrink-0 w-6 h-6 rounded-full gradient-accent flex items-center justify-center mt-0.5">
+              <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <div>
+              <p class="font-bold text-sm">バズりを狙わない「採用特化」設計</p>
+              <p class="text-gray-500 text-xs mt-0.5">フォロワー数より「採用したい人に届く」投稿設計を優先します。</p>
+            </div>
+          </li>
+          <li class="flex gap-3 items-start">
+            <div class="shrink-0 w-6 h-6 rounded-full gradient-accent flex items-center justify-center mt-0.5">
+              <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <div>
+              <p class="font-bold text-sm">パスの一型（週2〜3回）で継続できる</p>
+              <p class="text-gray-500 text-xs mt-0.5">現場スタッフが無理なく回せる「型」をゼロからご提供します。</p>
+            </div>
+          </li>
+          <li class="flex gap-3 items-start">
+            <div class="shrink-0 w-6 h-6 rounded-full gradient-accent flex items-center justify-center mt-0.5">
+              <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <div>
+              <p class="font-bold text-sm">フォロワーから「ファン層」に変換する</p>
+              <p class="text-gray-500 text-xs mt-0.5">見ているだけの人を「ここで働きたい」という感情に変える設計。</p>
+            </div>
+          </li>
+          <li class="flex gap-3 items-start">
+            <div class="shrink-0 w-6 h-6 rounded-full gradient-accent flex items-center justify-center mt-0.5">
+              <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <div>
+              <p class="font-bold text-sm">採用前に選考・定着率UP</p>
+              <p class="text-gray-500 text-xs mt-0.5">求職者がSNSで職場をリサーチし、自ら選んできます。</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BEFORE / AFTER ===== -->
+<section class="bg-gray-50 py-16 px-4">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-xl font-black text-center text-primary mb-10">
+      「元気投稿」より「深い投稿プロセス」が必要です
+    </h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
+        <p class="text-xs font-bold text-gray-400 tracking-widest mb-3">BEFORE ｜ 今まで</p>
+        <ul class="space-y-3 text-sm text-gray-600">
+          <li class="flex gap-2"><span class="text-red-400 font-bold">✕</span> とりあえず毎日投稿する</li>
+          <li class="flex gap-2"><span class="text-red-400 font-bold">✕</span> 担当者の属人的な感覚で投稿内容が決まる</li>
+          <li class="flex gap-2"><span class="text-red-400 font-bold">✕</span> 忙しくなると止まる・続かない</li>
+          <li class="flex gap-2"><span class="text-red-400 font-bold">✕</span> 反応があっても採用に繋がらない</li>
+        </ul>
+      </div>
+      <div class="bg-primary rounded-2xl p-6 shadow-sm text-white">
+        <p class="text-xs font-bold text-accent2 tracking-widest mb-3">AFTER ｜ 導入後</p>
+        <ul class="space-y-3 text-sm">
+          <li class="flex gap-2"><span class="text-accent2 font-bold">✓</span> 週2〜3回の「型」で自動的に継続できる</li>
+          <li class="flex gap-2"><span class="text-accent2 font-bold">✓</span> 投稿設計がチームで共有・標準化される</li>
+          <li class="flex gap-2"><span class="text-accent2 font-bold">✓</span> 繁忙期もストックコンテンツで止まらない</li>
+          <li class="flex gap-2"><span class="text-accent2 font-bold">✓</span> 「ここで働きたい」という応募が自然に来る</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROCESS ===== -->
+<section id="process" class="py-20 px-4 bg-white">
+  <div class="max-w-4xl mx-auto">
+    <p class="text-xs font-bold text-gray-400 tracking-widest text-center mb-2">Process</p>
+    <h2 class="text-2xl md:text-3xl font-black text-center text-primary mb-3">
+      「元気投稿」より「深い投稿プロセス」<br />アカウント設計を4ステップで行得
+    </h2>
+    <p class="text-center text-gray-500 text-sm mb-14 max-w-xl mx-auto">
+      最初の1ヶ月で土台を固め、2ヶ月目以降は「ほぼ自走」できる状態を目指します。
+    </p>
+
+    <div class="grid md:grid-cols-4 gap-6">
+      <div class="text-center">
+        <div class="w-14 h-14 gradient-accent rounded-2xl flex items-center justify-center mx-auto mb-4 text-white font-black text-xl shadow-md">
+          1
+        </div>
+        <h3 class="font-bold text-sm mb-2 text-primary">アカウント設計</h3>
+        <p class="text-xs text-gray-500">
+          「誰に・何を・どう届けるか」のペルソナとコンセプトを定義。投稿テーマ一覧を策定します。
+        </p>
+      </div>
+      <div class="text-center">
+        <div class="w-14 h-14 rounded-2xl border-2 border-accent flex items-center justify-center mx-auto mb-4 font-black text-xl text-accent shadow-sm">
+          2
+        </div>
+        <h3 class="font-bold text-sm mb-2 text-primary">撮影・素材出し</h3>
+        <p class="text-xs text-gray-500">
+          スタッフが撮る・送る、だけでOKな撮影フロー＆チェックリストを整備します。
+        </p>
+      </div>
+      <div class="text-center">
+        <div class="w-14 h-14 rounded-2xl border-2 border-accent flex items-center justify-center mx-auto mb-4 font-black text-xl text-accent shadow-sm">
+          3
+        </div>
+        <h3 class="font-bold text-sm mb-2 text-primary">編集ディレクション</h3>
+        <p class="text-xs text-gray-500">
+          デザイン・キャプション・ハッシュタグまでコンサルが一貫してディレクション。
+        </p>
+      </div>
+      <div class="text-center">
+        <div class="w-14 h-14 rounded-2xl border-2 border-accent flex items-center justify-center mx-auto mb-4 font-black text-xl text-accent shadow-sm">
+          4
+        </div>
+        <h3 class="font-bold text-sm mb-2 text-primary">PDCA・採用コミュニティ参加</h3>
+        <p class="text-xs text-gray-500">
+          月次レポートと改善MTGで数値を追いながら、採用成功事例コミュニティに参加。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RESULTS ===== -->
+<section class="hero-bg py-20 px-4">
+  <div class="max-w-4xl mx-auto">
+    <p class="text-xs font-bold text-accent tracking-widest text-center mb-2">Results</p>
+    <h2 class="text-2xl md:text-3xl font-black text-center text-white mb-12">
+      低コストから3.5万フォロワー、採用化まで
+    </h2>
+    <div class="grid md:grid-cols-3 gap-6 mb-14">
+      <div class="bg-white/10 border border-white/20 rounded-2xl p-6 text-center">
+        <p class="text-accent2 text-4xl font-black">3.5万</p>
+        <p class="text-gray-300 text-xs mt-2">フォロワー数<br />(運用2年での実績)</p>
+      </div>
+      <div class="bg-white/10 border border-white/20 rounded-2xl p-6 text-center">
+        <p class="text-accent2 text-4xl font-black">5名</p>
+        <p class="text-gray-300 text-xs mt-2">採用成功者数<br />(SNS経由)</p>
+      </div>
+      <div class="bg-white/10 border border-white/20 rounded-2xl p-6 text-center">
+        <p class="text-accent2 text-4xl font-black">3件</p>
+        <p class="text-gray-300 text-xs mt-2">メディア掲載実績<br />(取材・記事)</p>
+      </div>
+    </div>
+
+    <!-- Profile -->
+    <div class="bg-white/10 border border-white/20 rounded-3xl p-8 flex flex-col md:flex-row gap-8 items-center">
+      <div class="w-24 h-24 rounded-full gradient-accent shrink-0 overflow-hidden">
+        <div class="w-full h-full bg-amber-200"></div>
+      </div>
+      <div class="text-center md:text-left">
+        <p class="text-accent2 text-xs font-bold tracking-widest mb-1">SNS採用ブランディングコンサルタント</p>
+        <p class="text-white text-xl font-black mb-2">フミヤ（@fumiya_kalpa_gsa）</p>
+        <p class="text-gray-300 text-sm leading-relaxed">
+          旅館・ホテル向けSNS採用ブランディングの第一人者。Instagram・TikTok等を活用した採用集客を専門とし、
+          2年間の運用実績で3.5万フォロワー・5名の採用成功を実現。
+          現在は全国の宿泊施設に向けコンサルティングを展開中。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TIMELINE / ROADMAP ===== -->
+<section class="bg-gray-50 py-16 px-4">
+  <div class="max-w-3xl mx-auto">
+    <p class="text-xs font-bold text-gray-400 tracking-widest text-center mb-2">Roadmap</p>
+    <h2 class="text-xl md:text-2xl font-black text-center text-primary mb-10">
+      運用始めると、こんな未来が待っています
+    </h2>
+    <div class="relative pl-8 border-l-2 border-accent/30 space-y-8">
+      <div class="relative">
+        <div class="absolute -left-[calc(2rem+1px)] w-4 h-4 rounded-full gradient-accent border-2 border-white"></div>
+        <p class="text-accent text-xs font-bold mb-1">1ヶ月目</p>
+        <h3 class="font-bold text-sm text-primary mb-1">アカウント基盤の構築</h3>
+        <p class="text-xs text-gray-500">コンセプト・投稿テーマ・撮影フローが確立。チームが動き始める。</p>
+      </div>
+      <div class="relative">
+        <div class="absolute -left-[calc(2rem+1px)] w-4 h-4 rounded-full bg-white border-2 border-accent"></div>
+        <p class="text-accent text-xs font-bold mb-1">2〜3ヶ月目</p>
+        <h3 class="font-bold text-sm text-primary mb-1">フォロワー増加・認知拡大</h3>
+        <p class="text-xs text-gray-500">投稿の継続でエンゲージメントが上昇。プロフィールへのアクセスが増える。</p>
+      </div>
+      <div class="relative">
+        <div class="absolute -left-[calc(2rem+1px)] w-4 h-4 rounded-full bg-white border-2 border-accent"></div>
+        <p class="text-accent text-xs font-bold mb-1">4〜6ヶ月目</p>
+        <h3 class="font-bold text-sm text-primary mb-1">採用問い合わせ・応募が来る</h3>
+        <p class="text-xs text-gray-500">「ここで働きたい」という自発的な応募が入り始める。採用コストが下がる。</p>
+      </div>
+      <div class="relative">
+        <div class="absolute -left-[calc(2rem+1px)] w-4 h-4 rounded-full bg-white border-2 border-accent"></div>
+        <p class="text-accent text-xs font-bold mb-1">6ヶ月以降</p>
+        <h3 class="font-bold text-sm text-primary mb-1">SNSが採用の自走エンジンに</h3>
+        <p class="text-xs text-gray-500">採用ブランドが確立され、求人広告に依存しない持続的な採用力が身につく。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="py-20 px-4 bg-white">
+  <div class="max-w-4xl mx-auto">
+    <p class="text-xs font-bold text-gray-400 tracking-widest text-center mb-2">Testimonials</p>
+    <h2 class="text-2xl font-black text-center text-primary mb-12">
+      SNS運用で勉強した、達成(正直)
+    </h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+        <div class="flex gap-1 mb-3">
+          <span class="text-accent text-lg">★★★★★</span>
+        </div>
+        <p class="text-sm text-gray-700 leading-relaxed mb-4">
+          「投稿するだけで変わるの？」と半信半疑でしたが、3ヶ月で応募者の質が劇的に変わりました。
+          今では面接前からお互いを理解し合えていて、採用後のミスマッチがほぼゼロです。
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-amber-100"></div>
+          <div>
+            <p class="text-xs font-bold text-primary">旅館オーナー A様</p>
+            <p class="text-[10px] text-gray-400">京都・旅館（20室）</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+        <div class="flex gap-1 mb-3">
+          <span class="text-accent text-lg">★★★★★</span>
+        </div>
+        <p class="text-sm text-gray-700 leading-relaxed mb-4">
+          スタッフが「楽しんで」投稿するようになったのが一番の変化。
+          採用目的だったのに、既存スタッフのエンゲージメントまで上がって一石二鳥でした。
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-amber-100"></div>
+          <div>
+            <p class="text-xs font-bold text-primary">ホテル総支配人 B様</p>
+            <p class="text-[10px] text-gray-400">東京・ホテル（50室）</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+        <div class="flex gap-1 mb-3">
+          <span class="text-accent text-lg">★★★★☆</span>
+        </div>
+        <p class="text-sm text-gray-700 leading-relaxed mb-4">
+          求人広告費が月40万かかっていたのに、6ヶ月で半分以下に。
+          フミヤさんのコンサルは「仕組み化」が徹底されていて、私たちだけでも動けるようになりました。
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-amber-100"></div>
+          <div>
+            <p class="text-xs font-bold text-primary">民宿経営者 C様</p>
+            <p class="text-[10px] text-gray-400">長野・民宿（8室）</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+        <div class="flex gap-1 mb-3">
+          <span class="text-accent text-lg">★★★★★</span>
+        </div>
+        <p class="text-sm text-gray-700 leading-relaxed mb-4">
+          採用に困っていたシーズンも、Instagramから直接メッセージが来て採用できました。
+          「SNSで採用できるんだ」という成功体験がスタッフにも広がっています。
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-amber-100"></div>
+          <div>
+            <p class="text-xs font-bold text-primary">旅館女将 D様</p>
+            <p class="text-[10px] text-gray-400">箱根・旅館（15室）</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICING ===== -->
+<section id="pricing" class="bg-gray-50 py-20 px-4">
+  <div class="max-w-5xl mx-auto">
+    <p class="text-xs font-bold text-gray-400 tracking-widest text-center mb-2">Pricing</p>
+    <h2 class="text-2xl md:text-3xl font-black text-center text-primary mb-3">
+      月別状況に合わせた3つのプラン
+    </h2>
+    <p class="text-center text-gray-500 text-sm mb-12">
+      ※ 初月のみ350,000円→250,000円+25,000円+25,000円で1回でご契約可能
+    </p>
+
+    <div class="grid md:grid-cols-3 gap-6 items-start">
+
+      <!-- Plan 1: Basic -->
+      <div class="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm">
+        <p class="text-xs font-bold text-gray-400 tracking-widest mb-2">適用的プラン</p>
+        <div class="flex items-end gap-1 mb-1">
+          <span class="text-3xl font-black text-primary">350,000</span>
+          <span class="text-sm text-gray-500 mb-1">円/月</span>
+        </div>
+        <p class="text-xs text-gray-400 mb-6">（税込 385,000円）</p>
+        <ul class="space-y-3 text-xs text-gray-600 mb-8">
+          <li class="flex gap-2"><span class="text-gray-400">—</span>アカウント設計</li>
+          <li class="flex gap-2"><span class="text-gray-400">—</span>月12投稿（週3回）</li>
+          <li class="flex gap-2"><span class="text-gray-400">—</span>月次レポート</li>
+          <li class="flex gap-2"><span class="text-gray-400">—</span>Slack非同期サポート</li>
+          <li class="flex gap-2 text-gray-300"><span>—</span>月次MTG</li>
+          <li class="flex gap-2 text-gray-300"><span>—</span>撮影ディレクション</li>
+          <li class="flex gap-2 text-gray-300"><span>—</span>採用コミュニティ参加</li>
+        </ul>
+        <a href="#cta" class="block text-center border-2 border-primary text-primary text-sm font-bold py-3 rounded-full hover:bg-primary hover:text-white transition">
+          このプランで相談する
+        </a>
+      </div>
+
+      <!-- Plan 2: Standard (Featured) -->
+      <div class="gradient-featured rounded-3xl p-8 shadow-xl relative scale-105 z-10">
+        <div class="absolute -top-4 left-1/2 -translate-x-1/2 gradient-accent text-white text-xs font-bold px-4 py-1 rounded-full shadow">
+          一番人気
+        </div>
+        <p class="text-xs font-bold text-accent2 tracking-widest mb-2">スタンダードプラン</p>
+        <div class="flex items-end gap-1 mb-1">
+          <span class="text-3xl font-black text-white">250,000</span>
+          <span class="text-sm text-white/70 mb-1">円/月</span>
+        </div>
+        <p class="text-xs text-white/50 mb-6">（税込 275,000円）</p>
+        <ul class="space-y-3 text-xs text-gray-200 mb-8">
+          <li class="flex gap-2"><span class="text-accent2">✓</span>アカウント設計</li>
+          <li class="flex gap-2"><span class="text-accent2">✓</span>月12投稿（週3回）</li>
+          <li class="flex gap-2"><span class="text-accent2">✓</span>月次レポート</li>
+          <li class="flex gap-2"><span class="text-accent2">✓</span>Slack非同期サポート</li>
+          <li class="flex gap-2"><span class="text-accent2">✓</span>月次MTG（60分）</li>
+          <li class="flex gap-2"><span class="text-accent2">✓</span>撮影ディレクション</li>
+          <li class="flex gap-2"><span class="text-accent2">✓</span>採用コミュニティ参加</li>
+        </ul>
+        <a href="#cta" class="block text-center gradient-accent text-white text-sm font-bold py-3 rounded-full hover:opacity-90 transition shadow-md">
+          このプランで申し込む
+        </a>
+      </div>
+
+      <!-- Plan 3: Consulting -->
+      <div class="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm">
+        <p class="text-xs font-bold text-gray-400 tracking-widest mb-2">コンサルティングプラン</p>
+        <div class="flex items-end gap-1 mb-1">
+          <span class="text-3xl font-black text-primary">150,000</span>
+          <span class="text-sm text-gray-500 mb-1">円/月</span>
+        </div>
+        <p class="text-xs text-gray-400 mb-6">（税込 165,000円）</p>
+        <ul class="space-y-3 text-xs text-gray-600 mb-8">
+          <li class="flex gap-2"><span class="text-accent">✓</span>アカウント設計</li>
+          <li class="flex gap-2 text-gray-300"><span>—</span>投稿代行なし（自社で実施）</li>
+          <li class="flex gap-2"><span class="text-accent">✓</span>月次レポート</li>
+          <li class="flex gap-2"><span class="text-accent">✓</span>Slack非同期サポート</li>
+          <li class="flex gap-2"><span class="text-accent">✓</span>月次MTG（90分）</li>
+          <li class="flex gap-2 text-gray-300"><span>—</span>撮影ディレクション</li>
+          <li class="flex gap-2"><span class="text-accent">✓</span>採用コミュニティ参加</li>
+        </ul>
+        <a href="#cta" class="block text-center border-2 border-primary text-primary text-sm font-bold py-3 rounded-full hover:bg-primary hover:text-white transition">
+          このプランで相談する
+        </a>
+      </div>
+
+    </div>
+
+    <p class="text-center text-gray-400 text-xs mt-10">
+      ※ 350,000円→250,000円+25,000円+25,000円で1回でご契約可能（詳細は相談時にご案内）
+    </p>
+  </div>
+</section>
+
+<!-- ===== TRUST / WHY US ===== -->
+<section class="py-16 px-4 bg-white">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="text-xl md:text-2xl font-black text-center text-primary mb-10">
+      一緒に走るパートナーとして
+    </h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="text-center p-6">
+        <div class="w-14 h-14 gradient-accent rounded-2xl flex items-center justify-center mx-auto mb-4">
+          <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <h3 class="font-bold text-sm text-primary mb-2">「丸投げ」でも「内製化」も柔軟に対応</h3>
+        <p class="text-xs text-gray-500">代行・コンサルどちらもプランで選べます。施設の状況に合わせた設計が可能です。</p>
+      </div>
+      <div class="text-center p-6">
+        <div class="w-14 h-14 gradient-accent rounded-2xl flex items-center justify-center mx-auto mb-4">
+          <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+        </div>
+        <h3 class="font-bold text-sm text-primary mb-2">実績重視、すべてのプロセスを共有</h3>
+        <p class="text-xs text-gray-500">ブラックボックスなし。何をしているか・なぜそうするかを毎月共有し透明性を担保します。</p>
+      </div>
+      <div class="text-center p-6">
+        <div class="w-14 h-14 gradient-accent rounded-2xl flex items-center justify-center mx-auto mb-4">
+          <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+        </div>
+        <h3 class="font-bold text-sm text-primary mb-2">コンサルも含む「コミュニティ」が後押し</h3>
+        <p class="text-xs text-gray-500">採用成功事例が集まるコミュニティに参加でき、他施設の知見もリアルタイムで学べます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="bg-gray-50 py-16 px-4">
+  <div class="max-w-2xl mx-auto">
+    <p class="text-xs font-bold text-gray-400 tracking-widest text-center mb-2">FAQ</p>
+    <h2 class="text-xl font-black text-center text-primary mb-10">
+      よくあるご質問
+    </h2>
+    <div class="space-y-4">
+      <details class="bg-white rounded-2xl p-5 shadow-sm group cursor-pointer">
+        <summary class="font-bold text-sm text-primary list-none flex justify-between items-center">
+          SNSに詳しくなくても始められますか？
+          <span class="text-accent text-xl group-open:rotate-45 transition-transform">+</span>
+        </summary>
+        <p class="text-xs text-gray-500 mt-3 leading-relaxed">
+          はい、大丈夫です。SNSの知識ゼロからでも安心して始めていただけます。
+          アカウント設計から投稿テーマ・撮影フローまですべてご提供し、
+          担当スタッフへの研修も含まれています。
+        </p>
+      </details>
+      <details class="bg-white rounded-2xl p-5 shadow-sm group cursor-pointer">
+        <summary class="font-bold text-sm text-primary list-none flex justify-between items-center">
+          最低契約期間はありますか？
+          <span class="text-accent text-xl group-open:rotate-45 transition-transform">+</span>
+        </summary>
+        <p class="text-xs text-gray-500 mt-3 leading-relaxed">
+          最低3ヶ月〜のご契約をお願いしています。SNS運用は短期では成果が出にくく、
+          継続性が重要なため、3ヶ月を一単位として効果を測定する設計にしています。
+        </p>
+      </details>
+      <details class="bg-white rounded-2xl p-5 shadow-sm group cursor-pointer">
+        <summary class="font-bold text-sm text-primary list-none flex justify-between items-center">
+          現場スタッフへの負担はどれくらいですか？
+          <span class="text-accent text-xl group-open:rotate-45 transition-transform">+</span>
+        </summary>
+        <p class="text-xs text-gray-500 mt-3 leading-relaxed">
+          スタンダードプランの場合、現場スタッフへのご負担は週3〜5枚程度の写真・動画の撮影と共有のみです。
+          キャプション・デザイン・投稿はすべてコンサル側で対応します。
+        </p>
+      </details>
+      <details class="bg-white rounded-2xl p-5 shadow-sm group cursor-pointer">
+        <summary class="font-bold text-sm text-primary list-none flex justify-between items-center">
+          Instagramだけですか？他のSNSは？
+          <span class="text-accent text-xl group-open:rotate-45 transition-transform">+</span>
+        </summary>
+        <p class="text-xs text-gray-500 mt-3 leading-relaxed">
+          基本的にはInstagramをメインに運用します。ご要望に応じてTikTok・Xへの展開も別途ご相談可能です。
+          まずは採用に最も効果的なInstagramで基盤を作ることをお勧めしています。
+        </p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section id="cta" class="hero-bg py-24 px-4">
+  <div class="max-w-2xl mx-auto text-center">
+    <p class="text-accent text-xs font-bold tracking-widest mb-4">CONTACT</p>
+    <h2 class="text-white text-2xl md:text-4xl font-black leading-tight mb-4">
+      まず、お気軽に無料相談へ
+    </h2>
+    <p class="text-gray-300 text-sm mb-2">
+      現在のSNS状況をお聞かせいただき、最適なプランをご提案します。
+    </p>
+    <p class="text-gray-400 text-xs mb-8">
+      ※ 初回相談は完全無料・申し込み不要です
+    </p>
+    <a href="#" class="gradient-accent inline-flex items-center gap-3 text-white font-bold text-base px-10 py-5 rounded-full shadow-xl hover:scale-105 transition-transform">
+      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
+      </svg>
+      公式LINEから無料相談し申し込む
+    </a>
+    <p class="text-gray-500 text-xs mt-5">
+      ※ 限定5社様まで受付中（月毎更新）
+    </p>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="bg-primary py-10 px-4">
+  <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+    <span class="font-black text-white text-lg">SNS<span class="text-accent">採用</span>ラボ</span>
+    <div class="flex gap-6 text-gray-400 text-xs">
+      <a href="#" class="hover:text-white transition">プライバシーポリシー</a>
+      <a href="#" class="hover:text-white transition">特定商取引法</a>
+      <a href="#" class="hover:text-white transition">お問い合わせ</a>
+    </div>
+    <p class="text-gray-500 text-xs">© 2024 SNS採用ラボ. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
