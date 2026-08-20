@@ -567,53 +567,73 @@
   .profile .bio { color: #c6cde0; font-size: 12.5px; line-height: 2; text-align: left; }
 
   /* ===== message from GM ===== */
-  .gm { background: #fff; }
-  .gm-person { text-align: center; margin-top: 32px; }
+  .gm {
+    position: relative;
+    background: #fff;
+    overflow: hidden;
+  }
+  /* oversized quote marks framing the message, as on the reference page */
+  .gm-quote {
+    position: absolute;
+    font-size: 96px;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--gold);
+    opacity: 0.22;
+    pointer-events: none;
+    user-select: none;
+  }
+  .gm-quote-open { top: 34px; left: 6px; }
+  .gm-quote-close { bottom: 18px; right: 6px; }
+  .gm-label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+  }
+  .gm-label::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), rgba(232, 160, 32, 0));
+  }
+  .gm h2 {
+    position: relative;
+    margin-top: 12px;
+    color: var(--navy);
+    font-size: 23px;
+    font-weight: 900;
+    line-height: 1.55;
+    text-wrap: balance;
+  }
   .gm-ph {
-    width: 104px;
-    height: 104px;
-    border-radius: 50%;
-    margin: 0 auto 14px;
-    padding: 3px;
-    background: linear-gradient(135deg, var(--gold), var(--gold-2));
-    /* the ring's inner disc doubles as the fallback when no portrait is set */
-    box-shadow: inset 0 0 0 3px #f3dcb2;
+    position: relative;
+    margin-top: 24px;
+    aspect-ratio: 4 / 3;
+    border-radius: 16px;
+    overflow: hidden;
+    background: linear-gradient(150deg, #f7d3a0 0%, #e7e0d4 55%, #fbe3c2 100%);
+    box-shadow: 0 14px 28px rgba(26, 39, 68, 0.18);
   }
   .gm-ph img {
     display: block;
     width: 100%;
     height: 100%;
-    border-radius: 50%;
     object-fit: cover;
-  }
-  .gm-role {
-    color: var(--gold);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-  }
-  .gm-name {
-    color: var(--navy);
-    font-size: 18px;
-    font-weight: 900;
-    margin-top: 3px;
+    object-position: 50% 38%;
   }
   .gm-body {
     position: relative;
-    margin-top: 26px;
+    margin: -28px 12px 0;
     background: var(--cream);
-    border-radius: 18px;
-    padding: 26px 22px;
-  }
-  .gm-body::before {
-    content: "";
-    position: absolute;
-    top: -11px;
-    left: 50%;
-    transform: translateX(-50%);
-    border: 11px solid transparent;
-    border-top: 0;
-    border-bottom-color: var(--cream);
+    border-radius: 16px;
+    padding: 28px 22px 24px;
+    box-shadow: 0 10px 24px rgba(26, 39, 68, 0.1);
   }
   .gm-body p {
     font-size: 13.5px;
@@ -628,6 +648,15 @@
     font-weight: 700;
   }
   .gm-close strong { font-weight: 900; background: linear-gradient(transparent 62%, var(--marker) 62%); }
+  .gm-sign {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid #e5ddcf;
+    text-align: right;
+  }
+  .gm-sign .role { color: #a09781; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; }
+  .gm-sign .name { color: var(--navy); font-size: 17px; font-weight: 900; margin-top: 2px; }
+  .gm-sign .handle { color: var(--gold); font-size: 12px; font-weight: 700; }
 
   /* ===== roadmap ===== */
   .roadmap { background: var(--cream); }
@@ -1158,21 +1187,25 @@
 
   <!-- ===== MESSAGE FROM GM ===== -->
   <section class="gm">
-    <span class="sec-label">Message from GM</span>
-    <h2 class="sec-title">競争関係ではなく、<br /><span class="mk">共闘関係</span>へ</h2>
+    <span class="gm-quote gm-quote-open" aria-hidden="true">“</span>
+    <span class="gm-quote gm-quote-close" aria-hidden="true">”</span>
 
-    <div class="gm-person">
-      <div class="gm-ph">
-        <img src="images/gm.jpg" alt="濱中 郁也" loading="lazy" onerror="this.remove()" />
-      </div>
-      <p class="gm-role">介護・福祉業界のSNS発信戦略パートナー</p>
-      <p class="gm-name">濱中 郁也（@fumiya_kaigo_sns）</p>
+    <p class="gm-label">Message from GM</p>
+    <h2>競争関係ではなく、<span class="mk">共闘関係</span>へ。</h2>
+
+    <div class="gm-ph">
+      <img src="images/gm.jpg" alt="濱中 郁也" loading="lazy" onerror="this.remove()" />
     </div>
 
     <div class="gm-body">
       <p>事業名のSyncLifeにはSync「同期・伴走」とLife「人生」を組み合わせた造語です。介護・福祉業界は、競争関係ではなく、共闘関係へ。お客様に真摯に向き合い、SNSを通して人生そのものを最後まで伴走するーーそれが僕たちの原点です。</p>
       <p>現在OTTOは「福祉×多角化 人生を楽しむためのインフラ」というコンセプトを掲げています。その一環で、SNSマーケティング事業を始め、弊社宮本代表のアカウント実績を引っ提げて、介護・福祉事業所のSNSサポートをメインに、採用、マネタイズに特化して、業界の慢性的な人材問題を解決するために弊社の幹部が全員SNS発信をしています。</p>
       <p class="gm-close">全国のお客様のために、人材問題解決するために。<br /><strong>あなたしかできないを形にする</strong>サポートを行います。</p>
+      <div class="gm-sign">
+        <p class="role">介護・福祉業界のSNS発信戦略パートナー</p>
+        <p class="name">濱中 郁也</p>
+        <p class="handle">@fumiya_kaigo_sns</p>
+      </div>
     </div>
   </section>
 
