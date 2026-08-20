@@ -362,12 +362,18 @@
   }
   .insta-head b { display: block; font-size: 11px; line-height: 1.4; }
   .insta-head span { display: block; font-size: 9px; color: #999; line-height: 1.4; }
-  .insta-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
+  /* photo slot: the gradient shows through until images/solution.jpg is added */
+  .insta-photo-wrap {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    background: linear-gradient(150deg, #f7d3a0 0%, #e7e0d4 55%, #fbe3c2 100%);
   }
-  .insta-grid i { display: block; aspect-ratio: 1; }
+  .insta-photo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
   .insta-lines { padding: 10px 14px 14px; }
   .insta-lines i {
     display: inline-block;
@@ -877,7 +883,7 @@
     <p class="hero-more">※ サービスの詳細を見る</p>
 
     <div class="hero-stats">
-      <div class="stat"><b>4万</b><span>自社Instagram<br />フォロワー数</span></div>
+      <div class="stat"><b>4万</b><span>自社Instagram<br />総フォロワー数</span></div>
       <div class="stat"><b>5名</b><span>採用成功<br />実績</span></div>
     </div>
   </section>
@@ -944,13 +950,11 @@
           <span class="pf"></span>
           <div>
             <b>@fumiya_kaigo_sns</b>
-            <span>kaigo_sns_example</span>
+            <span>介護・福祉のSNS発信</span>
           </div>
         </div>
-        <div class="insta-grid">
-          <i style="background:#fbe3c2"></i><i style="background:#f7d3a0"></i><i style="background:#e7e0d4"></i>
-          <i style="background:#f0ece3"></i><i style="background:#fdf1dc"></i><i style="background:#fbe3c2"></i>
-          <i style="background:#fff3e4"></i><i style="background:#f7d3a0"></i><i style="background:#e7e0d4"></i>
+        <div class="insta-photo-wrap">
+          <img class="insta-photo" src="images/solution.jpg" alt="スマートフォンで街中を撮影する濱中郁也" loading="lazy" onerror="this.remove()" />
         </div>
         <div class="insta-lines">
           <div><i style="width:24px"></i><i style="width:48px;background:#eee"></i><i style="width:32px;background:#f4f4f4"></i></div>
@@ -1015,7 +1019,7 @@
   <!-- ===== PROCESS ===== -->
   <section id="process" class="process">
     <span class="sec-label">Process</span>
-    <h2 class="sec-title sec-title-sm">「バズ投稿」より<br />「会社や人に価値を感じてもらう」<br />アカウント設計を<span class="mk">4ステップ</span>で行得</h2>
+    <h2 class="sec-title sec-title-sm">「バズ投稿」より<br />「会社や人に価値を感じてもらう」<br />アカウントを<span class="mk">4ステップ</span>で運用</h2>
     <p class="sec-lead">最初の1ヶ月で土台を固め、2ヶ月目以降は実際に発信してPDCAを回せる状態を目指します。</p>
 
     <div class="steps">
@@ -1056,7 +1060,7 @@
     <h2 class="sec-title">低コストから4万フォロワー、<br />採用化まで</h2>
 
     <div class="res-grid">
-      <div class="stat"><b>4万</b><span>フォロワー数<br />(運用2年での実績)</span></div>
+      <div class="stat"><b>4万</b><span>総フォロワー数<br />(運用2年での実績)</span></div>
       <div class="stat"><b>5名</b><span>採用成功者数<br />(SNS経由)</span></div>
       <div class="stat"><b>3件</b><span>メディア掲載実績<br />(取材・記事)</span></div>
     </div>
@@ -1089,10 +1093,10 @@
 
     <div class="profile">
       <div class="ph"><i></i></div>
-      <p class="role">SNS採用ブランディングコンサルタント</p>
-      <p class="name">フミヤ（@fumiya_kaigo_sns）</p>
+      <p class="role">介護・福祉業界のSNS発信戦略パートナー</p>
+      <p class="name">濱中 郁也（@fumiya_kaigo_sns）</p>
       <p class="bio">
-        旅館・ホテル向けSNS採用ブランディングの第一人者。Instagram・TikTok等を活用した採用集客を専門とし、2年間の運用実績で4万フォロワー・5名の採用成功を実現。現在は全国の宿泊施設に向けコンサルティングを展開中。
+        弊社社長のアカウントを2年で3万フォロワーまで伸ばし、オンラインサロン・子育てコミュニティの主催、書籍出版、採用5名などを実現。現在は介護・福祉業界の経営者・採用担当者に向けて、SNS発信の設計から運用までをサポートしています。
       </p>
     </div>
   </section>
