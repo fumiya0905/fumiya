@@ -566,6 +566,69 @@
   .profile .name { color: #fff; font-size: 19px; font-weight: 900; margin: 4px 0 10px; }
   .profile .bio { color: #c6cde0; font-size: 12.5px; line-height: 2; text-align: left; }
 
+  /* ===== message from GM ===== */
+  .gm { background: #fff; }
+  .gm-person { text-align: center; margin-top: 32px; }
+  .gm-ph {
+    width: 104px;
+    height: 104px;
+    border-radius: 50%;
+    margin: 0 auto 14px;
+    padding: 3px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-2));
+    /* the ring's inner disc doubles as the fallback when no portrait is set */
+    box-shadow: inset 0 0 0 3px #f3dcb2;
+  }
+  .gm-ph img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .gm-role {
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+  }
+  .gm-name {
+    color: var(--navy);
+    font-size: 18px;
+    font-weight: 900;
+    margin-top: 3px;
+  }
+  .gm-body {
+    position: relative;
+    margin-top: 26px;
+    background: var(--cream);
+    border-radius: 18px;
+    padding: 26px 22px;
+  }
+  .gm-body::before {
+    content: "";
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 11px solid transparent;
+    border-top: 0;
+    border-bottom-color: var(--cream);
+  }
+  .gm-body p {
+    font-size: 13.5px;
+    line-height: 2.15;
+    color: #55524c;
+  }
+  .gm-body p + p { margin-top: 18px; }
+  .gm-close {
+    padding-top: 18px;
+    border-top: 2px dashed #e5ddcf;
+    color: var(--navy) !important;
+    font-weight: 700;
+  }
+  .gm-close strong { font-weight: 900; background: linear-gradient(transparent 62%, var(--marker) 62%); }
+
   /* ===== roadmap ===== */
   .roadmap { background: var(--cream); }
   .timeline {
@@ -1091,13 +1154,25 @@
       <p class="acct-desc">他業種での実績もあり。一人サロン経営者の発信もサポートし、初投稿</p>
     </div>
 
-    <div class="profile">
-      <div class="ph"><i></i></div>
-      <p class="role">介護・福祉業界のSNS発信戦略パートナー</p>
-      <p class="name">濱中 郁也（@fumiya_kaigo_sns）</p>
-      <p class="bio">
-        弊社社長のアカウントを2年で3万フォロワーまで伸ばし、オンラインサロン・子育てコミュニティの主催、書籍出版、採用5名などを実現。現在は介護・福祉業界の経営者・採用担当者に向けて、SNS発信の設計から運用までをサポートしています。
-      </p>
+  </section>
+
+  <!-- ===== MESSAGE FROM GM ===== -->
+  <section class="gm">
+    <span class="sec-label">Message from GM</span>
+    <h2 class="sec-title">競争関係ではなく、<br /><span class="mk">共闘関係</span>へ</h2>
+
+    <div class="gm-person">
+      <div class="gm-ph">
+        <img src="images/gm.jpg" alt="濱中 郁也" loading="lazy" onerror="this.remove()" />
+      </div>
+      <p class="gm-role">介護・福祉業界のSNS発信戦略パートナー</p>
+      <p class="gm-name">濱中 郁也（@fumiya_kaigo_sns）</p>
+    </div>
+
+    <div class="gm-body">
+      <p>事業名のSyncLifeにはSync「同期・伴走」とLife「人生」を組み合わせた造語です。介護・福祉業界は、競争関係ではなく、共闘関係へ。お客様に真摯に向き合い、SNSを通して人生そのものを最後まで伴走するーーそれが僕たちの原点です。</p>
+      <p>現在OTTOは「福祉×多角化 人生を楽しむためのインフラ」というコンセプトを掲げています。その一環で、SNSマーケティング事業を始め、弊社宮本代表のアカウント実績を引っ提げて、介護・福祉事業所のSNSサポートをメインに、採用、マネタイズに特化して、業界の慢性的な人材問題を解決するために弊社の幹部が全員SNS発信をしています。</p>
+      <p class="gm-close">全国のお客様のために、人材問題解決するために。<br /><strong>あなたしかできないを形にする</strong>サポートを行います。</p>
     </div>
   </section>
 
