@@ -181,12 +181,22 @@
     background: #fff;
   }
   .logo {
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 900;
     color: var(--navy);
     letter-spacing: 0.02em;
+    line-height: 1.15;
   }
   .logo em { font-style: normal; color: var(--gold); }
+  .logo i {
+    display: block;
+    font-style: normal;
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #8a94ab;
+    margin-bottom: 2px;
+  }
   .head-cta {
     background: linear-gradient(135deg, var(--gold), var(--gold-2));
     color: #fff;
@@ -323,7 +333,7 @@
   .solution .chev { margin-bottom: 40px; }
 
   .insta-frame {
-    margin: 30px auto 26px;
+    margin: 30px auto 12px;
     max-width: 320px;
     background: var(--cream);
     border-radius: 22px;
@@ -365,6 +375,17 @@
     border-radius: 2px;
     background: #e2e2e2;
     margin-right: 4px;
+  }
+  .insta-cta {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 26px;
+  }
+  .insta-cta a {
+    color: var(--gold);
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 1px;
   }
 
   .feature {
@@ -481,8 +502,45 @@
     margin-top: 30px;
   }
   .res-grid .stat b { font-size: 24px; }
+  .sup-label {
+    color: #ffd94d;
+    margin-top: 34px;
+  }
+  .acct {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 16px;
+    padding: 18px;
+    margin-top: 14px;
+  }
+  .acct-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .acct-av {
+    flex: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--gold-2));
+  }
+  .acct-handle {
+    color: var(--gold-2);
+    font-weight: 900;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(240, 192, 96, 0.6);
+    padding-bottom: 1px;
+    word-break: break-all;
+  }
+  .acct-desc {
+    color: #c6cde0;
+    font-size: 12.5px;
+    line-height: 1.9;
+  }
   .profile {
-    margin-top: 26px;
+    margin-top: 34px;
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 20px;
@@ -793,7 +851,7 @@
 
   <!-- ===== HEADER ===== -->
   <header class="site-head">
-    <span class="logo">SNS<em>採用</em>ラボ</span>
+    <span class="logo"><i>OTTO SNS マーケティングチーム</i>Sync<em>Life</em></span>
     <a href="#cta" class="head-cta">無料相談する</a>
   </header>
 
@@ -881,7 +939,7 @@
     <p class="sec-lead">SNS運用は「毎日投稿してとにかく数」という思い込みは捨てて良い。どんな自分が、誰に、何を発信して、どんな価値提供をするのかというアカウント設計を固め、過去の体現してきたものを深掘り、発信の形にできれば、採用力は劇的に変わります。</p>
 
     <div class="insta-frame">
-      <div class="insta-card">
+      <a class="insta-card" style="display:block" href="https://www.instagram.com/fumiya_kaigo_sns/" target="_blank" rel="noopener">
         <div class="insta-head">
           <span class="pf"></span>
           <div>
@@ -898,8 +956,9 @@
           <div><i style="width:24px"></i><i style="width:48px;background:#eee"></i><i style="width:32px;background:#f4f4f4"></i></div>
           <div><i style="width:40px"></i><i style="width:64px;background:#eee"></i></div>
         </div>
-      </div>
+      </a>
     </div>
+    <p class="insta-cta"><a href="https://www.instagram.com/fumiya_kaigo_sns/" target="_blank" rel="noopener">▶ @fumiya_kaigo_sns をInstagramで見る</a></p>
 
     <div class="features">
       <div class="feature">
@@ -1002,6 +1061,32 @@
       <div class="stat"><b>3件</b><span>メディア掲載実績<br />(取材・記事)</span></div>
     </div>
 
+    <p class="slash sup-label">サポートしているアカウント</p>
+
+    <div class="acct">
+      <div class="acct-head">
+        <span class="acct-av"></span>
+        <a class="acct-handle" href="https://www.instagram.com/makoto__miyamoto/" target="_blank" rel="noopener">@makoto__miyamoto</a>
+      </div>
+      <p class="acct-desc">弊社の社長アカウント。オンラインサロンや子育てコミュニティの主催、書籍出版、採用5名など達成</p>
+    </div>
+
+    <div class="acct">
+      <div class="acct-head">
+        <span class="acct-av"></span>
+        <a class="acct-handle" href="https://www.instagram.com/kazuhito__kouno/" target="_blank" rel="noopener">@kazuhito__kouno</a>
+      </div>
+      <p class="acct-desc">20年以上の福祉経験、会社経営で体現したことをそのまま発信の形にし、今では事業所コンサルティングや、制度や運営指導などの勉強会を定期的に開催し、ブランド価値向上に繋がり、採用問い合わせも継続的にある</p>
+    </div>
+
+    <div class="acct">
+      <div class="acct-head">
+        <span class="acct-av"></span>
+        <a class="acct-handle" href="https://www.instagram.com/shimada.info/" target="_blank" rel="noopener">@shimada.info</a>
+      </div>
+      <p class="acct-desc">他業種での実績もあり。一人サロン経営者の発信もサポートし、初投稿</p>
+    </div>
+
     <div class="profile">
       <div class="ph"><i></i></div>
       <p class="role">SNS採用ブランディングコンサルタント</p>
@@ -1035,8 +1120,8 @@
       </div>
       <div class="tl-item">
         <p class="when">6ヶ月以降</p>
-        <h3>SNSが採用の自走エンジンに</h3>
-        <p>採用ブランドが確立され、求人広告に依存しない持続的な採用力が身につく。</p>
+        <h3>SNSが会社や人のブランディングの基盤として実装される</h3>
+        <p>あなたしかできないアカウントになり、マネタイズ、採用、集客などインスタを基点に展開が可能になる</p>
       </div>
     </div>
   </section>
@@ -1095,8 +1180,6 @@
   <section id="pricing" class="pricing">
     <span class="sec-label">Pricing</span>
     <h2 class="sec-title">月別状況に合わせた<br /><span class="mk">3つのプラン</span></h2>
-    <p class="price-note">※ 初月のみ350,000円→250,000円+25,000円+25,000円で1回でご契約可能</p>
-
     <!-- Plan: Standard (featured) -->
     <div class="plan plan-feat">
       <p class="plan-badge">＼ 一番人気 ／</p>
@@ -1107,27 +1190,23 @@
         <li><b>✓</b>アカウント設計</li>
         <li><b>✓</b>月12投稿（週3回）</li>
         <li><b>✓</b>月次レポート</li>
-        <li><b>✓</b>Slack非同期サポート</li>
-        <li><b>✓</b>月次MTG（60分）</li>
+        <li><b>✓</b>週次MTG（60分）</li>
         <li><b>✓</b>撮影ディレクション</li>
-        <li><b>✓</b>採用コミュニティ参加</li>
       </ul>
       <a href="#cta" class="plan-btn plan-btn-feat">このプランで申し込む</a>
     </div>
 
     <!-- Plan: Basic -->
     <div class="plan">
-      <p class="plan-name">適用的プラン</p>
+      <p class="plan-name">運用代行プラン</p>
       <div class="plan-price"><b>350,000</b><span>円/月</span></div>
       <p class="plan-tax">（税込 385,000円）</p>
       <ul>
         <li><b>✓</b>アカウント設計</li>
         <li><b>✓</b>月12投稿（週3回）</li>
         <li><b>✓</b>月次レポート</li>
-        <li><b>✓</b>Slack非同期サポート</li>
-        <li class="na"><b>—</b>月次MTG</li>
+        <li><b>✓</b>週次MTG</li>
         <li class="na"><b>—</b>撮影ディレクション</li>
-        <li class="na"><b>—</b>採用コミュニティ参加</li>
       </ul>
       <a href="#cta" class="plan-btn">このプランで相談する</a>
     </div>
@@ -1141,15 +1220,12 @@
         <li><b>✓</b>アカウント設計</li>
         <li class="na"><b>—</b>投稿代行なし（自社で実施）</li>
         <li><b>✓</b>月次レポート</li>
-        <li><b>✓</b>Slack非同期サポート</li>
-        <li><b>✓</b>月次MTG（90分）</li>
+        <li><b>✓</b>週次MTG（90分）</li>
         <li class="na"><b>—</b>撮影ディレクション</li>
-        <li><b>✓</b>採用コミュニティ参加</li>
       </ul>
       <a href="#cta" class="plan-btn">このプランで相談する</a>
     </div>
 
-    <p class="foot-note">※ 350,000円→250,000円+25,000円+25,000円で1回でご契約可能（詳細は相談時にご案内）</p>
   </section>
 
   <!-- ===== TRUST ===== -->
@@ -1162,8 +1238,8 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
         </svg>
       </div>
-      <h3>「丸投げ」でも「内製化」も柔軟に対応</h3>
-      <p>代行・コンサルどちらもプランで選べます。施設の状況に合わせた設計が可能です。</p>
+      <h3>「会社に入ってサポート」でも「個人アカウントのみ」でも柔軟に対応</h3>
+      <p>代行・コンサルどちらもプランで選べます。御社の状況に合わせた設計が可能です。</p>
     </div>
     <div class="trust-item">
       <div class="tico">
@@ -1181,7 +1257,7 @@
         </svg>
       </div>
       <h3>コンサルも含む「コミュニティ」が後押し</h3>
-      <p>採用成功事例が集まるコミュニティに参加でき、他施設の知見もリアルタイムで学べます。</p>
+      <p>他社さんやクライアントの成功事例が集まるコミュニティにも参加でき、他事業との協業やコラボも可能。</p>
     </div>
   </section>
 
@@ -1197,10 +1273,6 @@
     <details>
       <summary><span class="q">Q</span>最低契約期間はありますか？<span class="tg">＋</span></summary>
       <p>最低3ヶ月〜のご契約をお願いしています。SNS運用は短期では成果が出にくく、継続性が重要なため、3ヶ月を一単位として効果を測定する設計にしています。</p>
-    </details>
-    <details>
-      <summary><span class="q">Q</span>現場スタッフへの負担はどれくらいですか？<span class="tg">＋</span></summary>
-      <p>スタンダードプランの場合、現場スタッフへのご負担は週3〜5枚程度の写真・動画の撮影と共有のみです。キャプション・デザイン・投稿はすべてコンサル側で対応します。</p>
     </details>
     <details>
       <summary><span class="q">Q</span>Instagramだけですか？他のSNSは？<span class="tg">＋</span></summary>
@@ -1226,13 +1298,13 @@
 
   <!-- ===== FOOTER ===== -->
   <footer class="site-foot">
-    <span class="logo">SNS<em>採用</em>ラボ</span>
+    <span class="logo"><i>OTTO SNS マーケティングチーム</i>Sync<em>Life</em></span>
     <div class="foot-links">
       <a href="#">プライバシーポリシー</a>
       <a href="#">特定商取引法</a>
       <a href="#">お問い合わせ</a>
     </div>
-    <small>© 2024 SNS採用ラボ. All rights reserved.</small>
+    <small>© 2024 OTTO SNS マーケティングチーム「SyncLife」 All rights reserved.</small>
   </footer>
 
 </div>
