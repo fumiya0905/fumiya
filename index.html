@@ -294,8 +294,8 @@
     right: 4px;
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 800;
-    /* two vertical lines so the whole name fits inside the hero */
-    font-size: 62px;
+    /* three vertical lines so the whole name fits inside the hero */
+    font-size: 58px;
     line-height: 1;
     letter-spacing: 0.04em;
     color: rgba(255, 255, 255, 0.055);
@@ -304,6 +304,42 @@
     pointer-events: none;
     user-select: none;
   }
+  /* circular stamp, echoing the reference page's rotating seal */
+  .stamp {
+    position: absolute;
+    z-index: 2;
+    top: 14px;
+    left: 10px;
+    width: 88px;
+    height: 88px;
+    animation: spin 26s linear infinite;
+  }
+  .stamp circle { fill: none; }
+  .stamp .ring { stroke: rgba(240, 192, 96, 0.55); stroke-width: 1.5; }
+  .stamp text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13.5px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    fill: var(--gold-2);
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .stamp { animation: none; } }
+  .stamp-core {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 19px;
+    font-weight: 800;
+    color: var(--gold-2);
+    letter-spacing: 0.04em;
+  }
+  /* the phone hero has no free corner for the seal, so it is desktop-only */
+  .stamp-wrap { display: none; }
+
   .hero-slash { color: #fff; margin-bottom: 14px; }
   .hero-badge {
     display: inline-block;
@@ -350,23 +386,34 @@
     gap: 12px;
     margin-top: 30px;
   }
+  /* label bar over a display figure, as on the reference page's model cards */
   .stat {
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 14px;
-    padding: 18px 10px;
+    padding: 0 0 16px;
     text-align: center;
+  }
+  .stat .lbl {
+    display: block;
+    color: #fff;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 9px 6px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    line-height: 1.5;
   }
   .stat b {
     display: block;
     color: var(--gold-2);
-    font-size: 38px;
+    font-size: 46px;
     font-weight: 900;
     line-height: 1;
     letter-spacing: -0.02em;
     font-variant-numeric: tabular-nums;
+    margin-top: 16px;
   }
-  .stat b small { font-size: 15px; font-weight: 700; margin-left: 2px; }
+  .stat b small { font-size: 16px; font-weight: 700; margin-left: 2px; }
   .stat span {
     display: block;
     color: #c6cde0;
@@ -380,27 +427,36 @@
   .problem .chev { margin-bottom: 44px; }
   .pain-grid { display: grid; gap: 14px; margin-top: 30px; }
   .pain {
-    display: flex;
-    gap: 14px;
-    align-items: flex-start;
     background: #fff;
-    border-radius: 4px;
     padding: 20px 18px;
     box-shadow: 0 4px 14px rgba(26, 39, 68, 0.07);
     border-top: 4px solid var(--navy);
   }
+  /* numbered rule, as on the reference page's value cards */
+  .pain-no {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .pain-no .n {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1;
+  }
+  .pain-no .bar { flex: 1; height: 1px; background: var(--rule); }
   .pain-ico {
     flex: none;
-    width: 40px;
-    height: 40px;
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 2px;
   }
-  .pain-ico svg { width: 20px; height: 20px; }
-  .pain h3 { font-size: 15px; font-weight: 900; margin-bottom: 4px; }
+  .pain-ico svg { width: 18px; height: 18px; }
+  .pain h3 { font-size: 15px; font-weight: 900; margin-bottom: 6px; line-height: 1.55; }
   .pain p { font-size: 12.5px; color: #666; line-height: 1.95; }
   .pain-1 { border-top-color: var(--warn); }
   .pain-1 .pain-ico { background: rgba(232, 80, 32, 0.12); color: var(--warn); }
@@ -646,46 +702,57 @@
   }
 
   /* ===== roadmap ===== */
+  /* rows led by a display figure, after the reference page's day-in-the-life table */
   .roadmap { background: var(--sand); }
-  .timeline {
-    margin: 34px 0 0 6px;
-    padding-left: 26px;
-    border-left: 3px solid rgba(232, 160, 32, 0.35);
+  .timeline { margin-top: 34px; background: #fff; box-shadow: 0 6px 18px rgba(26, 39, 68, 0.07); }
+  .tl-item {
+    position: relative;
     display: grid;
-    gap: 30px;
+    grid-template-columns: 62px 1fr;
+    gap: 16px;
+    padding: 22px 20px;
   }
-  .tl-item { position: relative; }
-  .tl-item::before {
+  .tl-item + .tl-item { border-top: 1px solid var(--rule); }
+  /* notch pointing to the next row, as on the reference timeline */
+  .tl-item + .tl-item::before {
     content: "";
     position: absolute;
-    left: -35px;
-    top: 5px;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background: #fff;
-    border: 3px solid var(--gold);
+    top: -1px;
+    left: 46px;
+    border: 9px solid transparent;
+    border-top-color: var(--rule);
+    border-bottom: 0;
   }
-  .tl-item:first-child::before {
-    background: linear-gradient(135deg, var(--gold), var(--gold-2));
-    border-color: #fff;
-    box-shadow: 0 0 0 2px var(--gold);
+  .tl-item + .tl-item::after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 47px;
+    border: 8px solid transparent;
+    border-top-color: #fff;
+    border-bottom: 0;
   }
-  .tl-when {
-    display: inline-block;
-    transform: skewX(var(--skew));
-    background: var(--gold);
-    padding: 3px 12px;
-    margin-bottom: 6px;
+  /* scoped past `.tl-item p`, which would otherwise win on specificity */
+  .tl-item .tl-when {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 27px;
+    font-weight: 800;
+    line-height: 1.05;
+    color: var(--gold);
+    letter-spacing: 0.01em;
   }
-  .tl-when > span {
-    display: inline-block;
-    transform: skewX(calc(var(--skew) * -1));
-    color: #fff;
-    font-size: 11px;
-    font-weight: 900;
+  .tl-item .tl-when small { display: block; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; }
+  .tl-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 5px; }
+  .tl-item h3 { color: var(--navy); font-size: 15px; font-weight: 900; line-height: 1.55; }
+  .tl-tag {
+    flex: none;
+    background: var(--cream);
+    color: var(--gold);
+    font-size: 10.5px;
+    font-weight: 700;
+    padding: 3px 9px;
+    border: 1px solid rgba(232, 160, 32, 0.4);
   }
-  .tl-item h3 { color: var(--navy); font-size: 15px; font-weight: 900; line-height: 1.55; margin-bottom: 4px; }
   .tl-item p { font-size: 12.5px; color: var(--muted); line-height: 1.95; }
 
   /* ===== testimonials ===== */
@@ -814,9 +881,22 @@
   .plan-btn-feat:hover { background: linear-gradient(135deg, var(--gold-2), var(--gold)); color: #fff; }
 
   /* ===== trust ===== */
+  /* gold panel with a ruled list, after the reference page's partner section */
   .trust { background: #fff; }
-  .trust-grid { display: grid; gap: 30px; margin-top: 34px; }
-  .trust-item { text-align: center; }
+  .trust-grid {
+    display: grid;
+    gap: 0;
+    margin-top: 34px;
+    background: linear-gradient(160deg, var(--gold) 0%, var(--gold-2) 100%);
+    padding: 8px 22px;
+    box-shadow: 0 12px 26px rgba(232, 160, 32, 0.28);
+  }
+  .trust-item { text-align: center; padding: 26px 0; }
+  .trust-item + .trust-item { border-top: 1px solid rgba(255, 255, 255, 0.45); }
+  .trust-item .tico { background: #fff !important; }
+  .trust-item .tico svg { color: var(--gold) !important; }
+  .trust-item h3 { color: #fff !important; }
+  .trust-item p { color: rgba(255, 255, 255, 0.92) !important; }
   .trust-item .tico {
     width: 58px;
     height: 58px;
@@ -966,6 +1046,10 @@
 
     .sec-title { font-size: 34px; margin-top: 22px; }
     .sec-title-sm { font-size: 27px; }
+    /* some sections lead from the left, as the reference page alternates */
+    .sec-head-left { text-align: left; }
+    .sec-head-left .sec-lead { margin-inline: 0; }
+    .sec-head-left .sec-title { text-wrap: pretty; }
     /* keep running text near a comfortable measure on wide screens */
     .sec-lead { font-size: 14.5px; margin-top: 20px; max-width: 60ch; margin-inline: auto; }
     .sec-en > span { font-size: 14px; }
@@ -1001,7 +1085,17 @@
     /* hero */
     .hero { padding: 90px 0 110px; text-align: left; }
     .hero::after { height: 110px; }
-    .hero-wm { font-size: 132px; right: 10px; }
+    .hero-wm { font-size: 76px; right: 10px; }
+    .stamp-wrap {
+      display: block;
+      position: absolute;
+      z-index: 2;
+      top: 42px;
+      left: 40px;
+      width: 104px;
+      height: 104px;
+    }
+    .stamp-wrap .stamp { top: 0; left: 0; width: 104px; height: 104px; }
     .hero-inner {
       display: grid;
       grid-template-columns: 1fr auto;
@@ -1020,7 +1114,8 @@
     /* pain */
     .problem .chev, .solution .chev { border-left-width: 48px; border-right-width: 48px; border-top-width: 34px; margin-bottom: 70px; }
     .pain-grid { grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 48px; }
-    .pain { flex-direction: column; padding: 30px 26px; }
+    .pain { padding: 32px 28px; }
+    .pain-no .n { font-size: 32px; }
     .pain h3 { font-size: 17px; }
     .pain p { font-size: 13.5px; }
     .dilemma { margin-top: 44px; padding: 38px; font-size: 16px; }
@@ -1091,18 +1186,15 @@
     }
     .gm-body p { font-size: 15px; line-height: 2.2; }
 
-    /* roadmap — horizontal rail */
-    .timeline {
-      grid-template-columns: repeat(4, 1fr);
-      gap: 28px;
-      margin: 60px 0 0;
-      padding: 34px 0 0;
-      border-left: 0;
-      border-top: 3px solid rgba(232, 160, 32, 0.35);
-    }
-    .tl-item::before { left: 0; top: -43px; }
-    .tl-item h3 { font-size: 16.5px; }
-    .tl-item p { font-size: 13px; }
+    /* roadmap */
+    .timeline { margin-top: 56px; }
+    .tl-item { grid-template-columns: 120px 1fr; gap: 30px; padding: 30px 36px; align-items: center; }
+    .tl-item + .tl-item::before { left: 70px; }
+    .tl-item + .tl-item::after { left: 71px; }
+    .tl-item .tl-when { font-size: 40px; }
+    .tl-item .tl-when small { font-size: 13px; }
+    .tl-item h3 { font-size: 17px; }
+    .tl-item p { font-size: 13.5px; }
 
     /* testimonials */
     .voice-grid { grid-template-columns: 1fr 1fr; gap: 40px 30px; margin-top: 52px; }
@@ -1117,7 +1209,12 @@
     .plan li { font-size: 13.5px; }
 
     /* trust */
-    .trust-grid { grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 56px; }
+    .trust-grid { grid-template-columns: repeat(3, 1fr); margin-top: 56px; padding: 14px 10px; }
+    .trust-item { padding: 30px 26px; }
+    .trust-item + .trust-item {
+      border-top: 0;
+      border-left: 1px solid rgba(255, 255, 255, 0.45);
+    }
     .trust-item .tico { width: 68px; height: 68px; }
     .trust-item h3 { font-size: 17px; }
     .trust-item p { font-size: 13.5px; }
@@ -1161,7 +1258,17 @@
 
 <!-- ===== HERO ===== -->
 <section class="hero">
-  <div class="hero-wm en" aria-hidden="true">OTTO<br />SyncLife</div>
+  <div class="hero-wm en" aria-hidden="true">OTTO<br />SNS MARKETING<br />SyncLife</div>
+
+  <div class="stamp-wrap" aria-hidden="true">
+    <svg class="stamp" viewBox="0 0 100 100">
+      <circle class="ring" cx="50" cy="50" r="48" />
+      <circle class="ring" cx="50" cy="50" r="38" />
+      <path id="stamp-path" fill="none" d="M50,50 m-43,0 a43,43 0 1,1 86,0 a43,43 0 1,1 -86,0" />
+      <text><textPath href="#stamp-path" startOffset="0">SYNCLIFE ★ SNS MARKETING ★ OTTO ★&nbsp;</textPath></text>
+    </svg>
+    <span class="stamp-core">SL</span>
+  </div>
   <div class="wrap hero-inner">
     <div>
       <p class="slash hero-slash">介護・福祉の経営者さん、採用担当者さんへ</p>
@@ -1185,8 +1292,14 @@
     </div>
 
     <div class="stats">
-      <div class="stat"><b>4<small>万</small></b><span>自社Instagram<br />総フォロワー数</span></div>
-      <div class="stat"><b>5<small>名</small></b><span>採用成功<br />実績</span></div>
+      <div class="stat">
+        <span class="lbl">自社Instagram<br />総フォロワー数</span>
+        <b>4<small>万</small></b>
+      </div>
+      <div class="stat">
+        <span class="lbl">採用成功<br />実績</span>
+        <b>5<small>名</small></b>
+      </div>
     </div>
   </div>
 </section>
@@ -1204,37 +1317,37 @@
 
     <div class="pain-grid">
       <div class="pain pain-1">
-        <div class="pain-ico">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <div class="pain-no">
+          <span class="pain-ico"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
-          </svg>
+          </svg></span>
+          <span class="n en">01</span>
+          <span class="bar"></span>
         </div>
-        <div>
-          <h3>リソースがない</h3>
-          <p>「SNS対策に集中したいのに時間がない」——関連人材・専門スタッフも不在。現場が忙しいなかで誰が担当するのかも決まっていない状態。</p>
-        </div>
+        <h3>リソースがない</h3>
+        <p>「SNS対策に集中したいのに時間がない」——関連人材・専門スタッフも不在。現場が忙しいなかで誰が担当するのかも決まっていない状態。</p>
       </div>
       <div class="pain pain-2">
-        <div class="pain-ico">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <div class="pain-no">
+          <span class="pain-ico"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
-          </svg>
+          </svg></span>
+          <span class="n en">02</span>
+          <span class="bar"></span>
         </div>
-        <div>
-          <h3>フロウがない</h3>
-          <p>取り組み方がわからない。担当スタッフがいても、固定的なフローワークが揃えられておらず、毎回ゼロから考えるため続かない。</p>
-        </div>
+        <h3>フロウがない</h3>
+        <p>取り組み方がわからない。担当スタッフがいても、固定的なフローワークが揃えられておらず、毎回ゼロから考えるため続かない。</p>
       </div>
       <div class="pain pain-3">
-        <div class="pain-ico">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <div class="pain-no">
+          <span class="pain-ico"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
-          </svg>
+          </svg></span>
+          <span class="n en">03</span>
+          <span class="bar"></span>
         </div>
-        <div>
-          <h3>取り組む姿勢がわからない</h3>
-          <p>どこに向けて、何を発信すれば採用に繋がるのか。投稿しても反応が薄く、何が正解か判断できず途中で止まってしまう。</p>
-        </div>
+        <h3>取り組む姿勢がわからない</h3>
+        <p>どこに向けて、何を発信すれば採用に繋がるのか。投稿しても反応が薄く、何が正解か判断できず途中で止まってしまう。</p>
       </div>
     </div>
 
@@ -1331,7 +1444,7 @@
 <section id="process" class="process">
   <div class="wm en" aria-hidden="true">PROCESS</div>
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head sec-head-left">
       <p class="sec-en en"><span>Process</span></p>
       <h2 class="sec-title sec-title-sm">「バズ投稿」より<br />「会社や人に価値を感じてもらう」<br />アカウントを<span class="mk">4ステップ</span>で運用</h2>
       <p class="sec-sub"><span>最初の1ヶ月で土台を固め、2ヶ月目以降は実際に発信してPDCAを回せる状態へ</span></p>
@@ -1380,9 +1493,21 @@
     </div>
 
     <div class="res-grid">
-      <div class="stat"><b>4<small>万</small></b><span>総フォロワー数<br />(運用2年での実績)</span></div>
-      <div class="stat"><b>5<small>名</small></b><span>採用成功者数<br />(SNS経由)</span></div>
-      <div class="stat"><b>3<small>件</small></b><span>メディア掲載実績<br />(取材・記事)</span></div>
+      <div class="stat">
+        <span class="lbl">総フォロワー数</span>
+        <b>4<small>万</small></b>
+        <span>運用2年での実績</span>
+      </div>
+      <div class="stat">
+        <span class="lbl">採用成功者数</span>
+        <b>5<small>名</small></b>
+        <span>SNS経由</span>
+      </div>
+      <div class="stat">
+        <span class="lbl">メディア掲載実績</span>
+        <b>3<small>件</small></b>
+        <span>取材・記事</span>
+      </div>
     </div>
 
     <p class="slash sup-label">サポートしているアカウント</p>
@@ -1446,31 +1571,51 @@
 <section class="roadmap">
   <div class="wm en" aria-hidden="true">ROADMAP</div>
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head sec-head-left">
       <p class="sec-en en"><span>Roadmap</span></p>
       <h2 class="sec-title">運用始めると、<br />こんな<span class="mk">未来</span>が待っています</h2>
     </div>
 
     <div class="timeline">
       <div class="tl-item">
-        <p class="tl-when"><span>1ヶ月目</span></p>
-        <h3>アカウント基盤の構築</h3>
-        <p>コンセプト・投稿テーマ・撮影フローが確立。チームが動き始める。</p>
+        <p class="tl-when">1<small>ヶ月目</small></p>
+        <div>
+          <div class="tl-head">
+            <h3>アカウント基盤の構築</h3>
+            <span class="tl-tag">基盤構築</span>
+          </div>
+          <p>コンセプト・投稿テーマ・撮影フローが確立。チームが動き始める。</p>
+        </div>
       </div>
       <div class="tl-item">
-        <p class="tl-when"><span>2〜3ヶ月目</span></p>
-        <h3>フォロワー増加・認知拡大</h3>
-        <p>投稿の継続でエンゲージメントが上昇。プロフィールへのアクセスが増える。</p>
+        <p class="tl-when">2-3<small>ヶ月目</small></p>
+        <div>
+          <div class="tl-head">
+            <h3>フォロワー増加・認知拡大</h3>
+            <span class="tl-tag">認知拡大</span>
+          </div>
+          <p>投稿の継続でエンゲージメントが上昇。プロフィールへのアクセスが増える。</p>
+        </div>
       </div>
       <div class="tl-item">
-        <p class="tl-when"><span>4〜6ヶ月目</span></p>
-        <h3>採用問い合わせ・応募が来る</h3>
-        <p>「ここで働きたい」という自発的な応募が入り始める。採用コストが下がる。</p>
+        <p class="tl-when">4-6<small>ヶ月目</small></p>
+        <div>
+          <div class="tl-head">
+            <h3>採用問い合わせ・応募が来る</h3>
+            <span class="tl-tag">応募発生</span>
+          </div>
+          <p>「ここで働きたい」という自発的な応募が入り始める。採用コストが下がる。</p>
+        </div>
       </div>
       <div class="tl-item">
-        <p class="tl-when"><span>6ヶ月以降</span></p>
-        <h3>SNSが会社や人のブランディングの基盤として実装される</h3>
-        <p>あなたしかできないアカウントになり、マネタイズ、採用、集客などインスタを基点に展開が可能になる</p>
+        <p class="tl-when">6<small>ヶ月以降</small></p>
+        <div>
+          <div class="tl-head">
+            <h3>SNSが会社や人のブランディングの基盤として実装される</h3>
+            <span class="tl-tag">基盤化</span>
+          </div>
+          <p>あなたしかできないアカウントになり、マネタイズ、採用、集客などインスタを基点に展開が可能になる</p>
+        </div>
       </div>
     </div>
   </div>
