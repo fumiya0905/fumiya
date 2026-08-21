@@ -254,9 +254,92 @@
     color: #8a94ab;
     margin-bottom: 2px;
   }
-  .head-nav { display: none; }
+  /* ===== navigation ===== */
+  /* phones get a drawer under the header; desktop turns it into a row */
+  .head-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: grid;
+    background: var(--navy);
+    box-shadow: 0 14px 26px rgba(26, 39, 68, 0.3);
+    overflow: hidden;
+    max-height: 0;
+    visibility: hidden;
+    transition: max-height 0.28s ease, visibility 0s linear 0.28s;
+  }
+  body.nav-open .head-nav {
+    max-height: 460px;
+    visibility: visible;
+    transition: max-height 0.28s ease, visibility 0s;
+  }
+  .head-nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 24px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .head-nav a::before {
+    content: "";
+    width: 12px;
+    height: 3px;
+    background: var(--gold);
+    transform: skewX(var(--skew));
+    flex: none;
+  }
+  .nav-drawer-cta {
+    margin: 18px 24px 22px;
+    padding: 14px !important;
+    justify-content: center;
+    border: 0 !important;
+    border-radius: 999px;
+    background: linear-gradient(180deg, var(--line-g1) 0%, var(--line-g2) 55%, var(--line-g3) 100%);
+    box-shadow: 0 4px 0 var(--line-edge);
+    font-weight: 900 !important;
+  }
+  .nav-drawer-cta::before { display: none; }
+
+  /* hamburger */
+  .nav-toggle {
+    flex: none;
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .nav-toggle .bars,
+  .nav-toggle .bars::before,
+  .nav-toggle .bars::after {
+    display: block;
+    width: 24px;
+    height: 2.5px;
+    background: var(--navy);
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.15s ease;
+  }
+  .nav-toggle .bars::before,
+  .nav-toggle .bars::after {
+    content: "";
+    position: absolute;
+  }
+  .nav-toggle .bars::before { transform: translateY(-8px); }
+  .nav-toggle .bars::after { transform: translateY(8px); }
+  body.nav-open .nav-toggle .bars { background: transparent; }
+  body.nav-open .nav-toggle .bars::before { transform: rotate(45deg); }
+  body.nav-open .nav-toggle .bars::after { transform: rotate(-45deg); }
+
+  /* the fixed bottom bar carries the CTA on phones, so the header drops it */
   .head-cta {
-    display: inline-block;
+    display: none;
     transform: skewX(var(--skew));
     background: linear-gradient(135deg, var(--gold), var(--gold-2));
     padding: 9px 18px;
@@ -1059,16 +1142,32 @@
     .site-head .wrap { height: 76px; }
     .logo { font-size: 19px; }
     .logo i { font-size: 9.5px; }
+    .nav-toggle { display: none; }
+    .nav-drawer-cta { display: none !important; }
     .head-nav {
+      position: static;
       display: flex;
-      gap: 34px;
+      gap: 26px;
       margin-left: auto;
-      margin-right: 28px;
+      margin-right: 26px;
+      max-height: none;
+      visibility: visible;
+      overflow: visible;
+      background: none;
+      box-shadow: none;
       font-size: 13px;
       font-weight: 700;
       color: var(--navy);
     }
-    .head-nav a { position: relative; padding: 4px 0; }
+    .head-nav a {
+      position: relative;
+      display: block;
+      padding: 4px 0;
+      color: inherit;
+      font-size: inherit;
+      border-bottom: 0;
+    }
+    .head-nav a::before { display: none; }
     .head-nav a::after {
       content: "";
       position: absolute;
@@ -1080,7 +1179,7 @@
       transition: right 0.25s;
     }
     .head-nav a:hover::after { right: 0; }
-    .head-cta { padding: 12px 26px; }
+    .head-cta { display: inline-block; padding: 12px 26px; }
     .head-cta > span { font-size: 13.5px; }
 
     /* hero */
@@ -1249,13 +1348,20 @@
 <header class="site-head">
   <div class="wrap">
     <span class="logo"><i>OTTO SNS マーケティングチーム</i>Sync<em>Life</em></span>
-    <nav class="head-nav">
+    <nav class="head-nav" id="site-nav">
       <a href="#problem">課題</a>
       <a href="#solution">解決策</a>
       <a href="#process">プロセス</a>
+      <a href="#results">実績</a>
       <a href="#pricing">料金</a>
+      <a href="#faq">よくある質問</a>
+      <a href="#cta" class="nav-drawer-cta">公式LINEから無料相談する</a>
     </nav>
     <a href="#cta" class="head-cta"><span>無料相談する</span></a>
+    <button type="button" class="nav-toggle" id="nav-toggle"
+            aria-label="メニューを開く" aria-expanded="false" aria-controls="site-nav">
+      <span class="bars"></span>
+    </button>
   </div>
 </header>
 
@@ -1487,7 +1593,7 @@
 </section>
 
 <!-- ===== RESULTS ===== -->
-<section class="results on-navy">
+<section id="results" class="results on-navy">
   <div class="wm en" aria-hidden="true">RESULTS</div>
   <div class="wrap">
     <div class="sec-head">
@@ -1778,7 +1884,7 @@
 </section>
 
 <!-- ===== FAQ ===== -->
-<section class="faq">
+<section id="faq" class="faq">
   <div class="wm en" aria-hidden="true">FAQ</div>
   <div class="wrap wrap-narrow">
     <div class="sec-head">
@@ -1876,6 +1982,35 @@
     公式LINEから無料相談し申し込む
   </a>
 </div>
+
+<script>
+  (function () {
+    var btn = document.getElementById('nav-toggle');
+    var nav = document.getElementById('site-nav');
+    if (!btn || !nav) return;
+
+    function setOpen(open) {
+      document.body.classList.toggle('nav-open', open);
+      btn.setAttribute('aria-expanded', String(open));
+      btn.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+    }
+
+    btn.addEventListener('click', function () {
+      setOpen(btn.getAttribute('aria-expanded') !== 'true');
+    });
+
+    // a chosen destination closes the drawer, as does Escape or a tap outside
+    nav.addEventListener('click', function (e) {
+      if (e.target.closest('a')) setOpen(false);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setOpen(false);
+    });
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.site-head')) setOpen(false);
+    });
+  })();
+</script>
 
 </body>
 </html>
