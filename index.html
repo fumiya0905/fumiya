@@ -839,37 +839,38 @@
 
   /* ===== testimonials ===== */
   .voices { background: #fff; }
-  .voice-grid { display: grid; gap: 30px; margin-top: 32px; }
+  .voice-grid { display: grid; gap: 34px; margin-top: 32px; }
+  .voice { display: grid; gap: 14px; }
+  .person { display: flex; align-items: center; gap: 12px; }
+  .person .av {
+    flex: none;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--gold-2);
+    background: linear-gradient(135deg, var(--gold), var(--gold-2));
+  }
+  .person .av img { width: 100%; height: 100%; object-fit: cover; }
+  .person b { display: block; font-size: 14px; font-weight: 900; color: var(--gold); line-height: 1.5; }
+  .person span { display: block; font-size: 11px; color: var(--muted); line-height: 1.5; }
   .bubble {
     position: relative;
-    background: #fff;
-    border: 2px solid var(--rule);
-    padding: 20px;
+    background: var(--cream);
+    padding: 22px 20px;
   }
+  /* the tail points back up at the person who said it */
   .bubble::before {
     content: "";
     position: absolute;
-    bottom: -12px;
-    left: 30px;
-    border: 12px solid transparent;
-    border-top-color: var(--rule);
-    border-bottom: 0;
+    top: -11px;
+    left: 22px;
+    border: 11px solid transparent;
+    border-top: 0;
+    border-bottom-color: var(--cream);
   }
-  .bubble::after {
-    content: "";
-    position: absolute;
-    bottom: -9px;
-    left: 32px;
-    border: 10px solid transparent;
-    border-top-color: #fff;
-    border-bottom: 0;
-  }
-  .stars { color: var(--gold); font-size: 15px; letter-spacing: 2px; margin-bottom: 8px; }
-  .bubble p { font-size: 13px; line-height: 2; color: #555; }
-  .person { display: flex; align-items: center; gap: 10px; margin: 18px 0 0 16px; }
-  .person .av { flex: none; width: 42px; height: 42px; border-radius: 50%; background: #f3dcb2; }
-  .person b { display: block; font-size: 12px; color: var(--navy); line-height: 1.5; }
-  .person span { display: block; font-size: 10px; color: #999; line-height: 1.5; }
+  .bubble p { font-size: 13px; line-height: 2.05; color: #55524c; }
+  .bubble p + p { margin-top: 14px; }
 
   /* ===== pricing ===== */
   .pricing { background: var(--cream); }
@@ -1294,9 +1295,21 @@
     .tl-item h3 { font-size: 17px; }
     .tl-item p { font-size: 13.5px; }
 
-    /* testimonials */
-    .voice-grid { grid-template-columns: 1fr 1fr; gap: 40px 30px; margin-top: 52px; }
-    .bubble { padding: 28px 26px; }
+    /* testimonials — long quotes read better in one column beside the speaker */
+    .voice-grid { max-width: 900px; margin-inline: auto; gap: 48px; margin-top: 56px; }
+    .voice { grid-template-columns: 210px 1fr; gap: 34px; align-items: start; }
+    .person { flex-direction: column; align-items: flex-start; gap: 12px; padding-top: 6px; }
+    .person .av { width: 84px; height: 84px; }
+    .person b { font-size: 15px; }
+    .person span { font-size: 12px; }
+    .bubble { padding: 30px 28px; }
+    .bubble::before {
+      top: 26px;
+      left: -11px;
+      border: 11px solid transparent;
+      border-left: 0;
+      border-right-color: var(--cream);
+    }
     .bubble p { font-size: 14.5px; }
 
     /* pricing — featured plan raised in the middle */
@@ -1696,20 +1709,20 @@
         <p class="tl-when">2-3<small>ヶ月目</small></p>
         <div>
           <div class="tl-head">
-            <h3>フォロワー増加・認知拡大</h3>
-            <span class="tl-tag">認知拡大</span>
+            <h3>発信の基盤の構築（企画、台本作成等）</h3>
+            <span class="tl-tag">企画・台本</span>
           </div>
-          <p>投稿の継続でエンゲージメントが上昇。プロフィールへのアクセスが増える。</p>
+          <p>投稿テーマに沿った企画と台本が揃い、撮影から投稿までを自分たちで回せる状態に。</p>
         </div>
       </div>
       <div class="tl-item">
         <p class="tl-when">4-6<small>ヶ月目</small></p>
         <div>
           <div class="tl-head">
-            <h3>採用問い合わせ・応募が来る</h3>
-            <span class="tl-tag">応募発生</span>
+            <h3>フォロワー増加・認知拡大</h3>
+            <span class="tl-tag">認知拡大</span>
           </div>
-          <p>「ここで働きたい」という自発的な応募が入り始める。採用コストが下がる。</p>
+          <p>投稿の継続でエンゲージメントが上昇。プロフィールへのアクセスが増える。</p>
         </div>
       </div>
       <div class="tl-item">
@@ -1737,46 +1750,43 @@
 
     <div class="voice-grid">
       <div class="voice">
-        <div class="bubble">
-          <p class="stars">★★★★★</p>
-          <p>「投稿するだけで変わるの？」と半信半疑でしたが、3ヶ月で応募者の質が劇的に変わりました。今では面接前からお互いを理解し合えていて、採用後のミスマッチがほぼゼロです。</p>
-        </div>
         <div class="person">
-          <span class="av"></span>
-          <div><b>旅館オーナー A様</b><span>京都・旅館（20室）</span></div>
+          <span class="av"><img src="images/account-1.jpg" alt="" loading="lazy" onerror="this.remove()" /></span>
+          <div>
+            <b>@makoto__miyamoto</b>
+            <span>弊社の社長アカウント</span>
+          </div>
+        </div>
+        <div class="bubble">
+          <p>元々、僕はSNSでの発信が得意ではなく、会社を立ち上げ、発信していくことが会社の未来や可能性につながると、必要性を感じながらも、一人では続けられず挫折しました。</p>
+          <p>そんな僕が発信を続けられるようになったのは、一緒に考え、悩み、伴走してくれる相手がいたからです。SNSを通して、自分や会社の想いを言葉にし、届けられるようになり、Instagramも軌道に乗りました。</p>
+          <p>そして何より、SNSでの発信を続けたことで、「自分は何を大切にしているのか」「会社として何を伝えていきたいのか」を、以前よりも言葉にできるようになったと感じています。SNSを頑張りたい人にこそ、濱中の伴走を経験してほしいと思っています。</p>
         </div>
       </div>
-
       <div class="voice">
-        <div class="bubble">
-          <p class="stars">★★★★★</p>
-          <p>スタッフが「楽しんで」投稿するようになったのが一番の変化。採用目的だったのに、既存スタッフのエンゲージメントまで上がって一石二鳥でした。</p>
-        </div>
         <div class="person">
-          <span class="av"></span>
-          <div><b>ホテル総支配人 B様</b><span>東京・ホテル（50室）</span></div>
+          <span class="av"><img src="images/account-2.jpg" alt="" loading="lazy" onerror="this.remove()" /></span>
+          <div>
+            <b>@kazuhito__kouno</b>
+            <span>20年以上の福祉経験・会社経営</span>
+          </div>
+        </div>
+        <div class="bubble">
+          <p>SNSの知識がまったくない状態から、発信の方向性づくり、内容の整理、継続の仕組み化まで一貫して伴走して頂いています。期限を設定し、進捗を確認しながら背中を押してくださるため、後回しにしがちだった発信にも継続して取り組めるようになりました。</p>
+          <p>また、自分の想いを伝わる形に整理し、発信内容を講座という新たなサービスへ発展させることもできました。その結果、大阪以外からも問い合わせをいただき、スタッフにも想いや事業の方向性を共有できるようになりました。継続的な発信と成果につなげられたことに、本当に感謝しています。</p>
         </div>
       </div>
-
       <div class="voice">
-        <div class="bubble">
-          <p class="stars">★★★★☆</p>
-          <p>求人広告費が月40万かかっていたのに、6ヶ月で半分以下に。フミヤさんのコンサルは「仕組み化」が徹底されていて、私たちだけでも動けるようになりました。</p>
-        </div>
         <div class="person">
-          <span class="av"></span>
-          <div><b>民宿経営者 C様</b><span>長野・民宿（8室）</span></div>
+          <span class="av"><img src="images/account-3.jpg" alt="" loading="lazy" onerror="this.remove()" /></span>
+          <div>
+            <b>@shimada.info</b>
+            <span>一人サロン経営者</span>
+          </div>
         </div>
-      </div>
-
-      <div class="voice">
         <div class="bubble">
-          <p class="stars">★★★★★</p>
-          <p>採用に困っていたシーズンも、Instagramから直接メッセージが来て採用できました。「SNSで採用できるんだ」という成功体験がスタッフにも広がっています。</p>
-        </div>
-        <div class="person">
-          <span class="av"></span>
-          <div><b>旅館女将 D様</b><span>箱根・旅館（15室）</span></div>
+          <p>インスタ運用の右も左も分からない状態からコンサルをお願いし、4ヶ月でフォロワー数は1,187人から3,364人へ。新たに2,177人とつながり、そこから少なく見積もっても200万〜300万円の売上が生まれました。</p>
+          <p>リール台本、ストーリーズ運用、企画、セミナーまで、集客から売上化まで一貫して伴走してくださいます。フォロワーを増やすだけでなく、売上につなげる部分に課題がある方にもおすすめしたいです。</p>
         </div>
       </div>
     </div>
