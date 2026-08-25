@@ -963,6 +963,25 @@
   }
   .plan-btn-feat:hover { background: linear-gradient(135deg, var(--gold-2), var(--gold)); color: #fff; }
 
+  .plan-notes {
+    list-style: none;
+    margin-top: 28px;
+    display: grid;
+    gap: 6px;
+  }
+  .plan-notes li {
+    position: relative;
+    padding-left: 1.3em;
+    font-size: 11.5px;
+    line-height: 1.9;
+    color: #a09781;
+  }
+  .plan-notes li::before {
+    content: "※";
+    position: absolute;
+    left: 0;
+  }
+
   /* ===== trust ===== */
   /* gold panel with a ruled list, after the reference page's partner section */
   .trust { background: #fff; }
@@ -1316,6 +1335,8 @@
     .plans { grid-template-columns: 1fr 1.08fr 1fr; gap: 22px; align-items: start; margin-top: 62px; }
     .plan { padding: 40px 30px; }
     .plan-feat { transform: translateY(-18px); }
+    .plan-notes { margin-top: 40px; }
+    .plan-notes li { font-size: 12.5px; }
     .plan-price b { font-size: 42px; }
     .plan li { font-size: 13.5px; }
 
@@ -1812,7 +1833,9 @@
           <li><b>✓</b>月12投稿（週3回）</li>
           <li><b>✓</b>月次レポート</li>
           <li><b>✓</b>週次MTG</li>
-          <li class="na"><b>—</b>撮影ディレクション</li>
+          <li><b>✓</b>撮影ディレクション</li>
+          <li><b>✓</b>台本作成／添削</li>
+          <li><b>✓</b>編集・投稿作成（月15投稿）</li>
         </ul>
         <a href="#cta" class="plan-btn">このプランで相談する</a>
       </div>
@@ -1828,6 +1851,8 @@
           <li><b>✓</b>月次レポート</li>
           <li><b>✓</b>週次MTG（60分）</li>
           <li><b>✓</b>撮影ディレクション</li>
+          <li class="na"><b>—</b>台本作成なし</li>
+          <li class="na"><b>—</b>編集・投稿作成（月15投稿）</li>
         </ul>
         <a href="#cta" class="plan-btn plan-btn-feat">このプランで申し込む</a>
       </div>
@@ -1842,10 +1867,17 @@
           <li><b>✓</b>月次レポート</li>
           <li><b>✓</b>週次MTG（90分）</li>
           <li class="na"><b>—</b>撮影ディレクション</li>
+          <li class="na"><b>—</b>台本作成／添削</li>
+          <li class="na"><b>—</b>編集・投稿作成（月15投稿）</li>
         </ul>
         <a href="#cta" class="plan-btn">このプランで相談する</a>
       </div>
     </div>
+
+    <ul class="plan-notes">
+      <li>撮影ディレクションは月2回まで実施いたします。</li>
+      <li>交通費は、大阪府以外の場合は別途ご負担をお願いしております。</li>
+    </ul>
   </div>
 </section>
 
