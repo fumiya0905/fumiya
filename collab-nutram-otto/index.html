@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ニュートラム × OTTO 寄り添うごはん コラボセット</title>
+<meta name="description" content="カナダ産ドッグフード ニュートラムと、食べる水分補給のOTTO寄り添うごはんのコラボセットが登場。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Maru+Gothic:wght@500;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  /* All selectors are scoped under .nxo so the block can sit inside the BASE theme
+     without colliding with the shop's own CSS. */
+  .nxo {
+    --forest: #2f4a3a;
+    --forest-2: #4f6f5b;
+    --leaf: #dfe8dc;
+    --water: #6fa7b8;
+    --water-pale: #e3f0f3;
+    --terra: #d9814f;
+    --terra-pale: #f8e6da;
+    --cream: #faf6ef;
+    --paper: #ffffff;
+    --rule: #e7e0d4;
+    --ink: #333a35;
+    --muted: #7a807b;
+    --wrap: 1080px;
+    --radius: 20px;
+
+    font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.9;
+    font-size: 15px;
+    letter-spacing: 0.04em;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  .nxo *, .nxo *::before, .nxo *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  .nxo img { max-width: 100%; display: block; }
+  .nxo a { color: inherit; text-decoration: none; }
+  .nxo :focus-visible { outline: 3px solid var(--terra); outline-offset: 3px; }
+
+  .nxo .wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 20px; }
+  .nxo .wrap-narrow { max-width: 760px; }
+  .nxo section { padding: 88px 0; scroll-margin-top: 24px; }
+
+  /* ===== section headings: English display + Japanese caption ===== */
+  .nxo .sec-head { text-align: center; margin-bottom: 48px; }
+  .nxo .sec-head .en {
+    display: block;
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    font-size: 44px;
+    line-height: 1.1;
+    letter-spacing: 0.08em;
+    color: var(--forest);
+  }
+  .nxo .sec-head .ja {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+  }
+  .nxo .sec-head .ja::before,
+  .nxo .sec-head .ja::after {
+    content: "";
+    display: inline-block;
+    width: 18px; height: 1px;
+    background: currentColor;
+    vertical-align: middle;
+    margin: 0 10px;
+  }
+  .nxo .lead {
+    font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.7;
+    color: var(--forest);
+    text-align: center;
+    margin-bottom: 28px;
+  }
+
+  /* ===== image slots: show the photo if it exists, otherwise a soft placeholder ===== */
+  .nxo .ph {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, var(--leaf), var(--water-pale));
+  }
+  .nxo .ph img { width: 100%; height: 100%; object-fit: cover; position: relative; z-index: 1; }
+  .nxo .ph::after {
+    content: attr(data-label);
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    white-space: pre-line;
+    color: rgba(47, 74, 58, 0.45);
+    text-align: center;
+    padding: 12px;
+  }
+
+  /* ===== top bar ===== */
+  .nxo .bar {
+    display: flex; align-items: center; justify-content: center; gap: 14px;
+    padding: 18px 20px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    font-size: 14px;
+    color: var(--forest);
+  }
+  .nxo .bar .x { font-weight: 400; color: var(--terra); }
+
+  /* ===== main visual ===== */
+  .nxo .mv { padding: 8px 0 88px; }
+  .nxo .mv-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    align-items: center;
+  }
+  .nxo .mv-photo { aspect-ratio: 4 / 3; border-radius: 32px; }
+  .nxo .mv-tag {
+    display: inline-block;
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: var(--paper);
+    background: var(--terra);
+    padding: 4px 14px;
+    border-radius: 999px;
+    margin-bottom: 18px;
+  }
+  .nxo .mv-copy h1 {
+    font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 1.75;
+    color: var(--forest);
+    letter-spacing: 0.06em;
+  }
+  .nxo .mv-copy h1 .s { display: block; font-size: 0.68em; font-weight: 500; color: var(--forest-2); }
+  .nxo .mv-copy h1 .em {
+    background: linear-gradient(transparent 62%, var(--terra-pale) 62%);
+  }
+  .nxo .mv-copy h1 .big { display: block; font-size: 1.28em; margin-top: 4px; }
+  .nxo .mv-brands {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px;
+  }
+  .nxo .chip {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--rule);
+    background: var(--paper);
+  }
+  .nxo .chip.n { color: var(--forest); border-color: var(--forest-2); }
+  .nxo .chip.o { color: #3d7586; border-color: var(--water); }
+
+  /* ===== buttons ===== */
+  .nxo .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    min-height: 56px;
+    padding: 14px 36px;
+    border-radius: 999px;
+    background: var(--terra);
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    box-shadow: 0 6px 0 #b9653a;
+    transition: transform .15s, box-shadow .15s;
+  }
+  .nxo .btn:hover { transform: translateY(3px); box-shadow: 0 3px 0 #b9653a; }
+  .nxo .btn .arrow { font-family: 'Jost', sans-serif; }
+  .nxo .btn-ghost {
+    background: transparent;
+    color: var(--forest);
+    border: 1px solid var(--forest-2);
+    box-shadow: none;
+  }
+  .nxo .btn-ghost:hover { transform: none; box-shadow: none; background: var(--leaf); }
+  .nxo .mv-cta { margin-top: 32px; }
+
+  /* ===== our story ===== */
+  .nxo .story { background: var(--paper); }
+  .nxo .story-body p + p { margin-top: 1.4em; }
+  .nxo .story-body { text-align: center; }
+  .nxo .pair {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 56px;
+  }
+  .nxo .pair-card {
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    background: var(--cream);
+  }
+  .nxo .pair-card .ph { aspect-ratio: 16 / 10; margin-bottom: 20px; }
+  .nxo .pair-card .brand {
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+  }
+  .nxo .pair-card.n .brand { color: var(--forest-2); }
+  .nxo .pair-card.o .brand { color: #3d7586; }
+  .nxo .pair-card h3 {
+    font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
+    font-size: 19px;
+    color: var(--forest);
+    margin: 4px 0 10px;
+    line-height: 1.6;
+  }
+  .nxo .pair-card p { font-size: 14px; }
+  .nxo .pair-card .link {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--muted);
+    border-bottom: 1px solid var(--rule);
+  }
+  .nxo .pair-x {
+    text-align: center;
+    font-family: 'Jost', sans-serif;
+    font-size: 28px;
+    color: var(--terra);
+    line-height: 1;
+  }
+
+  /* ===== features ===== */
+  .nxo .features-list { display: grid; gap: 56px; }
+  .nxo .feature {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    align-items: center;
+  }
+  .nxo .feature .ph { aspect-ratio: 4 / 3; }
+  .nxo .feature .num {
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    color: var(--terra);
+  }
+  .nxo .feature .num b { font-size: 40px; font-weight: 400; margin-left: 6px; }
+  .nxo .feature h3 {
+    font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
+    font-size: 22px;
+    line-height: 1.6;
+    color: var(--forest);
+    margin: 6px 0 14px;
+  }
+  .nxo .feature p { font-size: 14.5px; }
+
+  /* ===== how to use ===== */
+  .nxo .howto { background: var(--water-pale); }
+  .nxo .steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    counter-reset: step;
+    list-style: none;
+  }
+  .nxo .step {
+    position: relative;
+    background: var(--paper);
+    border-radius: var(--radius);
+    padding: 28px 24px 26px;
+  }
+  .nxo .step .ph { aspect-ratio: 1 / 1; max-width: 180px; margin: 0 auto 18px; border-radius: 50%; }
+  .nxo .step .label {
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: #3d7586;
+    text-align: center;
+  }
+  .nxo .step h3 {
+    font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
+    font-size: 19px;
+    color: var(--forest);
+    text-align: center;
+    margin: 4px 0 10px;
+  }
+  .nxo .step p { font-size: 14px; }
+  .nxo .note {
+    margin-top: 28px;
+    background: var(--paper);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .nxo .note li { list-style: none; padding-left: 1.2em; text-indent: -1.2em; }
+  .nxo .note li::before { content: "※"; margin-right: 0.2em; }
+
+  /* ===== products ===== */
+  .nxo .products { background: var(--paper); }
+  .nxo .product {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    border: 1px solid var(--rule);
+    border-radius: 28px;
+    padding: 24px;
+    background: var(--cream);
+  }
+  .nxo .product .ph { aspect-ratio: 1 / 1; }
+  .nxo .product .badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--terra);
+    border: 1px solid var(--terra);
+    border-radius: 999px;
+    padding: 2px 12px;
+  }
+  .nxo .product h3 {
+    font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
+    font-size: 24px;
+    line-height: 1.5;
+    color: var(--forest);
+    margin: 12px 0 18px;
+  }
+  .nxo .contents { border-top: 1px solid var(--rule); }
+  .nxo .contents li {
+    list-style: none;
+    display: flex; justify-content: space-between; gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 14px;
+  }
+  .nxo .contents li span:last-child { color: var(--muted); white-space: nowrap; }
+  .nxo .price {
+    margin: 22px 0 6px;
+    font-family: 'Jost', sans-serif;
+    font-size: 36px;
+    font-weight: 500;
+    color: var(--forest);
+    line-height: 1.2;
+  }
+  .nxo .price small { font-family: 'Noto Sans JP', sans-serif; font-size: 13px; color: var(--muted); margin-left: 6px; }
+  .nxo .product .btn { width: 100%; margin-top: 18px; }
+  .nxo .subnote { font-size: 12px; color: var(--muted); margin-top: 14px; }
+
+  /* ===== closing ===== */
+  .nxo .closing {
+    background: var(--forest);
+    color: #fff;
+    text-align: center;
+  }
+  .nxo .closing .lead { color: #fff; }
+  .nxo .closing p { opacity: 0.9; }
+  .nxo .closing .btn { margin-top: 32px; }
+  .nxo .foot {
+    padding: 28px 20px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  @media (max-width: 899px) {
+    .nxo .story-body br, .nxo .closing p br { display: none; }
+  }
+
+  /* ===== wider screens ===== */
+  @media (min-width: 900px) {
+    .nxo { font-size: 16px; }
+    .nxo section { padding: 120px 0; }
+    .nxo .sec-head .en { font-size: 60px; }
+    .nxo .lead { font-size: 30px; }
+    .nxo .mv { padding: 16px 0 120px; }
+    .nxo .mv-grid { grid-template-columns: 1fr 1.1fr; gap: 56px; }
+    .nxo .mv-copy h1 { font-size: 34px; }
+    .nxo .pair { grid-template-columns: 1fr auto 1fr; align-items: center; gap: 28px; }
+    .nxo .pair-card { padding: 36px 32px; }
+    .nxo .feature { grid-template-columns: 1fr 1fr; gap: 64px; }
+    .nxo .feature:nth-child(even) .ph { order: 2; }
+    .nxo .feature h3 { font-size: 26px; }
+    .nxo .steps { grid-template-columns: repeat(3, 1fr); }
+    .nxo .product { grid-template-columns: 1fr 1fr; gap: 48px; padding: 40px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nxo .btn { transition: none; }
+  }
+</style>
+</head>
+<body style="margin:0;background:#faf6ef;">
+
+<div class="nxo">
+
+  <div class="bar" aria-label="NUTRAM × OTTO">
+    <span>NUTRAM</span><span class="x">×</span><span>OTTO</span>
+  </div>
+
+  <!-- ===== MAIN VISUAL ===== -->
+  <section class="mv">
+    <div class="wrap mv-grid">
+      <div class="ph mv-photo" data-label="MAIN VISUAL&#10;images/mv.jpg">
+        <img src="images/mv.jpg" alt="ニュートラムとOTTO寄り添うごはんのコラボセット" onerror="this.remove()" />
+      </div>
+      <div class="mv-copy">
+        <span class="mv-tag">COLLABORATION</span>
+        <h1>
+          <span class="s">カナダ産ドッグフード</span>
+          <span class="em">ニュートラム</span>と
+          <span class="s" style="margin-top:6px">食べる水分補給の</span>
+          <span class="em">OTTO寄り添うごはん</span>の
+          <span class="big">コラボセットが登場</span>
+        </h1>
+        <div class="mv-brands">
+          <span class="chip n">NUTRAM ｜ カナダ産ドライフード</span>
+          <span class="chip o">OTTO ｜ 食べる水分補給</span>
+        </div>
+        <div class="mv-cta">
+          <a class="btn" href="#products">セットを見る <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== OUR STORY ===== -->
+  <section id="story" class="story">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="en">Our Story</span>
+        <span class="ja">このセットが生まれた理由</span>
+      </div>
+
+      <div class="wrap-narrow" style="margin:0 auto;padding:0">
+        <p class="lead">毎日のごはんに、<br />もうひとつの「やさしさ」を。</p>
+        <div class="story-body">
+          <p>ドライフードは、栄養バランスと続けやすさに優れた毎日の主食。<br />けれど、水をあまり飲まない子や、食が細くなってきた子には<br />「もう少し水分を」「もう少し食べる楽しみを」と感じることもあります。</p>
+          <p>そこで、カナダで生まれたドッグフード ニュートラムと、<br />ごはんから水分をとれる OTTO 寄り添うごはんが手を組みました。</p>
+          <p>いつものごはんはそのままに、ひと手間で水分と香りをプラス。<br />愛犬の「おいしい」と、飼い主さまの「安心」に寄り添うセットです。</p>
+        </div>
+      </div>
+
+      <div class="pair">
+        <div class="pair-card n">
+          <div class="ph" data-label="images/story-nutram.jpg">
+            <img src="images/story-nutram.jpg" alt="ニュートラム" onerror="this.remove()" />
+          </div>
+          <span class="brand">NUTRAM</span>
+          <h3>カナダ生まれの<br />ドッグフード</h3>
+          <p>1993年創業、カナダ・オンタリオ州エルマイラを拠点とするペットフードメーカー。自社の工場で、愛犬の毎日を支える主食をつくっています。</p>
+          <a class="link" href="https://nutram.jp/" target="_blank" rel="noopener">ニュートラム公式サイト ↗</a>
+        </div>
+        <div class="pair-x" aria-hidden="true">×</div>
+        <div class="pair-card o">
+          <div class="ph" data-label="images/story-otto.jpg">
+            <img src="images/story-otto.jpg" alt="OTTO 寄り添うごはん" onerror="this.remove()" />
+          </div>
+          <span class="brand">OTTO</span>
+          <h3>食べる水分補給<br />寄り添うごはん</h3>
+          <p>ごはんと一緒に、自然に水分をとれるように。毎日の食事を通して、愛犬の水分補給に寄り添うごはんです。</p>
+          <a class="link" href="https://lp.ottoanimal.com/" target="_blank" rel="noopener">OTTO公式サイト ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES ===== -->
+  <section id="features" class="features">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="en">Features</span>
+        <span class="ja">コラボセットの特長</span>
+      </div>
+
+      <div class="features-list">
+        <article class="feature">
+          <div class="ph" data-label="images/feature-1.jpg">
+            <img src="images/feature-1.jpg" alt="ニュートラムのドライフード" onerror="this.remove()" />
+          </div>
+          <div>
+            <span class="num">POINT<b>01</b></span>
+            <h3>主食は、カナダ産の<br />ニュートラム</h3>
+            <p>カナダの自社工場でつくられるニュートラムを、毎日の主食に。愛犬のライフステージや体格にあわせて選べるラインナップから、セット内容をご用意しました。</p>
+          </div>
+        </article>
+
+        <article class="feature">
+          <div class="ph" data-label="images/feature-2.jpg">
+            <img src="images/feature-2.jpg" alt="OTTO 寄り添うごはん" onerror="this.remove()" />
+          </div>
+          <div>
+            <span class="num">POINT<b>02</b></span>
+            <h3>ごはんで水分をとる<br />「食べる水分補給」</h3>
+            <p>水をなかなか飲んでくれない子も、ごはんと一緒なら自然に水分をとりやすくなります。OTTO 寄り添うごはんを合わせることで、いつもの食事が水分補給の時間に。</p>
+          </div>
+        </article>
+
+        <article class="feature">
+          <div class="ph" data-label="images/feature-3.jpg">
+            <img src="images/feature-3.jpg" alt="ごはんを食べる犬" onerror="this.remove()" />
+          </div>
+          <div>
+            <span class="num">POINT<b>03</b></span>
+            <h3>いつものごはんに<br />のせるだけ</h3>
+            <p>特別な準備はいりません。ニュートラムに寄り添うごはんをのせて混ぜるだけ。香りと食感の変化で、食事の時間がもっと楽しみになります。</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW TO USE ===== -->
+  <section id="howto" class="howto">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="en">How to use</span>
+        <span class="ja">おすすめの与え方</span>
+      </div>
+
+      <ol class="steps">
+        <li class="step">
+          <div class="ph" data-label="STEP 1">
+            <img src="images/step-1.jpg" alt="" onerror="this.remove()" />
+          </div>
+          <p class="label">STEP 1</p>
+          <h3>ニュートラムを量る</h3>
+          <p>パッケージの給与量の目安を参考に、いつもの量から寄り添うごはんの分を差し引いて器に入れます。</p>
+        </li>
+        <li class="step">
+          <div class="ph" data-label="STEP 2">
+            <img src="images/step-2.jpg" alt="" onerror="this.remove()" />
+          </div>
+          <p class="label">STEP 2</p>
+          <h3>寄り添うごはんをのせる</h3>
+          <p>OTTO 寄り添うごはんをドライフードの上にトッピングします。</p>
+        </li>
+        <li class="step">
+          <div class="ph" data-label="STEP 3">
+            <img src="images/step-3.jpg" alt="" onerror="this.remove()" />
+          </div>
+          <p class="label">STEP 3</p>
+          <h3>よく混ぜてどうぞ</h3>
+          <p>全体になじむように軽く混ぜたら完成。新鮮なお水も一緒に用意してあげてください。</p>
+        </li>
+      </ol>
+
+      <ul class="note">
+        <li>給与量は年齢・体重・運動量によって異なります。各商品パッケージの目安をご確認ください。</li>
+        <li>はじめて与える際は少量から始め、愛犬の様子を見ながら量を調整してください。</li>
+        <li>持病のある子や療法食を食べている子は、かかりつけの獣医師にご相談ください。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== PRODUCTS ===== -->
+  <section id="products" class="products">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="en">Products</span>
+        <span class="ja">セット内容</span>
+      </div>
+
+      <div class="product">
+        <div class="ph" data-label="PRODUCT&#10;images/product-set.jpg">
+          <img src="images/product-set.jpg" alt="ニュートラム × OTTO コラボセット" onerror="this.remove()" />
+        </div>
+        <div>
+          <span class="badge">コラボ限定</span>
+          <h3>ニュートラム × OTTO<br />寄り添うごはん コラボセット</h3>
+          <!-- TODO: 実際のセット内容・容量に差し替え -->
+          <ul class="contents">
+            <li><span>ニュートラム ドライフード</span><span>〇〇g × 〇袋</span></li>
+            <li><span>OTTO 寄り添うごはん</span><span>〇〇g × 〇個</span></li>
+          </ul>
+          <!-- TODO: 実際の価格に差し替え -->
+          <p class="price">¥0,000<small>（税込・送料〇〇）</small></p>
+          <!-- TODO: BASEの商品ページURLに差し替え -->
+          <a class="btn" href="#">BASEで購入する <span class="arrow">→</span></a>
+          <p class="subnote">数量限定のため、なくなり次第終了となります。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CLOSING ===== -->
+  <section class="closing">
+    <div class="wrap wrap-narrow">
+      <p class="lead">いつものごはんに、<br />寄り添うひと皿を。</p>
+      <p>主食のニュートラムと、食べる水分補給の寄り添うごはん。<br />ふたつを合わせて、愛犬の毎日の食事をもっと豊かに。</p>
+      <a class="btn" href="#products">セットを見る <span class="arrow">→</span></a>
+    </div>
+  </section>
+
+  <p class="foot">NUTRAM × OTTO Collaboration</p>
+
+</div>
+
+</body>
+</html>
