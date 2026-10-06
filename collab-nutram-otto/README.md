@@ -4,12 +4,20 @@
 CSSはすべて `.nxo` の中に閉じているため、BASEのテーマに埋め込んでも既存のスタイルとぶつかりにくい作りです。
 
 ## 構成
-1. メインビジュアル（指定の文章）
-2. Our Story — このセットが生まれた理由／両ブランド紹介
-3. Features — 特長3点
-4. How to use — 与え方3ステップ＋注意書き
-5. Products — セット内容・価格・購入ボタン
-6. クロージング
+デザインは GREEN SPOON（green-spoon.jp）のスクリーンショットを参考にしています。
+
+1. お知らせ帯＋ヘッダー（左：ページ内リンク／中央：ロゴ／右：購入ボタン）
+2. メインビジュアル — 全面写真＋指定の文章＋下端に大きなロゴ
+3. Our Story — 3カラム（見出し／写真／本文）＋両ブランド紹介
+4. Features — トッピングの3つの利点（スマホは横スクロール）
+5. Perfect Pair — T27 / T28 / T29 のタブ切り替え＋OTTOの新鮮さと水分＋まとめの帯
+6. How to use — オレンジの帯、3ステップ＋右側に縦長写真
+7. Products — セットのカード（緑の帯・価格・購入ボタン）
+8. 締めのコピー＋ボタン
+9. 濃い色のフッター＋大きなロゴ
+10. 画面下に追従する「セットを見る」ボタン（MV・Products・フッターでは自動で隠れます）
+
+JSは末尾に約40行（タブ切り替えと追従ボタン）。JSが動かない環境では T27〜T29 が縦に全部並びます。
 
 ## 公開前に必ず差し替える箇所
 | 場所 | 現在 | 差し替え内容 |
@@ -37,10 +45,14 @@ Features 末尾に「医薬品ではありません」の注記を入れてい�
 ## 画像（`images/` に置くと自動で表示。無い間は淡い色の枠が出ます）
 | ファイル名 | 場所 | 推奨比率 |
 | --- | --- | --- |
-| `mv.jpg` | メインビジュアル | 4:3 |
-| `story-nutram.jpg` / `story-otto.jpg` | Our Story のブランド紹介 | 16:10 |
-| `feature-1.jpg`〜`feature-3.jpg` | Features | 4:3 |
+| `mv.jpg` | メインビジュアル（全面・上に白文字が載ります） | 横長 16:9 以上 |
+| `story.jpg` | Our Story 中央 | 4:5 |
+| `story-nutram.jpg` / `story-otto.jpg` | ブランド紹介 | 16:9 |
+| `merit-1.jpg`〜`merit-3.jpg` | Features の3つの利点 | 4:3 |
+| `t27.jpg` / `t28.jpg` / `t29.jpg` | Perfect Pair の各レシピ | 4:3 |
+| `feature-otto.jpg` | Perfect Pair の OTTO | 4:3 |
 | `step-1.jpg`〜`step-3.jpg` | How to use（円形に切り抜き） | 1:1 |
+| `howto.jpg` | How to use 右側 | 縦長 3:4 |
 | `product-set.jpg` | Products | 1:1 |
 
 ## BASEへの組み込み
