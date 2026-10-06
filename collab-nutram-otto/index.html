@@ -424,6 +424,13 @@
   .nxo .item .ph { aspect-ratio: 1 / 1; }
   .nxo .item .no { font-family: 'Jost', sans-serif; font-size: 13px; color: var(--muted); margin-top: 18px; }
   .nxo .item h3 { font-size: 17px; font-weight: 700; letter-spacing: 0.08em; line-height: 1.7; }
+  .nxo .item .who { font-size: 13px; color: var(--sub); line-height: 1.8; margin-top: 6px; }
+  .nxo .specs { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+  .nxo .specs li { font-size: 11px; font-weight: 500; color: var(--blue-ink); background: var(--blue-pale); border-radius: 4px; padding: 1px 8px; letter-spacing: 0.04em; }
+  .nxo .merit-line { font-size: 13px; font-weight: 700; line-height: 1.8; margin-top: 12px; padding-left: 12px; border-left: 3px solid var(--orange); }
+  .nxo .price-row { display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: auto; padding-top: 20px; }
+  .nxo .regular { font-size: 13px; color: var(--muted); }
+  .nxo .off { background: var(--orange-pale); color: var(--orange-deep); font-weight: 700; font-size: 13px; padding: 2px 12px; border-radius: 999px; }
   .nxo .contents { margin-top: 12px; }
   .nxo .contents li {
     display: flex; justify-content: space-between; gap: 12px;
@@ -431,14 +438,13 @@
     border-bottom: 1px solid var(--rule);
     font-size: 13px;
   }
-  .nxo .contents li span:first-child { display: flex; align-items: center; gap: 8px; }
-  .nxo .contents li span:first-child::before { content: ""; width: 8px; height: 8px; border-radius: 50%; flex: none; }
+  .nxo .contents li span:first-child { display: flex; align-items: flex-start; gap: 8px; }
+  .nxo .contents li span:first-child::before { content: ""; width: 8px; height: 8px; border-radius: 50%; flex: none; margin-top: 0.75em; }
   .nxo .contents li.n span:first-child::before { background: var(--blue-mid); }
   .nxo .contents li.o span:first-child::before { background: var(--orange); }
   .nxo .contents li span:last-child { color: var(--muted); white-space: nowrap; }
   .nxo .price {
-    margin-top: auto;
-    padding-top: 18px;
+    margin-top: 4px;
     font-family: 'Jost', sans-serif;
     font-size: 40px;
     line-height: 1.15;
@@ -448,7 +454,7 @@
   .nxo .price small { font-family: 'Noto Sans JP', sans-serif; font-size: 16px; font-weight: 700; margin-left: 2px; }
   .nxo .price-sub { color: var(--orange-deep); font-size: 12px; text-align: center; }
   .nxo .item .btn { width: 100%; min-height: 52px; margin-top: 16px; padding: 12px 20px; font-size: 15px; }
-  .nxo .items-note { font-size: 12px; color: var(--muted); margin-top: 20px; text-align: center; }
+  .nxo .items-note { font-size: 12px; color: var(--muted); margin-top: 24px; line-height: 1.9; }
 
   /* ===== closing + footer ===== */
   .nxo .closing { text-align: center; background: var(--orange); color: #fff; }
@@ -547,7 +553,8 @@
 
     .nxo .products-head { grid-template-columns: 1fr 1fr; align-items: end; }
     .nxo .products .display { font-size: 64px; }
-    .nxo .items { grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .nxo .items { display: flex; flex-wrap: wrap; justify-content: center; gap: 28px; }
+    .nxo .item { width: calc((100% - 56px) / 3); }
     .nxo .closing .display { font-size: 80px; }
     .nxo .foot { padding: 80px 0 0; }
     .nxo .foot .wrap { padding: 0 64px; }
@@ -821,101 +828,141 @@
     <div class="wrap">
       <div class="products-head">
         <h2 class="display">Select<br />Your Set</h2>
-        <p class="head-ja">ニュートラムとOTTOの<br />タイアップ記念セット、<br />全5種類。</p>
+        <p class="head-ja">ニュートラムとOTTOの<br />タイアップ記念セット、<br />全5種類。すべて10%OFF。</p>
       </div>
       <div class="items">
         <article class="item">
           <p class="item-band">ニュートラムとOTTOのタイアップ記念</p>
           <div class="item-body">
             <div class="ph" data-label="images/product-1.jpg">
-              <img src="images/product-1.jpg" alt="" onerror="this.remove()" />
+              <span class="pill">チキン</span>
+              <img src="images/product-1.jpg" alt="チキンセット" onerror="this.remove()" />
             </div>
             <p class="no">SET 01</p>
-            <!-- TODO: BASEの商品名・セット内容・価格・URLに差し替え -->
-            <h3>セット名（BASEの商品名）</h3>
+            <h3>チキンセット</h3>
+            <p class="who">穀物の消化が苦手な小型犬、低GI・高タンパクの主食を探している方に。</p>
             <ul class="contents">
-              <li class="n"><span>ニュートラム 〇〇</span><span>〇〇g × 〇</span></li>
-              <li class="o"><span>寄り添うごはん 〇〇</span><span>〇〇g × 〇</span></li>
+              <li class="n"><span>ニュートラム T27 チキン＆ターキー 小粒 2kg</span><span>¥5,780</span></li>
+              <li class="o"><span>寄り添うごはん ひなた鶏ミンチ 50g</span><span>¥530</span></li>
             </ul>
-            <p class="price">0,000<small>円</small></p>
+            <ul class="specs" aria-label="ニュートラムの特徴"><li>グレインフリー</li><li>小粒 約7mm</li><li>粗タンパク32.0%以上</li><li>372.5kcal/100g</li></ul>
+            <p class="merit-line">主食とトッピングを、チキンでそろえられます。</p>
+            <div class="price-row">
+              <p class="regular">通常 <s>¥6,310</s></p>
+              <span class="off">10%OFF</span>
+            </div>
+            <p class="price">5,679<small>円</small></p>
             <p class="price-sub">（税込）</p>
-            <a class="btn" href="#">BASEで購入する</a>
+            <!-- TODO: このセットのBASE商品ページURLに差し替え（https://shop.ottoanimal.com/items/〇〇） -->
+            <a class="btn" href="#">このセットを購入する</a>
           </div>
         </article>
         <article class="item">
           <p class="item-band">ニュートラムとOTTOのタイアップ記念</p>
           <div class="item-body">
             <div class="ph" data-label="images/product-2.jpg">
-              <img src="images/product-2.jpg" alt="" onerror="this.remove()" />
+              <span class="pill">サーモン</span>
+              <img src="images/product-2.jpg" alt="サーモンセット" onerror="this.remove()" />
             </div>
             <p class="no">SET 02</p>
-            <!-- TODO: BASEの商品名・セット内容・価格・URLに差し替え -->
-            <h3>セット名（BASEの商品名）</h3>
+            <h3>サーモンセット</h3>
+            <p class="who">皮膚・被毛のコンディションが気になる子、チキン以外の主食を探している方に。</p>
             <ul class="contents">
-              <li class="n"><span>ニュートラム 〇〇</span><span>〇〇g × 〇</span></li>
-              <li class="o"><span>寄り添うごはん 〇〇</span><span>〇〇g × 〇</span></li>
+              <li class="n"><span>ニュートラム T28 トラウト＆サーモン 小粒 2kg</span><span>¥5,780</span></li>
+              <li class="o"><span>寄り添うごはん サーモン切り身 60g</span><span>¥750</span></li>
             </ul>
-            <p class="price">0,000<small>円</small></p>
+            <ul class="specs" aria-label="ニュートラムの特徴"><li>グレインフリー</li><li>小粒</li><li>粗タンパク36.0%以上</li><li>オメガ3脂肪酸1.0%以上</li></ul>
+            <p class="merit-line">魚由来のオメガ3を、主食とトッピングの両方から続けてとれます。</p>
+            <div class="price-row">
+              <p class="regular">通常 <s>¥6,530</s></p>
+              <span class="off">10%OFF</span>
+            </div>
+            <p class="price">5,877<small>円</small></p>
             <p class="price-sub">（税込）</p>
-            <a class="btn" href="#">BASEで購入する</a>
+            <!-- TODO: このセットのBASE商品ページURLに差し替え（https://shop.ottoanimal.com/items/〇〇） -->
+            <a class="btn" href="#">このセットを購入する</a>
           </div>
         </article>
         <article class="item">
           <p class="item-band">ニュートラムとOTTOのタイアップ記念</p>
           <div class="item-body">
             <div class="ph" data-label="images/product-3.jpg">
-              <img src="images/product-3.jpg" alt="" onerror="this.remove()" />
+              <span class="pill">ラム・馬肉</span>
+              <img src="images/product-3.jpg" alt="低アレルギー源セット" onerror="this.remove()" />
             </div>
             <p class="no">SET 03</p>
-            <!-- TODO: BASEの商品名・セット内容・価格・URLに差し替え -->
-            <h3>セット名（BASEの商品名）</h3>
+            <h3>低アレルギー源セット</h3>
+            <p class="who">鶏・牛にアレルギー反応が出る子、原材料を絞ってフードを切り替えたい方に。</p>
             <ul class="contents">
-              <li class="n"><span>ニュートラム 〇〇</span><span>〇〇g × 〇</span></li>
-              <li class="o"><span>寄り添うごはん 〇〇</span><span>〇〇g × 〇</span></li>
+              <li class="n"><span>ニュートラム T29 ラム＆レンズ豆 小粒 2kg</span><span>¥5,780</span></li>
+              <li class="o"><span>寄り添うごはん 馬肉 40g</span><span>¥690</span></li>
             </ul>
-            <p class="price">0,000<small>円</small></p>
+            <ul class="specs" aria-label="ニュートラムの特徴"><li>グレインフリー</li><li>小粒</li><li>粗タンパク30.0%以上</li><li>単一動物性タンパク中心</li></ul>
+            <p class="merit-line">主食もトッピングも新奇タンパク源でそろえられ、切り替え期の食材管理がシンプルに。</p>
+            <div class="price-row">
+              <p class="regular">通常 <s>¥6,470</s></p>
+              <span class="off">10%OFF</span>
+            </div>
+            <p class="price">5,823<small>円</small></p>
             <p class="price-sub">（税込）</p>
-            <a class="btn" href="#">BASEで購入する</a>
+            <!-- TODO: このセットのBASE商品ページURLに差し替え（https://shop.ottoanimal.com/items/〇〇） -->
+            <a class="btn" href="#">このセットを購入する</a>
           </div>
         </article>
         <article class="item">
           <p class="item-band">ニュートラムとOTTOのタイアップ記念</p>
           <div class="item-body">
             <div class="ph" data-label="images/product-4.jpg">
-              <img src="images/product-4.jpg" alt="" onerror="this.remove()" />
+              <span class="pill">ラム・鹿肉</span>
+              <img src="images/product-4.jpg" alt="皮膚被毛セット" onerror="this.remove()" />
             </div>
             <p class="no">SET 04</p>
-            <!-- TODO: BASEの商品名・セット内容・価格・URLに差し替え -->
-            <h3>セット名（BASEの商品名）</h3>
+            <h3>皮膚被毛セット</h3>
+            <p class="who">皮膚のかゆみ・被毛のパサつきと、お腹の弱さが気になる子に。</p>
             <ul class="contents">
-              <li class="n"><span>ニュートラム 〇〇</span><span>〇〇g × 〇</span></li>
-              <li class="o"><span>寄り添うごはん 〇〇</span><span>〇〇g × 〇</span></li>
+              <li class="n"><span>ニュートラム I20 皮膚被毛胃腸ケア 2kg</span><span>¥5,390</span></li>
+              <li class="o"><span>寄り添うごはん 鹿ミートボール 60g</span><span>¥750</span></li>
             </ul>
-            <p class="price">0,000<small>円</small></p>
+            <ul class="specs" aria-label="ニュートラムの特徴"><li>ラム主体</li><li>サーモンオイル（EPA）配合</li><li>ローズマリー配合</li><li>粒 約10mm</li></ul>
+            <p class="merit-line">皮膚被毛ケアと消化ケアを1つの主食で。高タンパクな鹿肉で食いつきも後押し。</p>
+            <div class="price-row">
+              <p class="regular">通常 <s>¥6,140</s></p>
+              <span class="off">10%OFF</span>
+            </div>
+            <p class="price">5,526<small>円</small></p>
             <p class="price-sub">（税込）</p>
-            <a class="btn" href="#">BASEで購入する</a>
+            <!-- TODO: このセットのBASE商品ページURLに差し替え（https://shop.ottoanimal.com/items/〇〇） -->
+            <a class="btn" href="#">このセットを購入する</a>
           </div>
         </article>
         <article class="item">
           <p class="item-band">ニュートラムとOTTOのタイアップ記念</p>
           <div class="item-body">
             <div class="ph" data-label="images/product-5.jpg">
-              <img src="images/product-5.jpg" alt="" onerror="this.remove()" />
+              <span class="pill">体重管理・鹿肉</span>
+              <img src="images/product-5.jpg" alt="ダイエットセット" onerror="this.remove()" />
             </div>
             <p class="no">SET 05</p>
-            <!-- TODO: BASEの商品名・セット内容・価格・URLに差し替え -->
-            <h3>セット名（BASEの商品名）</h3>
+            <h3>ダイエットセット</h3>
+            <p class="who">体重が気になる子、脂質の消化が苦手な犬種に。</p>
             <ul class="contents">
-              <li class="n"><span>ニュートラム 〇〇</span><span>〇〇g × 〇</span></li>
-              <li class="o"><span>寄り添うごはん 〇〇</span><span>〇〇g × 〇</span></li>
+              <li class="n"><span>ニュートラム I18 体重管理用 2kg</span><span>¥4,620</span></li>
+              <li class="o"><span>寄り添うごはん 鹿肉ステーキ 60g</span><span>¥750</span></li>
             </ul>
-            <p class="price">0,000<small>円</small></p>
+            <ul class="specs" aria-label="ニュートラムの特徴"><li>332.0kcal/100g</li><li>粗タンパク28.0%以上</li><li>L-カルニチン配合</li><li>グルコサミン配合</li></ul>
+            <p class="merit-line">カロリーを抑えながら、低脂質・高タンパクの鹿肉で満足感と筋肉量の維持を。</p>
+            <div class="price-row">
+              <p class="regular">通常 <s>¥5,370</s></p>
+              <span class="off">10%OFF</span>
+            </div>
+            <p class="price">4,833<small>円</small></p>
             <p class="price-sub">（税込）</p>
-            <a class="btn" href="#">BASEで購入する</a>
+            <!-- TODO: このセットのBASE商品ページURLに差し替え（https://shop.ottoanimal.com/items/〇〇） -->
+            <a class="btn" href="#">このセットを購入する</a>
           </div>
         </article>
       </div>
-      <p class="items-note">数量限定のため、なくなり次第終了となります。</p>
+      <p class="items-note">※ 寄り添うごはんは、ほかの種類に変更できます。ご注文時のメモ欄にご希望の種類をご記入ください。<br />※ 価格はすべて税込です。通常価格は、セット内の商品を単品で購入した場合の合計です。</p>
     </div>
   </section>
 
