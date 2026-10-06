@@ -236,30 +236,167 @@
   }
 
   /* ===== features ===== */
-  .nxo .features-list { display: grid; gap: 56px; }
-  .nxo .feature {
+  .nxo .feat-block + .feat-block { margin-top: 88px; }
+  .nxo .feat-title {
+    text-align: center;
+    font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 1.7;
+    color: var(--forest);
+    margin-bottom: 12px;
+  }
+  .nxo .feat-title .num {
+    display: block;
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.24em;
+    color: var(--terra);
+  }
+  .nxo .feat-intro { text-align: center; font-size: 14.5px; margin-bottom: 36px; }
+
+  /* topping merits */
+  .nxo .merits { display: grid; grid-template-columns: 1fr; gap: 16px; list-style: none; }
+  .nxo .merit {
+    background: var(--paper);
+    border-radius: var(--radius);
+    padding: 26px 24px;
+  }
+  .nxo .merit .ico {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--water-pale);
+    color: #3d7586;
+    margin-bottom: 14px;
+  }
+  .nxo .merit .ico svg { width: 26px; height: 26px; }
+  .nxo .merit h4 {
+    font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
+    font-size: 18px;
+    color: var(--forest);
+    margin-bottom: 6px;
+  }
+  .nxo .merit p { font-size: 14px; }
+
+  /* recipe cards */
+  .nxo .recipes { display: grid; grid-template-columns: 1fr; gap: 16px; }
+  .nxo .recipe {
+    background: var(--paper);
+    border-radius: var(--radius);
+    padding: 24px;
+    border-top: 6px solid var(--forest-2);
+  }
+  .nxo .recipe-head { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+  .nxo .recipe-head .ph { width: 76px; height: 76px; flex: none; border-radius: 14px; }
+  .nxo .recipe-head .ph::after { font-size: 9px; letter-spacing: 0.08em; }
+  .nxo .recipe-head .code {
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1;
+    color: var(--forest);
+  }
+  .nxo .recipe-head .brand {
+    display: block;
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .nxo .combo { list-style: none; }
+  .nxo .combo li {
+    display: flex; flex-direction: column; align-items: flex-start; gap: 6px;
+    padding: 12px 0;
+    border-top: 1px dashed var(--rule);
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .nxo .tag {
+    flex: none;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 999px;
+    letter-spacing: 0.06em;
+  }
+  .nxo .tag.stress { background: #ece6f4; color: #6b5a8c; }
+  .nxo .tag.immune { background: var(--terra-pale); color: #b05f33; }
+  .nxo .tag.muscle { background: var(--leaf); color: var(--forest); }
+  .nxo .tag.gut    { background: #f5edd2; color: #8a6d1e; }
+  .nxo .recipe-note { font-size: 13px; color: var(--muted); margin-top: 6px; }
+
+  .nxo .plus {
+    text-align: center;
+    font-family: 'Jost', sans-serif;
+    font-size: 36px;
+    line-height: 1;
+    color: var(--terra);
+    margin: 28px 0;
+  }
+
+  /* OTTO card */
+  .nxo .otto-card {
     display: grid;
     grid-template-columns: 1fr;
     gap: 24px;
-    align-items: center;
+    background: var(--water-pale);
+    border-radius: 28px;
+    padding: 28px 24px;
   }
-  .nxo .feature .ph { aspect-ratio: 4 / 3; }
-  .nxo .feature .num {
+  .nxo .otto-card .ph { aspect-ratio: 4 / 3; }
+  .nxo .otto-card .brand {
     font-family: 'Jost', sans-serif;
-    font-weight: 500;
-    font-size: 14px;
+    font-weight: 600;
+    font-size: 13px;
     letter-spacing: 0.2em;
-    color: var(--terra);
+    color: #3d7586;
   }
-  .nxo .feature .num b { font-size: 40px; font-weight: 400; margin-left: 6px; }
-  .nxo .feature h3 {
+  .nxo .otto-card h4 {
     font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
-    font-size: 22px;
+    font-size: 20px;
     line-height: 1.6;
     color: var(--forest);
-    margin: 6px 0 14px;
+    margin: 4px 0 16px;
   }
-  .nxo .feature p { font-size: 14.5px; }
+  .nxo .otto-points { list-style: none; display: grid; gap: 12px; }
+  .nxo .otto-points li {
+    background: var(--paper);
+    border-radius: 14px;
+    padding: 16px 18px;
+    font-size: 14px;
+  }
+  .nxo .otto-points b { display: block; color: var(--forest); font-size: 15px; margin-bottom: 2px; }
+
+  /* result band */
+  .nxo .equation {
+    margin-top: 28px;
+    background: var(--forest);
+    color: #fff;
+    border-radius: 28px;
+    padding: 32px 24px;
+    text-align: center;
+  }
+  .nxo .equation .row {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px;
+    font-size: 14px;
+  }
+  .nxo .equation .row span:not(.op) {
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 999px;
+    padding: 6px 16px;
+  }
+  .nxo .equation .op { font-family: 'Jost', sans-serif; font-size: 22px; color: #f2b48e; }
+  .nxo .equation p {
+    margin-top: 18px;
+    font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 1.6;
+  }
+  .nxo .disclaimer { font-size: 12px; color: var(--muted); margin-top: 20px; text-align: center; }
 
   /* ===== how to use ===== */
   .nxo .howto { background: var(--water-pale); }
@@ -371,7 +508,7 @@
   }
 
   @media (max-width: 899px) {
-    .nxo .story-body br, .nxo .closing p br { display: none; }
+    .nxo .story-body br, .nxo .closing p br, .nxo .feat-intro br { display: none; }
   }
 
   /* ===== wider screens ===== */
@@ -385,9 +522,12 @@
     .nxo .mv-copy h1 { font-size: 34px; }
     .nxo .pair { grid-template-columns: 1fr auto 1fr; align-items: center; gap: 28px; }
     .nxo .pair-card { padding: 36px 32px; }
-    .nxo .feature { grid-template-columns: 1fr 1fr; gap: 64px; }
-    .nxo .feature:nth-child(even) .ph { order: 2; }
-    .nxo .feature h3 { font-size: 26px; }
+    .nxo .feat-title { font-size: 26px; }
+    .nxo .merits { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .nxo .recipes { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .nxo .otto-card { grid-template-columns: 0.9fr 1.1fr; gap: 40px; align-items: center; padding: 40px; }
+    .nxo .equation { padding: 44px 40px; }
+    .nxo .equation p { font-size: 26px; }
     .nxo .steps { grid-template-columns: repeat(3, 1fr); }
     .nxo .product { grid-template-columns: 1fr 1fr; gap: 48px; padding: 40px; }
   }
@@ -480,39 +620,105 @@
         <span class="ja">コラボセットの特長</span>
       </div>
 
-      <div class="features-list">
-        <article class="feature">
-          <div class="ph" data-label="images/feature-1.jpg">
-            <img src="images/feature-1.jpg" alt="ニュートラムのドライフード" onerror="this.remove()" />
-          </div>
-          <div>
-            <span class="num">POINT<b>01</b></span>
-            <h3>主食は、カナダ産の<br />ニュートラム</h3>
-            <p>カナダの自社工場でつくられるニュートラムを、毎日の主食に。愛犬のライフステージや体格にあわせて選べるラインナップから、セット内容をご用意しました。</p>
-          </div>
-        </article>
+      <!-- 1. topping merits -->
+      <div class="feat-block">
+        <h3 class="feat-title"><span class="num">POINT 01</span>トッピングだから、できること</h3>
+        <p class="feat-intro">主食のニュートラムはそのままに、寄り添うごはんをのせるだけ。<br />いつものごはんに、3つのうれしいがプラスされます。</p>
+        <ul class="merits">
+          <li class="merit">
+            <div class="ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3.5 4.2 6 7.6 6 10.6A6 6 0 0 1 6 13.6C6 10.6 8.5 7.2 12 3z"/></svg>
+            </div>
+            <h4>ごはんで水分がとれる</h4>
+            <p>水分の少ないドライフードに、パウチの寄り添うごはんをプラス。お水をあまり飲まない子も、食事と一緒に水分をとれます。</p>
+          </li>
+          <li class="merit">
+            <div class="ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 20c-1.5-2 1.5-4 0-6s1.5-4 0-6"/><path d="M12.5 20c-1.5-2 1.5-4 0-6s1.5-4 0-6"/><path d="M17 20c-1.5-2 1.5-4 0-6s1.5-4 0-6"/></svg>
+            </div>
+            <h4>香りで、食べる楽しみを</h4>
+            <p>お肉の香りがふわっと広がり、食事の時間が待ち遠しく。食が細くなってきた子や、ごはんに飽きがちな子にも。</p>
+          </li>
+          <li class="merit">
+            <div class="ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M12 4v16"/><circle cx="12" cy="12" r="9"/></svg>
+            </div>
+            <h4>主食を変えずに、足せる</h4>
+            <p>フードの切り替えは必要ありません。いつものニュートラムに足すだけなので、お腹の慣れたごはんのまま変化をつけられます。</p>
+          </li>
+        </ul>
+      </div>
 
-        <article class="feature">
-          <div class="ph" data-label="images/feature-2.jpg">
-            <img src="images/feature-2.jpg" alt="OTTO 寄り添うごはん" onerror="this.remove()" />
-          </div>
-          <div>
-            <span class="num">POINT<b>02</b></span>
-            <h3>ごはんで水分をとる<br />「食べる水分補給」</h3>
-            <p>水をなかなか飲んでくれない子も、ごはんと一緒なら自然に水分をとりやすくなります。OTTO 寄り添うごはんを合わせることで、いつもの食事が水分補給の時間に。</p>
-          </div>
-        </article>
+      <!-- 2. why this pairing -->
+      <div class="feat-block">
+        <h3 class="feat-title"><span class="num">POINT 02</span>ニュートラム × 寄り添うごはんが<br />相性のいい理由</h3>
+        <p class="feat-intro">ニュートラムは、原材料の「組み合わせ」で毎日のケアを考えたフード。<br />そこに寄り添うごはんの新鮮なお肉と水分が加わることで、<br />体の中から健康を守る食事になります。</p>
 
-        <article class="feature">
-          <div class="ph" data-label="images/feature-3.jpg">
-            <img src="images/feature-3.jpg" alt="ごはんを食べる犬" onerror="this.remove()" />
+        <div class="recipes">
+          <article class="recipe">
+            <div class="recipe-head">
+              <div class="ph" data-label="T27"><img src="images/t27.jpg" alt="ニュートラム T27" onerror="this.remove()" /></div>
+              <div><span class="brand">NUTRAM</span><span class="code">T27</span></div>
+            </div>
+            <ul class="combo">
+              <li>ターキー ＋ カモミール<span class="tag stress">ストレスケア</span></li>
+              <li>ザクロ ＋ ラズベリー<span class="tag immune">免疫ケア</span></li>
+            </ul>
+            <p class="recipe-note">リラックスをサポートするカモミールとターキーに、ザクロとラズベリーを組み合わせました。</p>
+          </article>
+
+          <article class="recipe">
+            <div class="recipe-head">
+              <div class="ph" data-label="T28"><img src="images/t28.jpg" alt="ニュートラム T28" onerror="this.remove()" /></div>
+              <div><span class="brand">NUTRAM</span><span class="code">T28</span></div>
+            </div>
+            <ul class="combo">
+              <li>ホウレンソウ ＋ カモミール<span class="tag stress">ストレスケア</span></li>
+              <li>ブルーベリー ＋ ブラックベリー<span class="tag immune">免疫ケア</span></li>
+            </ul>
+            <p class="recipe-note">ブルーベリーとブラックベリーの組み合わせで、毎日の免疫力の維持をサポートします。</p>
+          </article>
+
+          <article class="recipe">
+            <div class="recipe-head">
+              <div class="ph" data-label="T29"><img src="images/t29.jpg" alt="ニュートラム T29" onerror="this.remove()" /></div>
+              <div><span class="brand">NUTRAM</span><span class="code">T29</span></div>
+            </div>
+            <ul class="combo">
+              <li>ラム ＋ キヌア<span class="tag muscle">筋肉ケア</span></li>
+              <li>かぼちゃ ＋ チコリ<span class="tag gut">胃腸ケア</span></li>
+            </ul>
+            <p class="recipe-note">ラムとキヌアシードの組み合わせで、強い筋肉をつくる栄養を届けます。</p>
+          </article>
+        </div>
+
+        <div class="plus" aria-hidden="true">＋</div>
+
+        <div class="otto-card">
+          <div class="ph" data-label="images/feature-otto.jpg">
+            <img src="images/feature-otto.jpg" alt="OTTO 寄り添うごはん" onerror="this.remove()" />
           </div>
           <div>
-            <span class="num">POINT<b>03</b></span>
-            <h3>いつものごはんに<br />のせるだけ</h3>
-            <p>特別な準備はいりません。ニュートラムに寄り添うごはんをのせて混ぜるだけ。香りと食感の変化で、食事の時間がもっと楽しみになります。</p>
+            <span class="brand">OTTO</span>
+            <h4>寄り添うごはんが加える、<br />新鮮さと水分</h4>
+            <ul class="otto-points">
+              <li><b>人道的に育てられたお肉の新鮮さ</b>健やかに育てられたお肉を使い、素材本来の新鮮さとおいしさをそのまま届けます。</li>
+              <li><b>パウチだから、水分も一緒に</b>パウチに閉じ込めた水分ごと食べられるので、ドライフードだけでは不足しがちな水分を、ごはんから補えます。</li>
+            </ul>
           </div>
-        </article>
+        </div>
+
+        <div class="equation">
+          <div class="row">
+            <span>ニュートラムの原材料の組み合わせ</span>
+            <span class="op">＋</span>
+            <span>新鮮なお肉</span>
+            <span class="op">＋</span>
+            <span>食べる水分補給</span>
+          </div>
+          <p>体の中から、健康を守る設計。</p>
+        </div>
+        <p class="disclaimer">※ 本品は医薬品ではありません。病気の治療・予防を目的としたものではありません。</p>
       </div>
     </div>
   </section>
