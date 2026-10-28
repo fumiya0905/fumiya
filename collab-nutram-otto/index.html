@@ -206,6 +206,45 @@
   .nxo .mv.has-video .mv-copy .label { color: var(--orange-deep); opacity: 1; }
   .nxo .mv.has-video .mv-copy h1 { text-shadow: none; color: var(--ink); }
   .nxo .mv.has-video .mv-copy h1 .big { color: var(--orange-deep); }
+  /* When the clip ends: hold the last frame, dim and soften it (its fading logo
+     disappears under the blur), then bring the headline in over it. */
+  .nxo .mv.has-video .mv-photo { overflow: hidden; }
+  .nxo .mv.has-video .mv-photo video,
+  .nxo .mv.has-video .mv-photo img { transition: filter 1.2s ease, transform 1.2s ease; }
+  .nxo .mv.is-ended .mv-photo video,
+  .nxo .mv.is-ended .mv-photo img { filter: brightness(0.55) saturate(0.6) blur(12px); transform: scale(1.1); }
+  .nxo .mv-replay {
+    position: absolute; z-index: 3;
+    right: 12px; top: 12px;
+    border: 1px solid rgba(255,255,255,0.7);
+    background: rgba(0,0,0,0.25);
+    color: #fff;
+    font: 500 12px/1 'Noto Sans JP', sans-serif;
+    letter-spacing: 0.08em;
+    padding: 8px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .nxo .mv-replay[hidden] { display: none; }
+  @media (min-width: 768px) {
+    .nxo .mv.has-video .mv-copy {
+      position: absolute; inset: 0; z-index: 2;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      padding: 20px;
+      opacity: 0; visibility: hidden;
+      transition: opacity 1.2s ease 0.4s, visibility 0s linear 1.6s;
+    }
+    .nxo .mv.has-video.is-ended .mv-copy { opacity: 1; visibility: visible; transition: opacity 1.2s ease 0.4s; }
+    .nxo .mv.has-video .mv-copy .label { color: #fff; opacity: 0.9; }
+    .nxo .mv.has-video .mv-copy h1 { color: #fff; text-shadow: 0 2px 18px rgba(0,0,0,0.35); }
+    .nxo .mv.has-video .mv-copy h1 .big { color: #ffd7b5; }
+    .nxo .mv-replay { right: 24px; top: auto; bottom: 24px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .nxo .mv.has-video .mv-photo video,
+    .nxo .mv.has-video .mv-photo img,
+    .nxo .mv.has-video .mv-copy { transition: none; }
+  }
   .nxo .mv::after {
     content: "";
     position: absolute; inset: 0;
@@ -557,7 +596,6 @@
     .nxo .mv-copy { top: 64px; left: 64px; right: auto; max-width: 620px; }
     .nxo .mv-copy h1 { font-size: 32px; }
     .nxo .mv-word { font-size: 13.5vw; }
-    .nxo .mv.has-video .mv-copy { padding: 64px 20px 16px; }
 
     .nxo .story-grid { grid-template-columns: 1fr 1fr 1fr; gap: 48px; }
     .nxo .story-grid .head-ja { font-size: 32px; }
@@ -625,11 +663,12 @@
     <div class="mv-photo">
       <img src="images/mv.jpg" alt="" onerror="this.remove()" />
       <!-- images/mv.mp4（と mv.webm）があれば動画を、なければ mv.jpg を表示 -->
-      <video autoplay muted loop playsinline preload="auto" poster="images/mv.jpg" aria-hidden="true">
+      <video autoplay muted playsinline preload="auto" poster="images/mv.jpg" aria-hidden="true">
         <source src="images/mv.mp4" type="video/mp4" />
         <source src="images/mv.webm" type="video/webm" onerror="this.parentNode.remove()" />
       </video>
     </div>
+    <button type="button" class="mv-replay" hidden>もう一度再生</button>
     <div class="mv-copy">
       <p class="label en">COLLABORATION</p>
       <h1>
@@ -1059,8 +1098,23 @@
   var mv = root.querySelector('.mv');
   var vid = mv && mv.querySelector('video');
   if (vid) {
+    var replay = mv.querySelector('.mv-replay');
     var useVideo = function () { if (vid.isConnected) mv.classList.add('has-video'); };
     if (vid.readyState >= 1) useVideo(); else vid.addEventListener('loadedmetadata', useVideo);
+    var finish = function () {
+      mv.classList.add('is-ended');
+      if (replay && vid.isConnected && getComputedStyle(vid).display !== 'none') replay.hidden = false;
+    };
+    vid.addEventListener('ended', finish);
+    if (replay) replay.addEventListener('click', function () {
+      mv.classList.remove('is-ended');
+      replay.hidden = true;
+      vid.currentTime = 0;
+      vid.play();
+    });
+    // No motion wanted, or autoplay blocked (e.g. low-power mode): show the headline straight away.
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) finish();
+    else setTimeout(function () { if (vid.isConnected && vid.paused && vid.currentTime === 0) finish(); }, 4000);
   }
 
   // Recipe tabs: without JS every panel shows; with JS only the selected one does.
