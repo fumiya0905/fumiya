@@ -196,6 +196,16 @@
   @media (prefers-reduced-motion: reduce) {
     .nxo .mv-photo video { display: none; }
   }
+  /* With a video (it carries its own logo lockup), show it uncropped at 16:9
+     and move the headline into a band underneath so neither covers the other. */
+  .nxo .mv.has-video { height: auto; min-height: 0; max-height: none; background: #fff; color: var(--ink); }
+  .nxo .mv.has-video::after,
+  .nxo .mv.has-video .mv-word { display: none; }
+  .nxo .mv.has-video .mv-photo { position: relative; aspect-ratio: 16 / 9; background: #222; }
+  .nxo .mv.has-video .mv-copy { position: static; max-width: none; padding: 36px 20px 8px; text-align: center; }
+  .nxo .mv.has-video .mv-copy .label { color: var(--orange-deep); opacity: 1; }
+  .nxo .mv.has-video .mv-copy h1 { text-shadow: none; color: var(--ink); }
+  .nxo .mv.has-video .mv-copy h1 .big { color: var(--orange-deep); }
   .nxo .mv::after {
     content: "";
     position: absolute; inset: 0;
@@ -547,6 +557,7 @@
     .nxo .mv-copy { top: 64px; left: 64px; right: auto; max-width: 620px; }
     .nxo .mv-copy h1 { font-size: 32px; }
     .nxo .mv-word { font-size: 13.5vw; }
+    .nxo .mv.has-video .mv-copy { padding: 64px 20px 16px; }
 
     .nxo .story-grid { grid-template-columns: 1fr 1fr 1fr; gap: 48px; }
     .nxo .story-grid .head-ja { font-size: 32px; }
@@ -613,9 +624,10 @@
   <section id="top" class="mv">
     <div class="mv-photo">
       <img src="images/mv.jpg" alt="" onerror="this.remove()" />
-      <!-- images/mv.mp4 があれば動画を、なければ mv.jpg を表示 -->
-      <video autoplay muted loop playsinline preload="metadata" aria-hidden="true">
-        <source src="images/mv.mp4" type="video/mp4" onerror="this.parentNode.remove()" />
+      <!-- images/mv.mp4（と mv.webm）があれば動画を、なければ mv.jpg を表示 -->
+      <video autoplay muted loop playsinline preload="auto" poster="images/mv.jpg" aria-hidden="true">
+        <source src="images/mv.mp4" type="video/mp4" />
+        <source src="images/mv.webm" type="video/webm" onerror="this.parentNode.remove()" />
       </video>
     </div>
     <div class="mv-copy">
@@ -1042,6 +1054,14 @@
 (function () {
   var root = document.querySelector('.nxo');
   if (!root) return;
+
+  // Main visual video: switch layout once it is usable (the <video> removes itself if mv.mp4 is missing).
+  var mv = root.querySelector('.mv');
+  var vid = mv && mv.querySelector('video');
+  if (vid) {
+    var useVideo = function () { if (vid.isConnected) mv.classList.add('has-video'); };
+    if (vid.readyState >= 1) useVideo(); else vid.addEventListener('loadedmetadata', useVideo);
+  }
 
   // Recipe tabs: without JS every panel shows; with JS only the selected one does.
   var tabs = Array.prototype.slice.call(root.querySelectorAll('.tab'));
