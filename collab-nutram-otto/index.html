@@ -426,6 +426,23 @@
   }
   .nxo .item-body { padding: 20px; display: flex; flex-direction: column; flex: 1; }
   .nxo .item .ph { aspect-ratio: 1 / 1; }
+  .nxo .set-visual {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    background: var(--mist);
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    align-items: center;
+    gap: 8px;
+    padding: 36px 14px 14px;
+    overflow: hidden;
+  }
+  .nxo .set-visual .bag { width: 100%; height: 100%; max-height: 100%; object-fit: contain; }
+  .nxo .set-visual .pouches { display: flex; flex-direction: column; gap: 6px; height: 100%; justify-content: center; }
+  .nxo .set-visual .pouches img { width: 100%; min-height: 0; flex: 1 1 0; object-fit: contain; }
+  .nxo .ph.pack { background: var(--mist); }
+  .nxo .ph.pack img { object-fit: contain; padding: 6%; }
   .nxo .item .no { font-family: 'Jost', sans-serif; font-size: 13px; color: var(--muted); margin-top: 18px; }
   .nxo .item h3 { font-size: 17px; font-weight: 700; letter-spacing: 0.08em; line-height: 1.7; }
   .nxo .item .who { font-size: 13px; color: var(--sub); line-height: 1.8; margin-top: 6px; }
@@ -634,9 +651,9 @@
 
       <div class="brands">
         <article class="brand-card n">
-          <div class="ph" data-label="images/story-nutram.jpg">
+          <div class="ph pack" data-label="NUTRAM">
             <span class="pill">カナダ産</span>
-            <img src="images/story-nutram.jpg" alt="ニュートラム" onerror="this.remove()" />
+            <img src="https://baseec-img-mng.akamaized.net/images/item/origin/cf236d30542403d8498c552f53bb2e8e.jpg?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="ニュートラム" loading="lazy" onerror="this.remove()" />
           </div>
           <div class="body">
             <p class="en">NUTRAM</p>
@@ -646,9 +663,9 @@
           </div>
         </article>
         <article class="brand-card o">
-          <div class="ph" data-label="images/story-otto.jpg">
+          <div class="ph pack" data-label="OTTO">
             <span class="pill">食べる水分補給</span>
-            <img src="images/story-otto.jpg" alt="OTTO 寄り添うごはん" onerror="this.remove()" />
+            <img src="https://baseec-img-mng.akamaized.net/images/item/origin/6b64d1e863028a18f5ed0a0fc9ab240c.png?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="OTTO 寄り添うごはん" loading="lazy" onerror="this.remove()" />
           </div>
           <div class="body">
             <p class="en">OTTO</p>
@@ -712,9 +729,9 @@
       </div>
 
       <div class="panel" role="tabpanel" id="panel-t27" aria-labelledby="tab-t27">
-        <div class="ph" data-label="images/t27.jpg">
+        <div class="ph pack" data-label="T27">
           <span class="pill">ストレス・免疫ケア</span>
-          <img src="images/t27.jpg" alt="ニュートラム T27" onerror="this.remove()" />
+          <img src="https://baseec-img-mng.akamaized.net/images/item/origin/cf236d30542403d8498c552f53bb2e8e.jpg?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="ニュートラム T27" loading="lazy" onerror="this.remove()" />
         </div>
         <div>
           <p class="code">NUTRAM T27</p>
@@ -728,9 +745,9 @@
       </div>
 
       <div class="panel" role="tabpanel" id="panel-t28" aria-labelledby="tab-t28">
-        <div class="ph" data-label="images/t28.jpg">
+        <div class="ph pack" data-label="T28">
           <span class="pill">ストレス・免疫ケア</span>
-          <img src="images/t28.jpg" alt="ニュートラム T28" onerror="this.remove()" />
+          <img src="https://baseec-img-mng.akamaized.net/images/item/origin/433da641111c4f67a26645f9168afb92.jpg?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="ニュートラム T28" loading="lazy" onerror="this.remove()" />
         </div>
         <div>
           <p class="code">NUTRAM T28</p>
@@ -744,9 +761,9 @@
       </div>
 
       <div class="panel" role="tabpanel" id="panel-t29" aria-labelledby="tab-t29">
-        <div class="ph" data-label="images/t29.jpg">
+        <div class="ph pack" data-label="T29">
           <span class="pill">筋肉・胃腸ケア</span>
-          <img src="images/t29.jpg" alt="ニュートラム T29" onerror="this.remove()" />
+          <img src="https://baseec-img-mng.akamaized.net/images/item/origin/f8b75ada2e81d4dc85799d676787bfe9.jpg?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="ニュートラム T29" loading="lazy" onerror="this.remove()" />
         </div>
         <div>
           <p class="code">NUTRAM T29</p>
@@ -762,9 +779,9 @@
       <p class="plus" aria-hidden="true">+</p>
 
       <div class="otto">
-        <div class="ph" data-label="images/feature-otto.jpg">
+        <div class="ph pack" data-label="OTTO">
           <span class="pill">OTTO 寄り添うごはん</span>
-          <img src="images/feature-otto.jpg" alt="OTTO 寄り添うごはん" onerror="this.remove()" />
+          <img src="https://baseec-img-mng.akamaized.net/images/item/origin/c120979334159c10a96303ab91411b62.png?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="OTTO 寄り添うごはん サーモン切り身" loading="lazy" onerror="this.remove()" />
         </div>
         <div>
           <p class="en">OTTO</p>
@@ -844,9 +861,10 @@
         <article class="item">
           <p class="item-band">ニュートラムとOTTOのタイアップ記念</p>
           <div class="item-body">
-            <div class="ph" data-label="images/product-1.jpg">
+            <div class="set-visual">
               <span class="pill">チキン</span>
-              <img src="images/product-1.jpg" alt="チキンセット" onerror="this.remove()" />
+              <img class="bag" src="https://baseec-img-mng.akamaized.net/images/item/origin/cf236d30542403d8498c552f53bb2e8e.jpg?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="ニュートラム T27" loading="lazy" />
+              <div class="pouches"><img src="https://baseec-img-mng.akamaized.net/images/item/origin/6b64d1e863028a18f5ed0a0fc9ab240c.png?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="ひなた鶏ミンチ" loading="lazy" /><img src="https://baseec-img-mng.akamaized.net/images/item/origin/60ce51f6f8cc627778c88dc8d6fe8c07.png?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="ひなた鶏むね肉" loading="lazy" /><img src="https://baseec-img-mng.akamaized.net/images/item/origin/bd77a0082f8015a51f931dfe4ca921c0.png?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="ヤゲン軟骨" loading="lazy" /></div>
             </div>
             <p class="no">SET 01</p>
             <h3>チキンセット</h3>
@@ -871,9 +889,10 @@
         <article class="item">
           <p class="item-band">ニュートラムとOTTOのタイアップ記念</p>
           <div class="item-body">
-            <div class="ph" data-label="images/product-2.jpg">
+            <div class="set-visual">
               <span class="pill">サーモン・野菜</span>
-              <img src="images/product-2.jpg" alt="サーモンセット" onerror="this.remove()" />
+              <img class="bag" src="https://baseec-img-mng.akamaized.net/images/item/origin/433da641111c4f67a26645f9168afb92.jpg?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="ニュートラム T28" loading="lazy" />
+              <div class="pouches"><img src="https://baseec-img-mng.akamaized.net/images/item/origin/c120979334159c10a96303ab91411b62.png?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="サーモン切り身" loading="lazy" /><img src="https://baseec-img-mng.akamaized.net/images/item/origin/9bd2ef043455392d6dbca4badde0786f.png?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="国産野菜ミックス" loading="lazy" /></div>
             </div>
             <p class="no">SET 02</p>
             <h3>サーモンセット</h3>
@@ -897,9 +916,10 @@
         <article class="item">
           <p class="item-band">ニュートラムとOTTOのタイアップ記念</p>
           <div class="item-body">
-            <div class="ph" data-label="images/product-3.jpg">
+            <div class="set-visual">
               <span class="pill">ラム・馬肉</span>
-              <img src="images/product-3.jpg" alt="低アレルギー源セット" onerror="this.remove()" />
+              <img class="bag" src="https://baseec-img-mng.akamaized.net/images/item/origin/f8b75ada2e81d4dc85799d676787bfe9.jpg?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="ニュートラム T29" loading="lazy" />
+              <div class="pouches"><img src="https://baseec-img-mng.akamaized.net/images/item/origin/b8b5ebebcc180c74cf0cfd1f482e250d.png?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="馬肉" loading="lazy" /><img src="https://baseec-img-mng.akamaized.net/images/item/origin/33679ed9f345c7820553e50e950859e0.png?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="馬肉ミンチ" loading="lazy" /></div>
             </div>
             <p class="no">SET 03</p>
             <h3>低アレルギー源セット</h3>
@@ -923,9 +943,10 @@
         <article class="item">
           <p class="item-band">ニュートラムとOTTOのタイアップ記念</p>
           <div class="item-body">
-            <div class="ph" data-label="images/product-4.jpg">
+            <div class="set-visual">
               <span class="pill">ラム・鹿肉</span>
-              <img src="images/product-4.jpg" alt="皮膚被毛セット" onerror="this.remove()" />
+              <img class="bag" src="https://baseec-img-mng.akamaized.net/images/item/origin/0516cb498ba1fa39b1b0967f34a7df8e.jpg?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="ニュートラム I20" loading="lazy" />
+              <div class="pouches"><img src="https://baseec-img-mng.akamaized.net/images/item/origin/2815abee4d3aaad5e5beeb40ccd127e8.png?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="鹿ミートボール" loading="lazy" /><img src="https://baseec-img-mng.akamaized.net/images/item/origin/46880f3c947fe93d32a13c23686ee4e6.png?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="鹿ミンチ" loading="lazy" /><img src="https://baseec-img-mng.akamaized.net/images/item/origin/22b8bbbec63fb1a80e1ad411bcdb3f0c.png?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="鹿肉ステーキ" loading="lazy" /></div>
             </div>
             <p class="no">SET 04</p>
             <h3>皮膚被毛セット</h3>
@@ -950,9 +971,10 @@
         <article class="item">
           <p class="item-band">ニュートラムとOTTOのタイアップ記念</p>
           <div class="item-body">
-            <div class="ph" data-label="images/product-5.jpg">
+            <div class="set-visual">
               <span class="pill">体重管理・鹿肉</span>
-              <img src="images/product-5.jpg" alt="ダイエットセット" onerror="this.remove()" />
+              <img class="bag" src="https://baseec-img-mng.akamaized.net/images/item/origin/1b11b0ca0676e8458f574fb0478ffd7a.jpg?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="ニュートラム I18" loading="lazy" />
+              <div class="pouches"><img src="https://baseec-img-mng.akamaized.net/images/item/origin/2815abee4d3aaad5e5beeb40ccd127e8.png?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="鹿ミートボール" loading="lazy" /><img src="https://baseec-img-mng.akamaized.net/images/item/origin/46880f3c947fe93d32a13c23686ee4e6.png?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="鹿ミンチ" loading="lazy" /><img src="https://baseec-img-mng.akamaized.net/images/item/origin/22b8bbbec63fb1a80e1ad411bcdb3f0c.png?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="鹿肉ステーキ" loading="lazy" /></div>
             </div>
             <p class="no">SET 05</p>
             <h3>ダイエットセット</h3>
