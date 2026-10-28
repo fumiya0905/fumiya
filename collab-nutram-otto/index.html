@@ -206,13 +206,10 @@
   .nxo .mv.has-video .mv-copy .label { color: var(--orange-deep); opacity: 1; }
   .nxo .mv.has-video .mv-copy h1 { text-shadow: none; color: var(--ink); }
   .nxo .mv.has-video .mv-copy h1 .big { color: var(--orange-deep); }
-  /* When the clip ends: hold the last frame, dim and soften it (its fading logo
-     disappears under the blur), then bring the headline in over it. */
+  /* The clip ends on its own headline frame, so when it ends we simply hold
+     that frame. On wider screens the HTML headline is kept for search engines
+     and screen readers but not shown twice. */
   .nxo .mv.has-video .mv-photo { overflow: hidden; }
-  .nxo .mv.has-video .mv-photo video,
-  .nxo .mv.has-video .mv-photo img { transition: filter 1.2s ease, transform 1.2s ease; }
-  .nxo .mv.is-ended .mv-photo video,
-  .nxo .mv.is-ended .mv-photo img { filter: brightness(0.55) saturate(0.6) blur(12px); transform: scale(1.1); }
   .nxo .mv-replay {
     position: absolute; z-index: 3;
     right: 12px; top: 12px;
@@ -228,22 +225,10 @@
   .nxo .mv-replay[hidden] { display: none; }
   @media (min-width: 768px) {
     .nxo .mv.has-video .mv-copy {
-      position: absolute; inset: 0; z-index: 2;
-      display: flex; flex-direction: column; justify-content: center; align-items: center;
-      padding: 20px;
-      opacity: 0; visibility: hidden;
-      transition: opacity 1.2s ease 0.4s, visibility 0s linear 1.6s;
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
     }
-    .nxo .mv.has-video.is-ended .mv-copy { opacity: 1; visibility: visible; transition: opacity 1.2s ease 0.4s; }
-    .nxo .mv.has-video .mv-copy .label { color: #fff; opacity: 0.9; }
-    .nxo .mv.has-video .mv-copy h1 { color: #fff; text-shadow: 0 2px 18px rgba(0,0,0,0.35); }
-    .nxo .mv.has-video .mv-copy h1 .big { color: #ffd7b5; }
     .nxo .mv-replay { right: 24px; top: auto; bottom: 24px; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .nxo .mv.has-video .mv-photo video,
-    .nxo .mv.has-video .mv-photo img,
-    .nxo .mv.has-video .mv-copy { transition: none; }
   }
   .nxo .mv::after {
     content: "";
@@ -662,8 +647,8 @@
   <section id="top" class="mv">
     <div class="mv-photo">
       <img src="images/mv.jpg" alt="" onerror="this.remove()" />
-      <!-- images/mv.mp4（と mv.webm）があれば動画を、なければ mv.jpg を表示 -->
-      <video autoplay muted playsinline preload="auto" poster="images/mv.jpg" aria-hidden="true">
+      <!-- images/mv.mp4（と mv.webm）があれば動画を、なければ mv.jpg（動画の最後のコマ＝見出し入り）を表示 -->
+      <video autoplay muted playsinline preload="auto" poster="images/mv-poster.jpg" aria-hidden="true">
         <source src="images/mv.mp4" type="video/mp4" />
         <source src="images/mv.webm" type="video/webm" onerror="this.parentNode.remove()" />
       </video>
@@ -1114,7 +1099,12 @@
     });
     // No motion wanted, or autoplay blocked (e.g. low-power mode): show the headline straight away.
     if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) finish();
-    else setTimeout(function () { if (vid.isConnected && vid.paused && vid.currentTime === 0) finish(); }, 4000);
+    else setTimeout(function () {
+      if (vid.isConnected && vid.paused && vid.currentTime === 0) {
+        if (vid.duration) vid.currentTime = Math.max(vid.duration - 0.1, 0);
+        finish();
+      }
+    }, 4000);
   }
 
   // Recipe tabs: without JS every panel shows; with JS only the selected one does.
