@@ -224,6 +224,38 @@
     cursor: pointer;
   }
   .nxo .mv-replay[hidden] { display: none; }
+
+  /* ===== lead under the main visual ===== */
+  .nxo .mv-lead { text-align: center; padding: 48px 20px 8px; }
+  .nxo .mv-lead-title {
+    margin-top: 12px;
+    font-weight: 700;
+    font-size: 23px;
+    line-height: 1.7;
+    letter-spacing: 0.1em;
+  }
+  .nxo .mv-lead-text { margin: 18px auto 0; max-width: 620px; font-size: 14px; color: var(--sub); line-height: 2; }
+  .nxo .mv-lead-text br, .nxo .sp-only { display: none; }
+  .nxo .scroll-cue {
+    display: inline-flex; flex-direction: column; align-items: center; gap: 8px;
+    margin-top: 28px;
+    font-size: 11px; letter-spacing: 0.2em; color: var(--orange-deep);
+  }
+  .nxo .scroll-line { position: relative; width: 1px; height: 48px; background: var(--rule); overflow: hidden; }
+  .nxo .scroll-line::after {
+    content: ""; position: absolute; left: 0; top: -48px; width: 1px; height: 48px;
+    background: var(--orange);
+    animation: nxo-scroll 1.8s ease-in-out infinite;
+  }
+  @keyframes nxo-scroll { to { top: 48px; } }
+  @media (prefers-reduced-motion: reduce) { .nxo .scroll-line::after { animation: none; top: 0; } }
+  @media (max-width: 599px) { .nxo .sp-only { display: inline; } }
+  @media (min-width: 768px) {
+    .nxo .mv-lead { padding: 80px 20px 0; }
+    .nxo .mv-lead-title { font-size: 34px; }
+    .nxo .mv-lead-text { font-size: 15px; }
+    .nxo .mv-lead-text br { display: inline; }
+  }
   .nxo .mv.has-video .mv-copy {
     position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
     overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
@@ -660,13 +692,21 @@
       <h1>
         <span class="s">カナダ産ドッグフード</span><br />
         Nutramと<br />
-        <span class="s">食べる水分補給の</span><br />
+        <span class="s">食べる水分補給</span><br />
         OTTO寄り添うごはんの<br />
         <span class="big">コラボセットが登場</span>
       </h1>
     </div>
     <p class="mv-word" aria-hidden="true">NUTRAM<span class="x">×</span>OTTO</p>
   </section>
+
+  <!-- ===== LEAD: a question that pulls the reader down the page ===== -->
+  <div class="mv-lead">
+    <p class="label">WHY TOPPING?</p>
+    <h2 class="mv-lead-title">ドライフードだけで、<br />愛犬の水分は<br class="sp-only" />足りていますか？</h2>
+    <p class="mv-lead-text">毎日のごはんに「食べる水分補給」をひとさじ。<br />NutramとOTTOだからできる組み合わせと、<br />全5種のタイアップ記念セット（すべて10%OFF）をご紹介します。</p>
+    <a class="scroll-cue" href="#story"><span class="en">SCROLL</span><span class="scroll-line" aria-hidden="true"></span></a>
+  </div>
 
   <!-- ===== OUR STORY ===== -->
   <section id="story" class="story">
