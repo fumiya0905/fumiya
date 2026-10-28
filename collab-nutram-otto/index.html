@@ -191,7 +191,11 @@
     background: linear-gradient(135deg, #4f97c2 0%, #6aa9cc 45%, #e98a43 100%);
   }
   .nxo .mv-photo { position: absolute; inset: 0; }
-  .nxo .mv-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .nxo .mv-photo img,
+  .nxo .mv-photo video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  @media (prefers-reduced-motion: reduce) {
+    .nxo .mv-photo video { display: none; }
+  }
   .nxo .mv::after {
     content: "";
     position: absolute; inset: 0;
@@ -590,7 +594,13 @@
 
   <!-- ===== MAIN VISUAL ===== -->
   <section id="top" class="mv">
-    <div class="mv-photo"><img src="images/mv.jpg" alt="" onerror="this.remove()" /></div>
+    <div class="mv-photo">
+      <img src="images/mv.jpg" alt="" onerror="this.remove()" />
+      <!-- images/mv.mp4 があれば動画を、なければ mv.jpg を表示 -->
+      <video autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+        <source src="images/mv.mp4" type="video/mp4" onerror="this.parentNode.remove()" />
+      </video>
+    </div>
     <div class="mv-copy">
       <p class="label en">COLLABORATION</p>
       <h1>
