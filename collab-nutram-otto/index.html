@@ -682,9 +682,9 @@
     <div class="mv-photo">
       <img src="images/mv.jpg" alt="" onerror="this.remove()" />
       <!-- images/mv.mp4（と mv.webm）があれば動画を、なければ mv.jpg（動画の最後のコマ＝見出し入り）を表示 -->
-      <video autoplay muted playsinline preload="auto" poster="images/mv-poster.jpg" aria-hidden="true">
-        <source src="images/mv.mp4" type="video/mp4" />
-        <source src="images/mv.webm" type="video/webm" onerror="this.parentNode.remove()" />
+      <video autoplay muted playsinline preload="metadata" poster="images/mv-poster.jpg" aria-hidden="true">
+        <source src="images/mv.webm" type="video/webm" />
+        <source src="images/mv.mp4" type="video/mp4" onerror="this.parentNode.remove()" />
       </video>
     </div>
     <button type="button" class="mv-replay" hidden>もう一度再生</button>
@@ -718,7 +718,7 @@
           <h2 class="head-ja">毎日のごはんに、<br />もうひとつの<br />やさしさを。</h2>
         </div>
         <div class="ph story-photo" data-label="images/story.jpg">
-          <img src="images/story.jpg" alt="Nutramと寄り添うごはん" onerror="this.remove()" />
+          <img loading="lazy" decoding="async" src="images/story.jpg" alt="Nutramと寄り添うごはん" onerror="this.remove()" />
         </div>
         <div class="story-text">
           <p>ドライフードは、栄養バランスと<br />続けやすさに優れた毎日の主食。<br />けれど、水をあまり飲まない子や、<br />食が細くなってきた子もいます。</p>
@@ -767,7 +767,7 @@
 
       <ul class="merits">
         <li class="merit">
-          <div class="ph" data-label="images/merit-1.jpg"><img src="images/merit-1.jpg" alt="" onerror="this.remove()" /></div>
+          <div class="ph" data-label="images/merit-1.jpg"><img loading="lazy" decoding="async" src="images/merit-1.jpg" alt="" onerror="this.remove()" /></div>
           <div class="ico" aria-hidden="true">
             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6c7 8.5 12 15.5 12 21.5a12 12 0 0 1-24 0C12 21.5 17 14.5 24 6z"/><path d="M18 29a6 6 0 0 0 6 6"/></svg>
           </div>
@@ -775,7 +775,7 @@
           <p>水分の少ないドライフードに、パウチの寄り添うごはんをプラス。お水をあまり飲まない子も、食事と一緒に水分をとれます。</p>
         </li>
         <li class="merit">
-          <div class="ph" data-label="images/merit-2.jpg"><img src="images/merit-2.jpg" alt="" onerror="this.remove()" /></div>
+          <div class="ph" data-label="images/merit-2.jpg"><img loading="lazy" decoding="async" src="images/merit-2.jpg" alt="" onerror="this.remove()" /></div>
           <div class="ico" aria-hidden="true">
             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 30h32a16 16 0 0 1-32 0z"/><path d="M18 22c-2-3 2-5 0-8"/><path d="M24 22c-2-3 2-5 0-8"/><path d="M30 22c-2-3 2-5 0-8"/></svg>
           </div>
@@ -783,7 +783,7 @@
           <p>お肉の香りがふわっと広がり、食事の時間が待ち遠しく。食が細くなってきた子や、ごはんに飽きがちな子にも。</p>
         </li>
         <li class="merit">
-          <div class="ph" data-label="images/merit-3.jpg"><img src="images/merit-3.jpg" alt="" onerror="this.remove()" /></div>
+          <div class="ph" data-label="images/merit-3.jpg"><img loading="lazy" decoding="async" src="images/merit-3.jpg" alt="" onerror="this.remove()" /></div>
           <div class="ico" aria-hidden="true">
             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="16"/><path d="M24 16v16"/><path d="M16 24h16"/></svg>
           </div>
@@ -923,7 +923,7 @@
         <h2 class="display">How to use</h2>
         <ol class="steps">
           <li>
-            <div class="ph" data-label="STEP 1"><img src="images/step-1.jpg" alt="" onerror="this.remove()" /></div>
+            <div class="ph" data-label="STEP 1"><img loading="lazy" decoding="async" src="images/step-1.jpg" alt="" onerror="this.remove()" /></div>
             <div>
               <p class="num">01.</p>
               <p class="en-title">Measure</p>
@@ -931,7 +931,7 @@
             </div>
           </li>
           <li>
-            <div class="ph" data-label="STEP 2"><img src="images/step-2.jpg" alt="" onerror="this.remove()" /></div>
+            <div class="ph" data-label="STEP 2"><img loading="lazy" decoding="async" src="images/step-2.jpg" alt="" onerror="this.remove()" /></div>
             <div>
               <p class="num">02.</p>
               <p class="en-title">Topping</p>
@@ -939,7 +939,7 @@
             </div>
           </li>
           <li>
-            <div class="ph" data-label="STEP 3"><img src="images/step-3.jpg" alt="" onerror="this.remove()" /></div>
+            <div class="ph" data-label="STEP 3"><img loading="lazy" decoding="async" src="images/step-3.jpg" alt="" onerror="this.remove()" /></div>
             <div>
               <p class="num">03.</p>
               <p class="en-title">Mix &amp; Serve</p>
@@ -954,7 +954,7 @@
         </ul>
       </div>
       <div class="ph howto-photo" data-label="images/howto.jpg">
-        <img src="images/howto.jpg" alt="ごはんを食べる犬" onerror="this.remove()" />
+        <img loading="lazy" decoding="async" src="images/howto.jpg" alt="ごはんを食べる犬" onerror="this.remove()" />
       </div>
     </div>
   </section>
