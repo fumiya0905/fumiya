@@ -367,8 +367,10 @@
   .nxo .tab {
     position: relative;
     background: none; border: 0; cursor: pointer;
-    font-family: 'Jost', sans-serif;
-    font-size: 36px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: 0.08em;
     line-height: 1.2;
     color: #a9c6d8;
     padding-bottom: 18px;
@@ -434,7 +436,7 @@
 
   .nxo .equation {
     margin-top: 36px;
-    background: linear-gradient(110deg, var(--blue-mid) 0%, var(--orange) 70%);
+    background: linear-gradient(110deg, #f39a4c 0%, var(--orange) 55%, var(--orange-deep) 100%);
     color: #fff;
     border-radius: 16px;
     padding: 36px 20px;
@@ -620,7 +622,7 @@
 
     .nxo .pair .display { font-size: 96px; }
     .nxo .tabs { gap: 80px; }
-    .nxo .tab { font-size: 44px; }
+    .nxo .tab { font-size: 32px; }
     /* PC: Nutram and its OTTO toppings side by side */
     .nxo .panel { display: grid; grid-template-columns: 1fr 64px 1fr; align-items: stretch; }
     .nxo .pp-card { align-content: start; padding: 32px; }
@@ -798,9 +800,9 @@
       <p class="pair-intro">Nutramは、原材料の「組み合わせ」で毎日のケアを考えたフード。<br />そこに寄り添うごはんの新鮮なお肉と水分が加わることで、<br />体の中から健康を守る食事になります。</p>
 
       <div class="tabs" role="tablist" aria-label="Nutramのレシピ">
-        <button class="tab" role="tab" id="tab-t27" aria-controls="panel-t27" aria-selected="true">T27</button>
-        <button class="tab" role="tab" id="tab-t28" aria-controls="panel-t28" aria-selected="false" tabindex="-1">T28</button>
-        <button class="tab" role="tab" id="tab-t29" aria-controls="panel-t29" aria-selected="false" tabindex="-1">T29</button>
+        <button class="tab" role="tab" id="tab-t27" aria-controls="panel-t27" aria-selected="true">チキン</button>
+        <button class="tab" role="tab" id="tab-t28" aria-controls="panel-t28" aria-selected="false" tabindex="-1">サーモン</button>
+        <button class="tab" role="tab" id="tab-t29" aria-controls="panel-t29" aria-selected="false" tabindex="-1">ラム</button>
       </div>
 
       <div class="panel" role="tabpanel" id="panel-t27" aria-labelledby="tab-t27">
