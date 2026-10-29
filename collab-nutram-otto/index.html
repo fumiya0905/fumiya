@@ -377,24 +377,39 @@
   .nxo .tab[aria-selected="true"]::after {
     content: "";
     position: absolute; left: 50%; bottom: 0;
-    width: 9px; height: 9px; margin-left: -4.5px;
-    border-radius: 50%;
-    background: var(--blue-ink);
+    margin-left: -7px;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 9px solid var(--blue-ink);
   }
-  .nxo .panel {
+  /* one tab = one Nutram recipe + the OTTO toppings it is sold with */
+  .nxo .panel { text-align: left; }
+  .nxo .panel[hidden] { display: none; }
+  .nxo .pp-card {
     display: grid;
     grid-template-columns: 1fr;
     gap: 24px;
-    text-align: left;
-    background: #fff;
-    border-top: 6px solid var(--blue);
     border-radius: 16px;
     padding: 20px;
   }
-  .nxo .panel[hidden] { display: none; }
-  .nxo .panel .ph { aspect-ratio: 4 / 3; }
-  .nxo .panel .code { font-family: 'Jost', sans-serif; font-size: 15px; color: var(--blue-ink); }
-  .nxo .panel h3 { font-size: 21px; font-weight: 700; letter-spacing: 0.12em; line-height: 1.7; margin: 2px 0 18px; }
+  .nxo .pp-card.n { background: #fff; border-top: 6px solid var(--blue); }
+  .nxo .pp-card.o { background: var(--orange-pale); border-top: 6px solid var(--orange); }
+  .nxo .pp-card .ph { aspect-ratio: 4 / 3; }
+  .nxo .pp-card .code { font-family: 'Jost', sans-serif; font-size: 15px; }
+  .nxo .pp-card.n .code { color: var(--blue-ink); }
+  .nxo .pp-card.o .code { color: var(--orange-deep); font-family: 'Noto Sans JP', sans-serif; font-size: 13px; font-weight: 700; }
+  .nxo .pp-card h3 { font-size: 21px; font-weight: 700; letter-spacing: 0.12em; line-height: 1.7; margin: 2px 0 18px; }
+  .nxo .pp-card.n .pill { background: var(--blue); }
+  .nxo .pp-card.o .pill { background: var(--orange); color: #fff; }
+  .nxo .pp-plus { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 56px; line-height: 1; margin: 28px 0; text-align: center; color: var(--orange); }
+  .nxo .pouches { display: flex; align-items: center; justify-content: center; gap: 4%; padding: 8% 6% 6%; }
+  .nxo .ph.pack.pouches img { position: static; flex: 1 1 0; min-width: 0; max-width: 44%; height: 100%; padding: 0; object-fit: contain; }
+  .nxo .pouches::after { content: none; }
+  .nxo .otto-items li { padding: 12px 0; border-top: 1px solid var(--rule); font-weight: 700; font-size: 15px; }
+  .nxo .otto-items li:last-child { border-bottom: 1px solid var(--rule); }
+  .nxo .otto-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .nxo .otto-chips li { font-size: 12px; font-weight: 700; color: var(--orange-deep); background: #fff; border-radius: 999px; padding: 3px 12px; }
+  .nxo .pp-card .text-link { display: inline-block; margin-top: 16px; font-size: 14px; color: var(--orange-deep); }
   .nxo .combo li {
     display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px;
     padding: 16px 0;
@@ -414,28 +429,8 @@
   .nxo .care.immune { background: var(--pink); }
   .nxo .care.muscle { background: var(--sky); }
   .nxo .care.gut    { background: var(--yellow); }
-  .nxo .panel .note { font-size: 14px; color: var(--sub); margin-top: 16px; }
+  .nxo .pp-card .note { font-size: 14px; color: var(--sub); margin-top: 16px; }
 
-  .nxo .plus { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 56px; line-height: 1; margin: 36px 0; color: var(--orange); }
-
-  .nxo .otto {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 24px;
-    text-align: left;
-    background: var(--orange-pale);
-    border-top: 6px solid var(--orange);
-    border-radius: 16px;
-    padding: 20px;
-  }
-  .nxo .otto .ph { aspect-ratio: 4 / 3; }
-  .nxo .otto .en { font-size: 15px; color: var(--orange-deep); }
-  .nxo .otto .pill { background: var(--orange); color: #fff; }
-  .nxo .panel .pill { background: var(--blue); }
-  .nxo .otto h3 { font-size: 21px; font-weight: 700; letter-spacing: 0.12em; line-height: 1.7; margin: 2px 0 18px; }
-  .nxo .otto-points li { padding: 16px 0; border-top: 1px solid var(--rule); font-size: 14px; color: var(--sub); }
-  .nxo .otto-points li:last-child { border-bottom: 1px solid var(--rule); }
-  .nxo .otto-points b { display: block; font-size: 16px; color: var(--ink); letter-spacing: 0.1em; margin-bottom: 2px; }
 
   .nxo .equation {
     margin-top: 36px;
@@ -626,8 +621,11 @@
     .nxo .pair .display { font-size: 96px; }
     .nxo .tabs { gap: 80px; }
     .nxo .tab { font-size: 44px; }
-    .nxo .panel, .nxo .otto { grid-template-columns: 1fr 1fr; gap: 56px; padding: 40px; align-items: center; }
-    .nxo .panel h3, .nxo .otto h3 { font-size: 26px; }
+    /* PC: Nutram and its OTTO toppings side by side */
+    .nxo .panel { display: grid; grid-template-columns: 1fr 64px 1fr; align-items: stretch; }
+    .nxo .pp-card { align-content: start; padding: 32px; }
+    .nxo .pp-plus { margin: 0; align-self: center; }
+    .nxo .pp-card h3 { font-size: 24px; }
     .nxo .equation { padding: 48px 40px; }
     .nxo .equation p { font-size: 28px; }
 
@@ -730,7 +728,7 @@
         <article class="brand-card n">
           <div class="ph pack" data-label="NUTRAM">
             <span class="pill">カナダ産</span>
-            <img src="https://baseec-img-mng.akamaized.net/images/item/origin/cf236d30542403d8498c552f53bb2e8e.jpg?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="Nutram" loading="lazy" onerror="this.remove()" />
+            <img src="images/products/nutram-t27.jpg" alt="Nutram" loading="lazy" onerror="this.remove()" />
           </div>
           <div class="body">
             <p class="en">NUTRAM</p>
@@ -742,7 +740,7 @@
         <article class="brand-card o">
           <div class="ph pack" data-label="OTTO">
             <span class="pill">食べる水分補給</span>
-            <img src="https://baseec-img-mng.akamaized.net/images/item/origin/6b64d1e863028a18f5ed0a0fc9ab240c.png?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="OTTO 寄り添うごはん" loading="lazy" onerror="this.remove()" />
+            <img src="images/products/otto-chicken-mince.jpg" alt="OTTO 寄り添うごはん" loading="lazy" onerror="this.remove()" />
           </div>
           <div class="body">
             <p class="en">OTTO</p>
@@ -806,9 +804,10 @@
       </div>
 
       <div class="panel" role="tabpanel" id="panel-t27" aria-labelledby="tab-t27">
+        <div class="pp-card n">
         <div class="ph pack" data-label="T27">
           <span class="pill">ストレス・免疫ケア</span>
-          <img src="https://baseec-img-mng.akamaized.net/images/item/origin/cf236d30542403d8498c552f53bb2e8e.jpg?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="Nutram T27" loading="lazy" onerror="this.remove()" />
+          <img src="images/products/nutram-t27.jpg" alt="Nutram T27" loading="lazy" onerror="this.remove()" />
         </div>
         <div>
           <p class="code">NUTRAM T27</p>
@@ -819,12 +818,29 @@
           </ul>
           <p class="note">リラックスをサポートするカモミールとターキーに、ザクロとラズベリーを組み合わせました。</p>
         </div>
+        </div>
+        <p class="pp-plus" aria-hidden="true">+</p>
+        <div class="pp-card o">
+          <div class="ph pack pouches" data-label="OTTO">
+            <span class="pill">チキン</span>
+            <img src="images/products/otto-chicken-mince.jpg" alt="OTTO 寄り添うごはん ひなた鶏ミンチ 50g" loading="lazy" onerror="this.remove()" /><img src="images/products/otto-chicken-breast.jpg" alt="OTTO 寄り添うごはん ひなた鶏むね肉 50g" loading="lazy" onerror="this.remove()" /><img src="images/products/otto-yagen.jpg" alt="OTTO 寄り添うごはん ひなた鶏ヤゲン軟骨 50g" loading="lazy" onerror="this.remove()" />
+          </div>
+          <div>
+            <p class="code">OTTO 寄り添うごはん</p>
+            <h3>チキン×チキンで、<br />味をそろえて</h3>
+            <ul class="otto-items"><li>ひなた鶏ミンチ 50g</li><li>ひなた鶏むね肉 50g</li><li>ひなた鶏ヤゲン軟骨 50g</li></ul>
+            <p class="note">主食もトッピングも鶏でそろうので、味の切り替えがなく食べ慣れた風味のまま水分をプラスできます。</p>
+            <ul class="otto-chips"><li>人道的に育てられたお肉</li><li>パウチで水分も一緒に</li></ul>
+            <a class="text-link" href="#set-1">このセットを見る</a>
+          </div>
+        </div>
       </div>
 
       <div class="panel" role="tabpanel" id="panel-t28" aria-labelledby="tab-t28">
+        <div class="pp-card n">
         <div class="ph pack" data-label="T28">
           <span class="pill">ストレス・免疫ケア</span>
-          <img src="https://baseec-img-mng.akamaized.net/images/item/origin/433da641111c4f67a26645f9168afb92.jpg?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="Nutram T28" loading="lazy" onerror="this.remove()" />
+          <img src="images/products/nutram-t28.jpg" alt="Nutram T28" loading="lazy" onerror="this.remove()" />
         </div>
         <div>
           <p class="code">NUTRAM T28</p>
@@ -835,12 +851,29 @@
           </ul>
           <p class="note">ブルーベリーとブラックベリーの組み合わせで、毎日の免疫力の維持をサポートします。</p>
         </div>
+        </div>
+        <p class="pp-plus" aria-hidden="true">+</p>
+        <div class="pp-card o">
+          <div class="ph pack pouches" data-label="OTTO">
+            <span class="pill">サーモン・野菜</span>
+            <img src="images/products/otto-salmon.jpg" alt="OTTO 寄り添うごはん サーモン切り身 60g" loading="lazy" onerror="this.remove()" /><img src="images/products/otto-vegetables.jpg" alt="OTTO 寄り添うごはん 国産野菜ミックス 80g（2袋）" loading="lazy" onerror="this.remove()" />
+          </div>
+          <div>
+            <p class="code">OTTO 寄り添うごはん</p>
+            <h3>魚×魚で、<br />オメガ3を両方から</h3>
+            <ul class="otto-items"><li>サーモン切り身 60g</li><li>国産野菜ミックス 80g（2袋）</li></ul>
+            <p class="note">魚由来のオメガ3を主食とトッピングの両方からとれる組み合わせ。国産野菜ミックスで彩りもプラス。</p>
+            <ul class="otto-chips"><li>人道的に育てられたお肉</li><li>パウチで水分も一緒に</li></ul>
+            <a class="text-link" href="#set-2">このセットを見る</a>
+          </div>
+        </div>
       </div>
 
       <div class="panel" role="tabpanel" id="panel-t29" aria-labelledby="tab-t29">
+        <div class="pp-card n">
         <div class="ph pack" data-label="T29">
           <span class="pill">筋肉・胃腸ケア</span>
-          <img src="https://baseec-img-mng.akamaized.net/images/item/origin/f8b75ada2e81d4dc85799d676787bfe9.jpg?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="Nutram T29" loading="lazy" onerror="this.remove()" />
+          <img src="images/products/nutram-t29.jpg" alt="Nutram T29" loading="lazy" onerror="this.remove()" />
         </div>
         <div>
           <p class="code">NUTRAM T29</p>
@@ -851,22 +884,21 @@
           </ul>
           <p class="note">ラムとキヌアシードの組み合わせで、強い筋肉をつくる栄養を届けます。</p>
         </div>
-      </div>
-
-      <p class="plus" aria-hidden="true">+</p>
-
-      <div class="otto">
-        <div class="ph pack" data-label="OTTO">
-          <span class="pill">OTTO 寄り添うごはん</span>
-          <img src="https://baseec-img-mng.akamaized.net/images/item/origin/c120979334159c10a96303ab91411b62.png?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="OTTO 寄り添うごはん サーモン切り身" loading="lazy" onerror="this.remove()" />
         </div>
-        <div>
-          <p class="en">OTTO</p>
-          <h3>寄り添うごはんが加える、<br />新鮮さと水分</h3>
-          <ul class="otto-points">
-            <li><b>人道的に育てられたお肉の新鮮さ</b>健やかに育てられたお肉を使い、素材本来の新鮮さとおいしさをそのまま届けます。</li>
-            <li><b>パウチだから、水分も一緒に</b>パウチに閉じ込めた水分ごと食べられるので、ドライフードだけでは不足しがちな水分を、ごはんから補えます。</li>
-          </ul>
+        <p class="pp-plus" aria-hidden="true">+</p>
+        <div class="pp-card o">
+          <div class="ph pack pouches" data-label="OTTO">
+            <span class="pill">馬肉</span>
+            <img src="images/products/otto-horse.jpg" alt="OTTO 寄り添うごはん 馬肉 40g" loading="lazy" onerror="this.remove()" /><img src="images/products/otto-horse-mince.jpg" alt="OTTO 寄り添うごはん 馬肉ミンチ 40g" loading="lazy" onerror="this.remove()" />
+          </div>
+          <div>
+            <p class="code">OTTO 寄り添うごはん</p>
+            <h3>ラム×馬肉で、<br />原材料を絞って</h3>
+            <ul class="otto-items"><li>馬肉 40g</li><li>馬肉ミンチ 40g</li></ul>
+            <p class="note">鶏・牛を使わず、主食もトッピングも新奇タンパク源でそろえられます。切り替え期の食材管理もシンプルに。</p>
+            <ul class="otto-chips"><li>人道的に育てられたお肉</li><li>パウチで水分も一緒に</li></ul>
+            <a class="text-link" href="#set-3">このセットを見る</a>
+          </div>
         </div>
       </div>
 
@@ -935,13 +967,13 @@
         <p class="head-ja">NutramとOTTOの<br />タイアップ記念セット、<br />全5種類。すべて10%OFF。</p>
       </div>
       <div class="items">
-        <article class="item">
+        <article class="item" id="set-1">
           <p class="item-band">NutramとOTTOのタイアップ記念</p>
           <div class="item-body">
             <div class="set-visual">
               <span class="pill">チキン</span>
-              <img class="bag" src="https://baseec-img-mng.akamaized.net/images/item/origin/cf236d30542403d8498c552f53bb2e8e.jpg?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="Nutram T27" loading="lazy" />
-              <div class="pouches"><img src="https://baseec-img-mng.akamaized.net/images/item/origin/6b64d1e863028a18f5ed0a0fc9ab240c.png?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="ひなた鶏ミンチ" loading="lazy" /><img src="https://baseec-img-mng.akamaized.net/images/item/origin/60ce51f6f8cc627778c88dc8d6fe8c07.png?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="ひなた鶏むね肉" loading="lazy" /><img src="https://baseec-img-mng.akamaized.net/images/item/origin/bd77a0082f8015a51f931dfe4ca921c0.png?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="ヤゲン軟骨" loading="lazy" /></div>
+              <img class="bag" src="images/products/nutram-t27.jpg" alt="Nutram T27" loading="lazy" />
+              <div class="pouches"><img src="images/products/otto-chicken-mince.jpg" alt="ひなた鶏ミンチ" loading="lazy" /><img src="images/products/otto-chicken-breast.jpg" alt="ひなた鶏むね肉" loading="lazy" /><img src="images/products/otto-yagen.jpg" alt="ヤゲン軟骨" loading="lazy" /></div>
             </div>
             <p class="no">SET 01</p>
             <h3>チキンセット</h3>
@@ -963,13 +995,13 @@
             <a class="btn" href="https://shop.ottoanimal.com/items/159217335">このセットを購入する</a>
           </div>
         </article>
-        <article class="item">
+        <article class="item" id="set-2">
           <p class="item-band">NutramとOTTOのタイアップ記念</p>
           <div class="item-body">
             <div class="set-visual">
               <span class="pill">サーモン・野菜</span>
-              <img class="bag" src="https://baseec-img-mng.akamaized.net/images/item/origin/433da641111c4f67a26645f9168afb92.jpg?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="Nutram T28" loading="lazy" />
-              <div class="pouches"><img src="https://baseec-img-mng.akamaized.net/images/item/origin/c120979334159c10a96303ab91411b62.png?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="サーモン切り身" loading="lazy" /><img src="https://baseec-img-mng.akamaized.net/images/item/origin/9bd2ef043455392d6dbca4badde0786f.png?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="国産野菜ミックス" loading="lazy" /></div>
+              <img class="bag" src="images/products/nutram-t28.jpg" alt="Nutram T28" loading="lazy" />
+              <div class="pouches"><img src="images/products/otto-salmon.jpg" alt="サーモン切り身" loading="lazy" /><img src="images/products/otto-vegetables.jpg" alt="国産野菜ミックス" loading="lazy" /></div>
             </div>
             <p class="no">SET 02</p>
             <h3>サーモンセット</h3>
@@ -990,13 +1022,13 @@
             <a class="btn" href="https://shop.ottoanimal.com/items/159217618">このセットを購入する</a>
           </div>
         </article>
-        <article class="item">
+        <article class="item" id="set-3">
           <p class="item-band">NutramとOTTOのタイアップ記念</p>
           <div class="item-body">
             <div class="set-visual">
               <span class="pill">ラム・馬肉</span>
-              <img class="bag" src="https://baseec-img-mng.akamaized.net/images/item/origin/f8b75ada2e81d4dc85799d676787bfe9.jpg?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="Nutram T29" loading="lazy" />
-              <div class="pouches"><img src="https://baseec-img-mng.akamaized.net/images/item/origin/b8b5ebebcc180c74cf0cfd1f482e250d.png?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="馬肉" loading="lazy" /><img src="https://baseec-img-mng.akamaized.net/images/item/origin/33679ed9f345c7820553e50e950859e0.png?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="馬肉ミンチ" loading="lazy" /></div>
+              <img class="bag" src="images/products/nutram-t29.jpg" alt="Nutram T29" loading="lazy" />
+              <div class="pouches"><img src="images/products/otto-horse.jpg" alt="馬肉" loading="lazy" /><img src="images/products/otto-horse-mince.jpg" alt="馬肉ミンチ" loading="lazy" /></div>
             </div>
             <p class="no">SET 03</p>
             <h3>低アレルギー源セット</h3>
@@ -1017,13 +1049,13 @@
             <a class="btn" href="https://shop.ottoanimal.com/items/159217761">このセットを購入する</a>
           </div>
         </article>
-        <article class="item">
+        <article class="item" id="set-4">
           <p class="item-band">NutramとOTTOのタイアップ記念</p>
           <div class="item-body">
             <div class="set-visual">
               <span class="pill">ラム・鹿肉</span>
-              <img class="bag" src="https://baseec-img-mng.akamaized.net/images/item/origin/0516cb498ba1fa39b1b0967f34a7df8e.jpg?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="Nutram I20" loading="lazy" />
-              <div class="pouches"><img src="https://baseec-img-mng.akamaized.net/images/item/origin/2815abee4d3aaad5e5beeb40ccd127e8.png?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="鹿ミートボール" loading="lazy" /><img src="https://baseec-img-mng.akamaized.net/images/item/origin/46880f3c947fe93d32a13c23686ee4e6.png?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="鹿ミンチ" loading="lazy" /><img src="https://baseec-img-mng.akamaized.net/images/item/origin/22b8bbbec63fb1a80e1ad411bcdb3f0c.png?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="鹿肉ステーキ" loading="lazy" /></div>
+              <img class="bag" src="images/products/nutram-i20.jpg" alt="Nutram I20" loading="lazy" />
+              <div class="pouches"><img src="images/products/otto-deer-meatball.jpg" alt="鹿ミートボール" loading="lazy" /><img src="images/products/otto-deer-mince.jpg" alt="鹿ミンチ" loading="lazy" /><img src="images/products/otto-deer-steak.jpg" alt="鹿肉ステーキ" loading="lazy" /></div>
             </div>
             <p class="no">SET 04</p>
             <h3>皮膚被毛セット</h3>
@@ -1045,13 +1077,13 @@
             <a class="btn" href="https://shop.ottoanimal.com/items/159217856">このセットを購入する</a>
           </div>
         </article>
-        <article class="item">
+        <article class="item" id="set-5">
           <p class="item-band">NutramとOTTOのタイアップ記念</p>
           <div class="item-body">
             <div class="set-visual">
               <span class="pill">体重管理・鹿肉</span>
-              <img class="bag" src="https://baseec-img-mng.akamaized.net/images/item/origin/1b11b0ca0676e8458f574fb0478ffd7a.jpg?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="Nutram I18" loading="lazy" />
-              <div class="pouches"><img src="https://baseec-img-mng.akamaized.net/images/item/origin/2815abee4d3aaad5e5beeb40ccd127e8.png?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="鹿ミートボール" loading="lazy" /><img src="https://baseec-img-mng.akamaized.net/images/item/origin/46880f3c947fe93d32a13c23686ee4e6.png?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="鹿ミンチ" loading="lazy" /><img src="https://baseec-img-mng.akamaized.net/images/item/origin/22b8bbbec63fb1a80e1ad411bcdb3f0c.png?imformat=generic&q=90&im=Resize,width=600,type=normal" alt="鹿肉ステーキ" loading="lazy" /></div>
+              <img class="bag" src="images/products/nutram-i18.jpg" alt="Nutram I18" loading="lazy" />
+              <div class="pouches"><img src="images/products/otto-deer-meatball.jpg" alt="鹿ミートボール" loading="lazy" /><img src="images/products/otto-deer-mince.jpg" alt="鹿ミンチ" loading="lazy" /><img src="images/products/otto-deer-steak.jpg" alt="鹿肉ステーキ" loading="lazy" /></div>
             </div>
             <p class="no">SET 05</p>
             <h3>ダイエットセット</h3>
