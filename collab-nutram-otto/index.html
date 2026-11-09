@@ -510,6 +510,21 @@
   .nxo .ph.pack img { object-fit: contain; padding: 6%; }
   .nxo .item .no { font-family: 'Jost', sans-serif; font-size: 13px; color: var(--muted); margin-top: 18px; }
   .nxo .item h3 { font-size: 17px; font-weight: 700; letter-spacing: 0.08em; line-height: 1.7; }
+  .nxo .size-toggle { display: flex; gap: 6px; margin-top: 10px; }
+  .nxo .size-toggle button {
+    flex: 1 1 0;
+    min-height: 44px;
+    border: 1.5px solid var(--rule);
+    background: #fff;
+    border-radius: 10px;
+    font: 700 15px/1.2 'Noto Sans JP', sans-serif;
+    color: var(--sub);
+    cursor: pointer;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+  }
+  .nxo .size-toggle button small { font-size: 10px; font-weight: 500; letter-spacing: 0.04em; }
+  .nxo .size-toggle button[aria-checked="true"] { border-color: var(--orange); background: var(--orange-pale); color: var(--orange-deep); }
+  .nxo [data-size][hidden] { display: none !important; }
   .nxo .item .who { font-size: 13px; color: var(--sub); line-height: 1.8; margin-top: 6px; }
   .nxo .specs { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
   .nxo .specs li { font-size: 11px; font-weight: 500; color: var(--blue-ink); background: var(--blue-pale); border-radius: 4px; padding: 1px 8px; letter-spacing: 0.04em; }
@@ -972,27 +987,39 @@
           <div class="item-body">
             <div class="set-visual">
               <span class="pill">チキン</span>
-              <img class="bag" src="images/products/nutram-t27.jpg" alt="Nutram T27" loading="lazy" />
+              <img class="bag" data-size="2kg" src="images/products/nutram-t27.jpg" alt="Nutram T27 2kg" loading="lazy" /><img class="bag" data-size="800g" hidden src="images/products/nutram-t27-800g.jpg" alt="Nutram T27 800g（100g×8袋）" loading="lazy" />
               <div class="pouches"><img src="images/products/otto-chicken-mince.jpg" alt="ひなた鶏ミンチ" loading="lazy" /><img src="images/products/otto-chicken-breast.jpg" alt="ひなた鶏むね肉" loading="lazy" /><img src="images/products/otto-yagen.jpg" alt="ヤゲン軟骨" loading="lazy" /></div>
             </div>
             <p class="no">SET 01</p>
             <h3>チキンセット</h3>
+            <div class="size-toggle" role="radiogroup" aria-label="Nutramの容量">
+              <button type="button" role="radio" aria-checked="true" data-pick="2kg">2kg</button>
+              <button type="button" role="radio" aria-checked="false" data-pick="800g">800g<small>100g×8袋</small></button>
+            </div>
             <p class="who">穀物の消化が苦手な小型犬、低GI・高タンパクの主食を探している方に。</p>
             <ul class="contents">
-              <li class="n"><span>Nutram T27 チキン＆ターキー 小粒 2kg</span><span>¥5,780</span></li>
+              <li class="n" data-size="2kg"><span>Nutram T27 チキン＆ターキー 小粒 2kg</span><span>¥5,780</span></li>
+              <li class="n" data-size="800g" hidden><span>Nutram T27 チキン＆ターキー 小粒 800g（100g×8袋）</span><span>¥3,251</span></li>
               <li class="o"><span>寄り添うごはん ひなた鶏ミンチ 50g</span><span>¥530</span></li>
               <li class="o"><span>寄り添うごはん ひなた鶏むね肉 50g</span><span>¥530</span></li>
               <li class="o"><span>寄り添うごはん ひなた鶏ヤゲン軟骨 50g</span><span>¥530</span></li>
             </ul>
             <ul class="specs" aria-label="Nutramの特徴"><li>グレインフリー</li><li>小粒 約7mm</li><li>粗タンパク32.0%以上</li><li>372.5kcal/100g</li></ul>
             <p class="merit-line">主食もトッピングも、チキンでそろえられます。</p>
-            <div class="price-row">
+            <div class="price-row" data-size="2kg">
               <p class="regular">通常 <s>¥7,370</s></p>
               <span class="off">10%OFF</span>
             </div>
-            <p class="price">6,633<small>円</small></p>
+            <p class="price" data-size="2kg">6,633<small>円</small></p>
+            <div class="price-row" data-size="800g" hidden>
+              <p class="regular">通常 <s>¥4,841</s></p>
+              <span class="off">10%OFF</span>
+            </div>
+            <p class="price" data-size="800g" hidden>4,357<small>円</small></p>
             <p class="price-sub">（税込）</p>
-            <a class="btn" href="https://shop.ottoanimal.com/items/159217335">このセットを購入する</a>
+            <a class="btn" data-size="2kg" href="https://shop.ottoanimal.com/items/159217335">このセットを購入する</a>
+            <!-- TODO: 800g ver. のBASE商品URL（現在非公開）に差し替え -->
+            <a class="btn" data-size="800g" hidden href="#">このセットを購入する</a>
           </div>
         </article>
         <article class="item" id="set-2">
@@ -1000,26 +1027,38 @@
           <div class="item-body">
             <div class="set-visual">
               <span class="pill">サーモン・野菜</span>
-              <img class="bag" src="images/products/nutram-t28.jpg" alt="Nutram T28" loading="lazy" />
+              <img class="bag" data-size="2kg" src="images/products/nutram-t28.jpg" alt="Nutram T28 2kg" loading="lazy" /><img class="bag" data-size="800g" hidden src="images/products/nutram-t28-800g.jpg" alt="Nutram T28 800g（100g×8袋）" loading="lazy" />
               <div class="pouches"><img src="images/products/otto-salmon.jpg" alt="サーモン切り身" loading="lazy" /><img src="images/products/otto-vegetables.jpg" alt="国産野菜ミックス" loading="lazy" /></div>
             </div>
             <p class="no">SET 02</p>
             <h3>サーモンセット</h3>
+            <div class="size-toggle" role="radiogroup" aria-label="Nutramの容量">
+              <button type="button" role="radio" aria-checked="true" data-pick="2kg">2kg</button>
+              <button type="button" role="radio" aria-checked="false" data-pick="800g">800g<small>100g×8袋</small></button>
+            </div>
             <p class="who">皮膚・被毛のコンディションが気になる子、チキン以外の主食を探している方に。</p>
             <ul class="contents">
-              <li class="n"><span>Nutram T28 トラウト＆サーモン 小粒 2kg</span><span>¥5,780</span></li>
+              <li class="n" data-size="2kg"><span>Nutram T28 トラウト＆サーモン 小粒 2kg</span><span>¥5,780</span></li>
+              <li class="n" data-size="800g" hidden><span>Nutram T28 トラウト＆サーモン 小粒 800g（100g×8袋）</span><span>¥3,251</span></li>
               <li class="o"><span>寄り添うごはん サーモン切り身 60g</span><span>¥750</span></li>
               <li class="o"><span>寄り添うごはん 国産野菜ミックス 80g（2袋）</span><span>¥630</span></li>
             </ul>
             <ul class="specs" aria-label="Nutramの特徴"><li>グレインフリー</li><li>小粒</li><li>粗タンパク36.0%以上</li><li>オメガ3脂肪酸1.0%以上</li></ul>
             <p class="merit-line">魚由来のオメガ3を、主食とトッピングの両方から続けてとれます。</p>
-            <div class="price-row">
+            <div class="price-row" data-size="2kg">
               <p class="regular">通常 <s>¥7,160</s></p>
               <span class="off">10%OFF</span>
             </div>
-            <p class="price">6,444<small>円</small></p>
+            <p class="price" data-size="2kg">6,444<small>円</small></p>
+            <div class="price-row" data-size="800g" hidden>
+              <p class="regular">通常 <s>¥4,631</s></p>
+              <span class="off">10%OFF</span>
+            </div>
+            <p class="price" data-size="800g" hidden>4,168<small>円</small></p>
             <p class="price-sub">（税込）</p>
-            <a class="btn" href="https://shop.ottoanimal.com/items/159217618">このセットを購入する</a>
+            <a class="btn" data-size="2kg" href="https://shop.ottoanimal.com/items/159217618">このセットを購入する</a>
+            <!-- TODO: 800g ver. のBASE商品URL（現在非公開）に差し替え -->
+            <a class="btn" data-size="800g" hidden href="#">このセットを購入する</a>
           </div>
         </article>
         <article class="item" id="set-3">
@@ -1027,26 +1066,38 @@
           <div class="item-body">
             <div class="set-visual">
               <span class="pill">ラム・馬肉</span>
-              <img class="bag" src="images/products/nutram-t29.jpg" alt="Nutram T29" loading="lazy" />
+              <img class="bag" data-size="2kg" src="images/products/nutram-t29.jpg" alt="Nutram T29 2kg" loading="lazy" /><img class="bag" data-size="800g" hidden src="images/products/nutram-t29-800g.jpg" alt="Nutram T29 800g（100g×8袋）" loading="lazy" />
               <div class="pouches"><img src="images/products/otto-horse.jpg" alt="馬肉" loading="lazy" /><img src="images/products/otto-horse-mince.jpg" alt="馬肉ミンチ" loading="lazy" /></div>
             </div>
             <p class="no">SET 03</p>
             <h3>低アレルギー源セット</h3>
+            <div class="size-toggle" role="radiogroup" aria-label="Nutramの容量">
+              <button type="button" role="radio" aria-checked="true" data-pick="2kg">2kg</button>
+              <button type="button" role="radio" aria-checked="false" data-pick="800g">800g<small>100g×8袋</small></button>
+            </div>
             <p class="who">鶏・牛にアレルギー反応が出る子、原材料を絞ってフードを切り替えたい方に。</p>
             <ul class="contents">
-              <li class="n"><span>Nutram T29 ラム＆レンズ豆 小粒 2kg</span><span>¥5,780</span></li>
+              <li class="n" data-size="2kg"><span>Nutram T29 ラム＆レンズ豆 小粒 2kg</span><span>¥5,780</span></li>
+              <li class="n" data-size="800g" hidden><span>Nutram T29 ラム＆レンズ豆 小粒 800g（100g×8袋）</span><span>¥3,251</span></li>
               <li class="o"><span>寄り添うごはん 馬肉 40g</span><span>¥690</span></li>
               <li class="o"><span>寄り添うごはん 馬肉ミンチ 40g</span><span>¥690</span></li>
             </ul>
             <ul class="specs" aria-label="Nutramの特徴"><li>グレインフリー</li><li>小粒</li><li>粗タンパク30.0%以上</li><li>単一動物性タンパク中心</li></ul>
             <p class="merit-line">主食もトッピングも新奇タンパク源でそろえられ、切り替え期の食材管理がシンプルに。</p>
-            <div class="price-row">
+            <div class="price-row" data-size="2kg">
               <p class="regular">通常 <s>¥7,160</s></p>
               <span class="off">10%OFF</span>
             </div>
-            <p class="price">6,444<small>円</small></p>
+            <p class="price" data-size="2kg">6,444<small>円</small></p>
+            <div class="price-row" data-size="800g" hidden>
+              <p class="regular">通常 <s>¥4,631</s></p>
+              <span class="off">10%OFF</span>
+            </div>
+            <p class="price" data-size="800g" hidden>4,168<small>円</small></p>
             <p class="price-sub">（税込）</p>
-            <a class="btn" href="https://shop.ottoanimal.com/items/159217761">このセットを購入する</a>
+            <a class="btn" data-size="2kg" href="https://shop.ottoanimal.com/items/159217761">このセットを購入する</a>
+            <!-- TODO: 800g ver. のBASE商品URL（現在非公開）に差し替え -->
+            <a class="btn" data-size="800g" hidden href="#">このセットを購入する</a>
           </div>
         </article>
         <article class="item" id="set-4">
@@ -1106,7 +1157,7 @@
           </div>
         </article>
       </div>
-      <p class="items-note">※ 価格はすべて税込です。通常価格は、セット内の商品を単品で購入した場合の合計です。<br />※ 国産野菜ミックス 80g（2袋）は1商品として数えています。</p>
+      <p class="items-note">※ チキン・サーモン・低アレルギー源セットは、Nutramを800g（100g×8袋の個包装）にした小容量版もお選びいただけます。<br />※ 価格はすべて税込です。通常価格は、セット内の商品を単品で購入した場合の合計です。<br />※ 国産野菜ミックス 80g（2袋）は1商品として数えています。</p>
     </div>
   </section>
 
@@ -1179,6 +1230,21 @@
       }
     }, 4000);
   }
+
+  // Set cards: switch the Nutram bag between 2kg and 800g
+  Array.prototype.forEach.call(root.querySelectorAll('.size-toggle'), function (group) {
+    var card = group.closest('.item');
+    var buttons = group.querySelectorAll('[data-pick]');
+    Array.prototype.forEach.call(buttons, function (btn) {
+      btn.addEventListener('click', function () {
+        var size = btn.getAttribute('data-pick');
+        Array.prototype.forEach.call(buttons, function (b) { b.setAttribute('aria-checked', b === btn); });
+        Array.prototype.forEach.call(card.querySelectorAll('[data-size]'), function (el) {
+          el.hidden = el.getAttribute('data-size') !== size;
+        });
+      });
+    });
+  });
 
   // Recipe tabs: without JS every panel shows; with JS only the selected one does.
   var tabs = Array.prototype.slice.call(root.querySelectorAll('.tab'));
